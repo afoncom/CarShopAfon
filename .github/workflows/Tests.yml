@@ -20,6 +20,7 @@ jobs:
           -scheme CarsharingAfon \
           -destination 'platform=iOS Simulator,name=iPhone SE (3rd generation),OS=18.1' \
           -enableCodeCoverage YES
+          | tee xcodebuild.log
     - name: Upload logs if failed
       if: failure()
       uses: actions/upload-artifact@v4
