@@ -8,18 +8,20 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest
+    runs-on: macos-15
     steps:
     - uses: actions/checkout@v4
     - name: List available simulators
       run: xcrun simctl list devices available
+    - name: Check Xcode
+      run: /usr/bin/xcodebuild -version
     - name: Run tests
       run: |
         xcodebuild test \
           -project CarsharingAfon.xcodeproj \
           -scheme CarsharingAfon \
-          -destination 'platform=iOS Simulator,name=iPhone SE (3rd generation),OS=18.1' \
-          -enableCodeCoverage YES
+          -destination 'platform=iOS Simulator,name=iPhone SE (3rd generation),OS=18.5' \
+          -enableCodeCoverage YES 2>&1
           | tee xcodebuild.log
     - name: Upload logs if failed
       if: failure()
