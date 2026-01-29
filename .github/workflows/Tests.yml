@@ -20,7 +20,7 @@ jobs:
         xcodebuild test \
           -project CarsharingAfon.xcodeproj \
           -scheme CarsharingAfon \
-          -destination 'platform=iOS Simulator,name=iPhone SE (3rd generation),OS=18.5' \
+          -destination 'platform=iOS Simulator,name=iPhone SE (3rd generation),OS=18.1' \
           -enableCodeCoverage YES 2>&1
           | tee xcodebuild.log
     - name: Upload logs if failed
