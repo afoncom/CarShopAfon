@@ -1,0 +1,28 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main, update-from-18.01 ]
+  pull_request:
+    branches: [ main, update-from-18.01 ]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: List available simulators
+      run: xcrun simctl list devices available
+    - name: Run tests
+      run: |
+        xcodebuild test \
+          -project CarsharingAfon.xcodeproj \
+          -scheme CarsharingAfon \
+          -destination 'platform=iOS Simulator,name=iPhone SE (3rd generation),OS=18.1' \
+          -enableCodeCoverage YES
+    - name: Upload logs if failed
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: xcodebuild-log
+        path: xcodebuild.log
