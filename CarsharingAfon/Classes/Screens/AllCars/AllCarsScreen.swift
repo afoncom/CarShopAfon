@@ -53,5 +53,3 @@ struct AllCarsScreen: View {
         }
     }
 }
-
-

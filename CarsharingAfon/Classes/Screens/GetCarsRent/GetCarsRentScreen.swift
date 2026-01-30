@@ -98,11 +98,7 @@ extension GetCarsRentScreen {
 extension GetCarsRentScreen {
     enum ViewState {
         case loading
-        
         case loaded
-        
         case error
-        
     }
 }
-

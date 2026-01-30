@@ -24,4 +24,3 @@ extension Car {
         brand + model
     }
 }
-

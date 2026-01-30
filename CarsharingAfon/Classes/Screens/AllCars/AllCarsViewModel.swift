@@ -13,4 +13,3 @@ final class AllCarsViewModel: ObservableObject {
     @Published var triggerAlert = false
     
 }
-

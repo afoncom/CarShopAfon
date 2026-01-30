@@ -13,12 +13,12 @@ protocol AllCarsPresenter {
 final class AllCarsPresenterImpl {
     private let viewModel: AllCarsViewModel
     private let agregator: Agregator
-    private let coordinator: AllCarsCoordinator
+    private let coordinator: AppCoordinatorImpl
     
     init(
         viewModel: AllCarsViewModel,
         agregator: Agregator,
-        coordinator: AllCarsCoordinator
+        coordinator: AppCoordinatorImpl
     ) {
         self.viewModel = viewModel
         self.agregator = agregator
