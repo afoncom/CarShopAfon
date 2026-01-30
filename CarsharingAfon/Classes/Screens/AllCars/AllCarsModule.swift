@@ -12,7 +12,7 @@ final class AllCarsModule {
     static func build(
         agregator: Agregator,
         coordinator: AllCarsCoordinator
-    ) -> AllCarsScreen {
+    ) -> some View {
         let viewModel = AllCarsViewModel()
         let presenter = AllCarsPresenterImpl(
             viewModel: viewModel,
