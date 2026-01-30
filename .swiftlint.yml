@@ -1,6 +1,4 @@
 # ✅ Основной список активных правил SwiftLint
-# Если указано only_rules — будут проверяться *только* эти правила.
-# Это удобно, если хочешь полный контроль и стабильное поведение при обновлениях SwiftLint.
 only_rules:
   - accessibility_trait_for_button         # Проверяет, чтобы у кнопок был корректный accessibility trait
   - array_init                             # Предпочтение литералов массивов вместо Array()
@@ -55,7 +53,7 @@ only_rules:
   - implicit_getter                        # Требует явного getter для computed property
   - implicit_return                        # Разрешает не писать return в однострочных выражениях
   - inclusive_language                     # Предупреждает потенциально некорректные термины (например, blacklist)
-  - indentation_width                     # Проверяет правильность табуляции (отступи)
+  - indentation_width                      # Проверяет правильность табуляции (отступы)
   - invalid_swiftlint_command              # Предупреждает неверное использование комментариев swiftlint:disable
   - is_disjoint                            # Предпочитает isDisjoint(with:) вместо intersection.isEmpty
   - joined_default_parameter               # Не допускает ненужного использования separator: ""

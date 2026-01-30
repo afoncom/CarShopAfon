@@ -15,7 +15,7 @@ protocol Agregator {
     func getCarById(id: String) -> RegularCar?
 }
 
-class AgregatorImpl: Agregator {
+final class AgregatorImpl: Agregator {
     private let carManagers: [CarManager]
     
     init(carManagers: [CarManager]) {

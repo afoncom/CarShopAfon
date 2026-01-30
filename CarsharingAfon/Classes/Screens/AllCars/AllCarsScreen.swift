@@ -80,6 +80,5 @@ extension AllCarsScreen {
         case loading
         case loaded
         case error
-        
     }
 }

@@ -19,7 +19,7 @@ protocol Car {
     func rent(_ isRented: Bool)
 }
 
-class RegularCar: Car {
+final class RegularCar: Car {
     let brand: String
     
     let model: String

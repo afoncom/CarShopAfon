@@ -9,6 +9,7 @@ import Combine
 import SwiftUI
 
 enum Route: Hashable, Equatable {
+    case allCars
     case carDetails(String)
     case addCar
 }
@@ -19,15 +20,27 @@ protocol AllCarsCoordinator {
 }
 
 
+protocol WelcomeCoordinator {
+    func navigateToAllCars()
+}
+
 @MainActor
-final class AppCoordinator: ObservableObject, AllCarsCoordinator {
+final class AppCoordinator: ObservableObject {
     @Published var path = NavigationPath()
-    
+}
+
+extension AppCoordinator: AllCarsCoordinator {
     func openCarDetails(carId: String) {
         path.append(Route.carDetails(carId))
     }
     
     func openAddCarView() {
         path.append(Route.addCar)
+    }
+}
+
+extension AppCoordinator: WelcomeCoordinator {
+    func navigateToAllCars() {
+        path.append(Route.allCars)
     }
 }
