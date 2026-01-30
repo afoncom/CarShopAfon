@@ -13,15 +13,23 @@ enum Route: Hashable, Equatable {
     case carDetails(String)
 }
 
-protocol AppCoordinator {
+protocol AllCarsCoordinator {
     func openCarDetails(carId: String)
 }
 
+protocol WelcomeCoordinator {
+    func navigateToAllCars()
+}
+
 @MainActor
-final class AppCoordinatorImpl: ObservableObject, AppCoordinator {
+final class AppCoordinator: ObservableObject, AllCarsCoordinator, WelcomeCoordinator {
     @Published var path = NavigationPath()
     
     func openCarDetails(carId: String) {
         path.append(Route.carDetails(carId))
+    }
+    
+    func navigateToAllCars() {
+        path.append(Route.allCars)
     }
 }

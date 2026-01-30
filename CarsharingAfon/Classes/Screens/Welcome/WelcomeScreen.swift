@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct WelcomeScreen: View {
+    @ObservedObject private var viewModel: WelcomeViewModel
     private let presenter: WelcomePresenter
     
     init(
+        viewModel: WelcomeViewModel,
         presenter: WelcomePresenter
     ) {
+        self.viewModel = viewModel
         self.presenter = presenter
     }
     
@@ -21,13 +24,13 @@ struct WelcomeScreen: View {
             makeWelcomeText()
         }
         .padding()
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                presenter.navigateToAllCars()
-            }
+        .task {
+            try? await Task.sleep(for: .seconds(3))
+            presenter.completeWelcome()
         }
     }
 }
+
 
 
 

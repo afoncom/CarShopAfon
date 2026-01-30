@@ -6,22 +6,26 @@
 //
 
 import SwiftUI
+
 protocol WelcomePresenter {
-    func navigateToAllCars()
+    func completeWelcome()
 }
 
 final class WelcomePresenterImpl {
-    private let coordinator: AppCoordinator
+    private let viewModel: WelcomeViewModel
+    private let coordinator: WelcomeCoordinator
     
     init(
-        coordinator: AppCoordinator
+        viewModel: WelcomeViewModel,
+        coordinator: WelcomeCoordinator
     ) {
+        self.viewModel = viewModel
         self.coordinator = coordinator
     }
 }
 
 extension WelcomePresenterImpl: WelcomePresenter {
-    func navigateToAllCars() {
-        (coordinator as? AppCoordinatorImpl)?.path.append(Route.allCars)
+    func completeWelcome() {
+        coordinator.navigateToAllCars()
     }
 }

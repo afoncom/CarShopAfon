@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct CarsharingAfonApp: App {
-    @StateObject private var coordinator = AppCoordinatorImpl()
+    @StateObject private var coordinator = AppCoordinator()
     private let appAssembly: AppAssembly = AppAssemblyImpl()
     
     
