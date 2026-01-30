@@ -22,13 +22,17 @@ protocol WelcomeCoordinator {
 }
 
 @MainActor
-final class AppCoordinator: ObservableObject, AllCarsCoordinator, WelcomeCoordinator {
+final class AppCoordinator: ObservableObject {
     @Published var path = NavigationPath()
-    
+}
+
+extension AppCoordinator: AllCarsCoordinator {
     func openCarDetails(carId: String) {
         path.append(Route.carDetails(carId))
     }
-    
+}
+
+extension AppCoordinator: WelcomeCoordinator {
     func navigateToAllCars() {
         path.append(Route.allCars)
     }
