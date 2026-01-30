@@ -16,9 +16,11 @@ struct CarsharingAfonApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $coordinator.path) {
-                AllCarsModule.build(agregator: appAssembly.agregator, coordinator: coordinator)
+                WelcomeModule.build(coordinator: coordinator)
                     .navigationDestination(for: Route.self) { route in
                         switch route {
+                        case .allCars:
+                            AllCarsModule.build(agregator: appAssembly.agregator, coordinator: coordinator)
                         case .carDetails(let carId):
                             GetCarsRentModule.build(carId: carId, agregator: appAssembly.agregator)
                         }

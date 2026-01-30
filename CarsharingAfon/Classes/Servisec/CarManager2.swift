@@ -20,5 +20,4 @@ class CarManager2: CarManager {
     func deleteAllCars() {
         cars.removeAll()
     }
-    
 }
