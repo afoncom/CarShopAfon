@@ -24,7 +24,7 @@ final class GetCarsRentPresenterImpl {
 
 extension GetCarsRentPresenterImpl: GetCarsRentPresenter {
     func loadCar(id: String) async {
-        try? await Task.sleep(for: .seconds(5))
+        try? await Task.sleep(for: .seconds(3))
         
         if let car = agregator.getCarById(id: id) {
             viewModel.selectedCar = car

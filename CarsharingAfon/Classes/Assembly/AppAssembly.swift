@@ -13,14 +13,14 @@ protocol AppAssembly {
 }
 
 
-class AppAssemblyImpl: AppAssembly {
+final class AppAssemblyImpl: AppAssembly {
     private let carManager1 = CarManagerImpl(
         listCar: [
             RegularCar(window: 4, door: 5, brand: "BMW", model: "M3"),
             RegularCar(window: 4, door: 5, brand: "BMW", model: "X5"),
             RegularCar(window: 4, door: 3, brand: "Audi", model: "A8"),
-            RegularCar(window: 4, door: 5, brand: "Audi", model: "A5"),
-
+            RegularCar(window: 4, door: 5, brand: "Audi", model: "A5")
+            
         ]
     )
     
@@ -29,7 +29,7 @@ class AppAssemblyImpl: AppAssembly {
             RegularCar(window: 4, door: 5, brand: "Geely", model: "Coolry"),
             RegularCar(window: 4, door: 3, brand: "Tesla", model: "Model3"),
             RegularCar(window: 4, door: 5, brand: "Renault", model: "Logan"),
-            RegularCar(window: 4, door: 5, brand: "Lada", model: "Vesta"),
+            RegularCar(window: 4, door: 5, brand: "Lada", model: "Vesta")
         ]
     )
     

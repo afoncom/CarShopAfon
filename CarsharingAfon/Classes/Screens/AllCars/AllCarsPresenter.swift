@@ -6,8 +6,9 @@
 //
 
 protocol AllCarsPresenter {
-    func loadCars()
+    func loadCars() async
     func showDetails(car: RegularCar)
+    func openAddCar()
 }
 
 final class AllCarsPresenterImpl {
@@ -28,12 +29,24 @@ final class AllCarsPresenterImpl {
 
 extension AllCarsPresenterImpl: AllCarsPresenter {
     
-    func loadCars() {
-        viewModel.allCars = agregator.getAllCars() 
+    func loadCars() async {
+        try? await Task.sleep(for: .seconds(3))
+        
+        let list = agregator.getAllCars()
+        if !list.isEmpty {
+            viewModel.allCars = list
+            viewModel.viewState = .loaded
+        } else {
+            viewModel.viewState = .error
+        }
     }
     
     func showDetails(car: RegularCar) {
         coordinator.openCarDetails(carId: car.id)
         print(car.id)
+    }
+    
+    func openAddCar() {
+        coordinator.openAddCarView()
     }
 }

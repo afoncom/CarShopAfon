@@ -19,7 +19,6 @@ final class AllCarsModule {
             agregator: agregator,
             coordinator: coordinator
         )
-        presenter.loadCars()
         
         let view = AllCarsScreen(viewModel: viewModel, presenter: presenter)
         return view

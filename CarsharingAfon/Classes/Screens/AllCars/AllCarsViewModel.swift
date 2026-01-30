@@ -11,5 +11,6 @@ import Combine
 final class AllCarsViewModel: ObservableObject {
     @Published var allCars: [RegularCar] = []
     @Published var triggerAlert = false
+    @Published var viewState: AllCarsScreen.ViewState = .loading
     
 }

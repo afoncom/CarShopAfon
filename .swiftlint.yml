@@ -118,7 +118,7 @@ redundant_discardable_let:
 
 number_separator:
   minimum_length: 5                       # Требует разделитель только у чисел с длиной ≥5 цифр
-  
+
 indentation_width:
   indentation_width: 4                    # Отступ с 4 пробелами (не табы)
 

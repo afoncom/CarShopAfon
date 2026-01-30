@@ -10,7 +10,7 @@ import SwiftUI
 final class WelcomeModule {
     static func build(
         coordinator: WelcomeCoordinator
-    ) -> some View {
+    ) -> WelcomeScreen {
         let viewModel = WelcomeViewModel()
         let presenter = WelcomePresenterImpl(viewModel: viewModel, coordinator: coordinator)
         

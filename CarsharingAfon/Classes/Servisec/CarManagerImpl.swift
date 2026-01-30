@@ -7,7 +7,12 @@
 
 import Foundation
 
-class CarManagerImpl: CarManager {
+protocol CarManager {
+    func getAllCars() -> [RegularCar]
+    func deleteAllCars()
+}
+
+final class CarManagerImpl: CarManager {
     private var listCar: [RegularCar]
     
     init(listCar: [RegularCar]) {
