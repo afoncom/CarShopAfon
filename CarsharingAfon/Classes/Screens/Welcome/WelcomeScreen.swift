@@ -31,10 +31,6 @@ struct WelcomeScreen: View {
     }
 }
 
-
-
-
-
 extension WelcomeScreen {
     func makeWelcomeText() -> some View {
         VStack(spacing: 12) {

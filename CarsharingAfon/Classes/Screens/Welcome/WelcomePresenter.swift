@@ -5,8 +5,6 @@
 //  Created by afon.com on 30.01.2026.
 //
 
-import SwiftUI
-
 protocol WelcomePresenter {
     func completeWelcome()
 }
