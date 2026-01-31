@@ -32,6 +32,7 @@ struct AllCarsScreen: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationTitle("Все автомобили")
+        .navigationBarTitleDisplayMode(.large)
         .task {
             await presenter.loadCars()
         }
