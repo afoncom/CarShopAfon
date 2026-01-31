@@ -20,14 +20,12 @@ struct WelcomeScreen: View {
     }
     
     var body: some View {
-        VStack(spacing: 20) {
-            makeWelcomeText()
-        }
-        .padding()
-        .task {
-            try? await Task.sleep(for: .seconds(3))
-            presenter.completeWelcome()
-        }
+        makeWelcomeText()
+            .padding()
+            .task {
+                try? await Task.sleep(for: .seconds(3))
+                presenter.completeWelcome()
+            }
     }
 }
 

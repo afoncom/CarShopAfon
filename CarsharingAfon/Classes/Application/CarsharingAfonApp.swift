@@ -11,7 +11,7 @@ import SwiftUI
 struct CarsharingAfonApp: App {
     @StateObject private var coordinator: AppCoordinator
     private let appAssembly: AppAssembly
-    @State private var rootScreen: WelcomeScreen
+    @State private var rootScreen: AllCarsScreen
     
     init() {
         let coordinator = AppCoordinator()
@@ -20,18 +20,18 @@ struct CarsharingAfonApp: App {
         let assembly = AppAssemblyImpl()
         self.appAssembly = assembly
         
-        let screen = WelcomeModule.build(coordinator: coordinator)
+        let screen = AllCarsModule.build(agregator: appAssembly.agregator, coordinator: coordinator)
         _rootScreen = State(initialValue: screen)
     }
     
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $coordinator.path) {
-                rootScreen
+                WelcomeModule.build(coordinator: coordinator)
                     .navigationDestination(for: Route.self) { route in
                         switch route {
                         case .allCars:
-                            AllCarsModule.build(agregator: appAssembly.agregator, coordinator: coordinator)
+                            rootScreen
                         case .carDetails(let carId):
                             GetCarsRentModule.build(carId: carId, agregator: appAssembly.agregator)
                         case .addCar:
