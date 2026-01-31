@@ -19,20 +19,19 @@ struct AllCarsScreen: View {
         self.presenter = presenter
     }
     
-    
     var body: some View {
         VStack {
             switch viewModel.viewState {
             case .loading:
                 ProgressView()
             case .loaded:
-                VStack {
-                    makeListAllCarsView()
-                }
+                makeListAllCarsView()
             case .error:
                 Text("Ошибка")
             }
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationTitle("Все автомобили")
         .task {
             await presenter.loadCars()
         }
@@ -42,33 +41,30 @@ struct AllCarsScreen: View {
 
 extension AllCarsScreen {
     func makeListAllCarsView() -> some View {
-        NavigationView {
-            List(Array(viewModel.allCars.enumerated()), id: \.offset) { index, car in
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("\(car.brand) \(car.model)")
-                        .font(.headline)
-                    HStack {
-                        Text("Окна: \(car.window),  Двери: \(car.door)")
-                            .font(.subheadline)
-                        Spacer()
-                        Text(car.isRented ? "В аренде" : "Свободно")
-                            .font(.caption)
-                            .foregroundColor(car.isRented ? .red : .green)
-                    }
-                }
-                .onTapGesture {
-                    presenter.showDetails(car: car)
+        List(Array(viewModel.allCars.enumerated()), id: \.offset) { index, car in
+            VStack(alignment: .leading, spacing: 4) {
+                Text("\(car.brand) \(car.model)")
+                    .font(.headline)
+                HStack {
+                    Text("Окна: \(car.window),  Двери: \(car.door)")
+                        .font(.subheadline)
+                    Spacer()
+                    Text(car.isRented ? "В аренде" : "Свободно")
+                        .font(.caption)
+                        .foregroundColor(car.isRented ? .red : .green)
                 }
             }
-            .navigationTitle("Все автомобили")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        presenter.openAddCar()
-                    }
-                    ) {
-                        Image(systemName: "plus")
-                    }
+            .onTapGesture {
+                presenter.showDetails(car: car)
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    presenter.openAddCar()
+                }
+                ) {
+                    Image(systemName: "plus")
                 }
             }
         }
