@@ -68,8 +68,10 @@ extension GetCarsRentScreen {
     }
     func makeButtonsView() -> some View {
         HStack {
-            Button(action: {}) {
-                Text ("Взять в аренду")
+            Button(action: {
+                presenter.openRentScreen()
+            }) {
+                Text("Взять в аренду")
                     .frame(maxWidth: .infinity)
                     .foregroundColor(.white)
                     .padding()

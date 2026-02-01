@@ -12,6 +12,7 @@ enum Route: Hashable, Equatable {
     case allCars
     case carDetails(String)
     case addCar
+    case rent
 }
 
 enum RootRoute: Hashable, Equatable {
@@ -44,5 +45,11 @@ extension AppCoordinator: AllCarsCoordinator {
 extension AppCoordinator: WelcomeCoordinator {
     func navigateToAllCars() {
         rootRoute = .main
+    }
+}
+
+extension AppCoordinator: RentCoordinator {
+    func openRentScreen() {
+        path.append(Route.rent)
     }
 }

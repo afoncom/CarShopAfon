@@ -10,12 +10,15 @@ import SwiftUI
 final class GetCarsRentModule {
     static func build(
         carId: String,
-        agregator: Agregator
+        agregator: Agregator,
+        coordinator: RentCoordinator
     ) -> some View {
         let viewModel = GetCarsRentViewModel(selectedCarId: carId)
         let presenter = GetCarsRentPresenterImpl(
             viewModel: viewModel,
-            agregator: agregator
+            agregator: agregator,
+            coordinator: coordinator
+            
         )
         
         let view = GetCarsRentScreen(
