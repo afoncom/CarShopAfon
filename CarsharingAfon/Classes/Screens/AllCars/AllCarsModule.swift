@@ -11,7 +11,8 @@ final class AllCarsModule {
     
     static func build(
         agregator: Agregator,
-        coordinator: AllCarsCoordinator
+        coordinator: AllCarsCoordinator,
+        themeManager: ThemeManager
     ) -> AllCarsScreen {
         let viewModel = AllCarsViewModel()
         let presenter = AllCarsPresenterImpl(
@@ -20,7 +21,7 @@ final class AllCarsModule {
             coordinator: coordinator
         )
         
-        let view = AllCarsScreen(viewModel: viewModel, presenter: presenter)
+        let view = AllCarsScreen(viewModel: viewModel, presenter: presenter, themeManager: themeManager)
         return view
     }
 }

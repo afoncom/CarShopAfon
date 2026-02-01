@@ -9,18 +9,22 @@ import SwiftUI
 
 struct AllCarsScreen: View {
     @ObservedObject private var viewModel: AllCarsViewModel
-    //    @State var selectedTab = 1
+    @ObservedObject private var themeManager: ThemeManager
+    @State var selectedTab = 1
     private let presenter: AllCarsPresenter
     
     init(
         viewModel: AllCarsViewModel,
-        presenter: AllCarsPresenter
+        presenter: AllCarsPresenter,
+        themeManager: ThemeManager
     ) {
         self.viewModel = viewModel
         self.presenter = presenter
+        self.themeManager = themeManager
     }
     
     var body: some View {
+
         VStack {
             switch viewModel.viewState {
             case .loading:
@@ -68,6 +72,12 @@ extension AllCarsScreen {
                 presenter.showDetails(car: car)
             }
         }
+    }
+    
+    func makeSettingView() -> SettingScreen {
+        let viewModel = SettingViewModel(themeManager: themeManager)
+        let presenter = SettingPresenterImpl(viewModel: viewModel)
+        return SettingScreen(viewModel: viewModel, presenter: presenter)
     }
 }
 

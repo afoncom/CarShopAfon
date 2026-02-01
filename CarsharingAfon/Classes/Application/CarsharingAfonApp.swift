@@ -10,13 +10,26 @@ import SwiftUI
 @main
 struct CarsharingAfonApp: App {
     @StateObject private var coordinator: AppCoordinator
-    private let assembly: AppAssembly
+    @StateObject private var themeManager = ThemeManager()
+    @State private var rootScreen: AllCarsScreen
+    private let appAssembly: AppAssembly
     
     init() {
         let coordinator = AppCoordinator(rootRoute: .welcome)
         _coordinator = StateObject(wrappedValue: coordinator)
         
-        self.assembly = AppAssemblyImpl()
+        let themeManager = ThemeManager()
+        _themeManager = StateObject(wrappedValue: themeManager)
+        
+        let assembly = AppAssemblyImpl()
+        self.appAssembly = assembly
+        
+        let screen = AllCarsModule.build(
+            agregator: appAssembly.agregator,
+            coordinator: coordinator,
+            themeManager: themeManager
+        )
+        _rootScreen = State(initialValue: screen)
     }
     
     var body: some Scene {
@@ -25,8 +38,9 @@ struct CarsharingAfonApp: App {
             case .welcome:
                 WelcomeModule.build(coordinator: coordinator)
             case .main:
-                MainTabView(coordinator: coordinator, assembly: assembly)
+                MainTabView(coordinator: coordinator, assembly: appAssembly)
             }
+            .preferredColorScheme(themeManager.colorScheme)
         }
     }
 }
