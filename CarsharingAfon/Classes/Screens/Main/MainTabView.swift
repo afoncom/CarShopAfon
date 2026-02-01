@@ -39,6 +39,8 @@ struct MainTabView: View {
                             AllCarsModule.build(agregator: assembly.agregator, coordinator: coordinator)
                         case .rent:
                             RentModule.build(coordinator: coordinator)
+                        case .rentComplete:
+                            RentCompleteModule.build(coordinator: coordinator)
                         }
                     }
             }

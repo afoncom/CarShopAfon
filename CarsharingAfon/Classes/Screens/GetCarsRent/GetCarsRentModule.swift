@@ -18,7 +18,6 @@ final class GetCarsRentModule {
             viewModel: viewModel,
             agregator: agregator,
             coordinator: coordinator
-            
         )
         
         let view = GetCarsRentScreen(
