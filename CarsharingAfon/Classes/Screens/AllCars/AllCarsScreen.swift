@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AllCarsScreen: View {
     @ObservedObject private var viewModel: AllCarsViewModel
+    @State var selectedTab = 1
     private let presenter: AllCarsPresenter
     
     init(
@@ -20,22 +21,52 @@ struct AllCarsScreen: View {
     }
     
     var body: some View {
-        VStack {
-            switch viewModel.viewState {
-            case .loading:
-                ProgressView()
-            case .loaded:
-                makeListAllCarsView()
-            case .error:
-                Text("Ошибка")
+        TabView(selection: $selectedTab) {
+            VStack {
+                Text("Настройки")
+            }
+            .tabItem {
+                Label("Настройки", systemImage: "gear")
+            }
+            .tag(0)
+            VStack {
+                switch viewModel.viewState {
+                case .loading:
+                    ProgressView()
+                case .loaded:
+                    makeListAllCarsView()
+                case .error:
+                    Text("Ошибка")
+                }
+            }
+            .tabItem {
+                Label("Все автомобили", systemImage: "car.side")
+            }
+            .tag(1)
+            VStack {
+                Text("Аккаунт")
+            }
+            .tabItem {
+                Label("Аккаунт", systemImage: "person.circle")
+            }
+            .tag(2)
+            
+        }
+        .navigationTitle("Все автомобили")
+        .navigationBarTitleDisplayMode(.large)
+        .navigationBarBackButtonHidden(viewModel.viewState != .loaded)
+        .toolbar {
+            if viewModel.viewState == .loaded {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { presenter.openAddCar() }) {
+                        Image(systemName: "plus")
+                    }
+                }
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .navigationTitle("Все автомобили")
         .task {
             await presenter.loadCars()
         }
-        
     }
 }
 
@@ -56,16 +87,6 @@ extension AllCarsScreen {
             }
             .onTapGesture {
                 presenter.showDetails(car: car)
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    presenter.openAddCar()
-                }
-                ) {
-                    Image(systemName: "plus")
-                }
             }
         }
     }
