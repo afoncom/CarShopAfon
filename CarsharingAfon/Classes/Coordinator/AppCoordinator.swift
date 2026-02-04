@@ -14,19 +14,21 @@ enum Route: Hashable, Equatable {
     case addCar
 }
 
-protocol AllCarsCoordinator {
-    func openCarDetails(carId: String)
-    func openAddCarView()
-}
-
-
-protocol WelcomeCoordinator {
-    func navigateToAllCars()
+enum RootRoute: Hashable, Equatable {
+    case welcome
+    case main
 }
 
 @MainActor
 final class AppCoordinator: ObservableObject {
     @Published var path = NavigationPath()
+    @Published var rootRoute: RootRoute
+    
+    init(
+        rootRoute: RootRoute
+    ) {
+        self.rootRoute = rootRoute
+    }
 }
 
 extension AppCoordinator: AllCarsCoordinator {
@@ -41,6 +43,6 @@ extension AppCoordinator: AllCarsCoordinator {
 
 extension AppCoordinator: WelcomeCoordinator {
     func navigateToAllCars() {
-        path.append(Route.allCars)
+        rootRoute = .main
     }
 }
