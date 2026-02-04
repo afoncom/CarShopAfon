@@ -21,7 +21,12 @@ struct CarsharingAfonApp: App {
     
     var body: some Scene {
         WindowGroup {
-            RootView(coordinator: coordinator, assembly: assembly)
+            switch coordinator.rootRoute {
+            case .welcome:
+                WelcomeModule.build(coordinator: coordinator)
+            case .main:
+                MainTabView(coordinator: coordinator, assembly: assembly)
+            }
         }
     }
 }

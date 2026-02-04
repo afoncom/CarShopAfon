@@ -8,16 +8,27 @@
 import SwiftUI
 
 struct MainTabView: View {
-    @ObservedObject var coordinator: AppCoordinator
+    @ObservedObject private var coordinator: AppCoordinator
+    @State var rootScreen: AllCarsScreen
     let assembly: AppAssembly
+    
+    init(
+        coordinator: AppCoordinator,
+        assembly: AppAssembly
+    ) {
+        self.rootScreen = AllCarsModule.build(
+            agregator: assembly.agregator,
+            coordinator: coordinator
+        )
+        
+        self.coordinator = coordinator
+        self.assembly = assembly
+    }
     
     var body: some View {
         TabView {
             NavigationStack(path: $coordinator.path) {
-                AllCarsModule.build(
-                    agregator: assembly.agregator,
-                    coordinator: coordinator
-                )
+                rootScreen
                     .navigationDestination(for: Route.self) { route in
                         switch route {
                         case .carDetails(let carId):
