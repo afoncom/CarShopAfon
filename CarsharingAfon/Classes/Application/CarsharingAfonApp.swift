@@ -10,52 +10,18 @@ import SwiftUI
 @main
 struct CarsharingAfonApp: App {
     @StateObject private var coordinator: AppCoordinator
-    private let appAssembly: AppAssembly
-    @State private var rootScreen: AllCarsScreen
+    private let assembly: AppAssembly
     
     init() {
-        let coordinator = AppCoordinator()
+        let coordinator = AppCoordinator(rootRoute: .welcome)
         _coordinator = StateObject(wrappedValue: coordinator)
         
-        let assembly = AppAssemblyImpl()
-        self.appAssembly = assembly
-        
-        let screen = AllCarsModule.build(agregator: appAssembly.agregator, coordinator: coordinator)
-        _rootScreen = State(initialValue: screen)
+        self.assembly = AppAssemblyImpl()
     }
     
     var body: some Scene {
         WindowGroup {
-            TabView {
-                NavigationStack(path: $coordinator.path) {
-                    WelcomeModule.build(coordinator: coordinator)
-                        .navigationDestination(for: Route.self) { route in
-                            switch route {
-                            case .allCars:
-                                rootScreen
-                            case .carDetails(let carId):
-                                GetCarsRentModule.build(carId: carId, agregator: appAssembly.agregator)
-                            case .addCar:
-                                AddCarModule.build(agregator: appAssembly.agregator)
-                            }
-                        }
-                }
-                .tabItem {
-                    Label("Все автомобили", systemImage: "car.side")
-                }
-                VStack {
-                    Text("Настройки")
-                }
-                    .tabItem {
-                        Label("Настройки", systemImage: "gear")
-                    }
-                VStack {
-                    Text("Аккаунт")
-                }
-                .tabItem {
-                    Label("Аккаунт", systemImage: "person.circle")
-                }
-            }
+            RootView(coordinator: coordinator, assembly: assembly)
         }
     }
 }

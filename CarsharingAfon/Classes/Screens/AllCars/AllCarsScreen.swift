@@ -21,7 +21,7 @@ struct AllCarsScreen: View {
     }
     
     var body: some View {
-        Group {
+        VStack {
             switch viewModel.viewState {
             case .loading:
                 ProgressView()
