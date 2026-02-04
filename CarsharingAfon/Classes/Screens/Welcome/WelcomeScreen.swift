@@ -20,22 +20,16 @@ struct WelcomeScreen: View {
     }
     
     var body: some View {
-        makeWelcomeText()
-            .padding()
-            .task {
-                try? await Task.sleep(for: .seconds(3))
-                presenter.completeWelcome()
-            }
-    }
-}
-
-extension WelcomeScreen {
-    func makeWelcomeText() -> some View {
         VStack(spacing: 12) {
             Text ("CarsharingAfon")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .center)
+        }
+        .padding()
+        .task {
+            try? await Task.sleep(for: .seconds(3))
+            presenter.completeWelcome()
         }
     }
 }
