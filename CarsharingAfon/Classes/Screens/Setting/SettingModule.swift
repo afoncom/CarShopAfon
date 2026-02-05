@@ -12,9 +12,11 @@ final class SettingModule {
         assembly: AppAssembly
     ) -> some View {
         let viewModel = SettingViewModel()
-        let presenter = SettingPresenterImpl(viewModel: viewModel)
-        let themeManager = assembly.themeManager
+        let presenter = SettingPresenterImpl(
+            viewModel: viewModel,
+            themeManager: assembly.themeManager
+        )
         
-        return SettingScreen(viewModel: viewModel, presenter: presenter, themeManager: themeManager)
+        return SettingScreen(viewModel: viewModel, presenter: presenter)
     }
 }

@@ -15,7 +15,6 @@ protocol AppAssembly {
 
 
 final class AppAssemblyImpl: AppAssembly {
-    private let _themeManager = ThemeManager()
     
     private let carManager1 = CarManagerImpl(
         listCar: [
@@ -44,12 +43,8 @@ final class AppAssemblyImpl: AppAssembly {
     private var carStatusProvider: CarStatusProvider {
         CarStatusProviderImpl(carManagers: carManagers)
     }
-    
+    let themeManager = ThemeManager()
     var agregator: Agregator {
         AgregatorImpl(carManagers: carManagers)
-    }
-    
-    var themeManager: ThemeManager {
-        self._themeManager
     }
 }
