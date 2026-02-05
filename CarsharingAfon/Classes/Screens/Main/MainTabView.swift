@@ -15,13 +15,11 @@ struct MainTabView: View {
     
     init(
         coordinator: AppCoordinator,
-        assembly: AppAssembly,
-        themeManager: ThemeManager
+        assembly: AppAssembly
     ) {
         self.rootScreen = AllCarsModule.build(
             agregator: assembly.agregator,
             coordinator: coordinator,
-            themeManager: themeManager
         )
         
         self.coordinator = coordinator
@@ -39,21 +37,17 @@ struct MainTabView: View {
                         case .addCar:
                             AddCarModule.build(agregator: assembly.agregator)
                         case .allCars:
-                            AllCarsModule.build(agregator: assembly.agregator, coordinator: coordinator, themeManager: themeManager)
-                        case .setting:
-                            SettingModule.build(themeManager: themeManager)
+                            AllCarsModule.build(agregator: assembly.agregator, coordinator: coordinator)
                         }
                     }
             }
             .tabItem {
                 Label("Все автомобили", systemImage: "car.side")
             }
-            
             SettingModule.build(themeManager: themeManager)
                 .tabItem {
                     Label("Настройки", systemImage: "gear")
                 }
-            
             VStack {
                 Text("Аккаунт")
             }

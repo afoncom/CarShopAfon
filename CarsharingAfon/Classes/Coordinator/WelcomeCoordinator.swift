@@ -8,5 +8,4 @@
 
 protocol WelcomeCoordinator {
     func navigateToAllCars()
-    
 }

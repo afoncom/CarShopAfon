@@ -9,17 +9,14 @@ import SwiftUI
 
 struct AllCarsScreen: View {
     @ObservedObject private var viewModel: AllCarsViewModel
-    @ObservedObject private var themeManager: ThemeManager
     private let presenter: AllCarsPresenter
     
     init(
         viewModel: AllCarsViewModel,
-        presenter: AllCarsPresenter,
-        themeManager: ThemeManager
+        presenter: AllCarsPresenter
     ) {
         self.viewModel = viewModel
         self.presenter = presenter
-        self.themeManager = themeManager
     }
     
     var body: some View {
