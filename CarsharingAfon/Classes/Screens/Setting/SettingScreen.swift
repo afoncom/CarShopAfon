@@ -11,16 +11,18 @@ import SwiftUI
 struct SettingScreen: View {
     @ObservedObject private var viewModel: SettingViewModel
     private let presenter: SettingPresenter
+    @ObservedObject private var themeManager: ThemeManager
     
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject private var themeManager: ThemeManager
     
     init(
         viewModel: SettingViewModel,
-        presenter: SettingPresenter
+        presenter: SettingPresenter,
+        themeManager: ThemeManager
     ) {
         self.viewModel = viewModel
         self.presenter = presenter
+        self._themeManager = ObservedObject(initialValue: themeManager)
     }
     
     // MARK: - Body

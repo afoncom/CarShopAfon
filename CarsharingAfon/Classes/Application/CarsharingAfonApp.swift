@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct CarsharingAfonApp: App {
     @StateObject private var coordinator: AppCoordinator
-    @StateObject private var themeManager = ThemeManager()
     private let assembly: AppAssembly
     
     init() {
@@ -28,7 +27,6 @@ struct CarsharingAfonApp: App {
                 WelcomeModule.build(coordinator: coordinator)
             case .main:
                 MainTabView(coordinator: coordinator, assembly: assembly)
-                    .environmentObject(themeManager)
             }
         }
     }
