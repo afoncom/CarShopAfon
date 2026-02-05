@@ -10,7 +10,6 @@ import SwiftUI
 struct AllCarsScreen: View {
     @ObservedObject private var viewModel: AllCarsViewModel
     @ObservedObject private var themeManager: ThemeManager
-    @State var selectedTab = 1
     private let presenter: AllCarsPresenter
     
     init(
@@ -24,7 +23,6 @@ struct AllCarsScreen: View {
     }
     
     var body: some View {
-
         VStack {
             switch viewModel.viewState {
             case .loading:
@@ -35,21 +33,21 @@ struct AllCarsScreen: View {
                 Text("Ошибка")
             }
         }
-            .navigationTitle("Все автомобили")
-            .navigationBarTitleDisplayMode(.large)
-            .navigationBarBackButtonHidden(viewModel.viewState != .loaded)
-            .toolbar {
-                if viewModel.viewState == .loaded {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { presenter.openAddCar() }) {
-                            Image(systemName: "plus")
-                        }
+        .navigationTitle("Все автомобили")
+        .navigationBarTitleDisplayMode(.large)
+        .navigationBarBackButtonHidden(viewModel.viewState != .loaded)
+        .toolbar {
+            if viewModel.viewState == .loaded {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { presenter.openAddCar() }) {
+                        Image(systemName: "plus")
                     }
                 }
             }
-            .task {
-                await presenter.loadCars()
-            }
+        }
+        .task {
+            await presenter.loadCars()
+        }
     }
 }
 
@@ -72,12 +70,6 @@ extension AllCarsScreen {
                 presenter.showDetails(car: car)
             }
         }
-    }
-    
-    func makeSettingView() -> SettingScreen {
-        let viewModel = SettingViewModel(themeManager: themeManager)
-        let presenter = SettingPresenterImpl(viewModel: viewModel)
-        return SettingScreen(viewModel: viewModel, presenter: presenter)
     }
 }
 

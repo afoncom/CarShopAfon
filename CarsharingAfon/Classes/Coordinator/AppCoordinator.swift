@@ -20,10 +20,6 @@ enum RootRoute: Hashable, Equatable {
     case main
 }
 
-protocol SettingCoordinator {
-    func openSettingView()
-}
-
 @MainActor
 final class AppCoordinator: ObservableObject {
     @Published var path = NavigationPath()

@@ -11,7 +11,6 @@ import SwiftUI
 struct CarsharingAfonApp: App {
     @StateObject private var coordinator: AppCoordinator
     @StateObject private var themeManager = ThemeManager()
-    @State private var rootScreen: AllCarsScreen
     private let appAssembly: AppAssembly
     
     init() {
@@ -29,7 +28,6 @@ struct CarsharingAfonApp: App {
             coordinator: coordinator,
             themeManager: themeManager
         )
-        _rootScreen = State(initialValue: screen)
     }
     
     var body: some Scene {
@@ -38,9 +36,8 @@ struct CarsharingAfonApp: App {
             case .welcome:
                 WelcomeModule.build(coordinator: coordinator)
             case .main:
-                MainTabView(coordinator: coordinator, assembly: appAssembly)
+                MainTabView(coordinator: coordinator, assembly: appAssembly, themeManager: themeManager)
             }
-            .preferredColorScheme(themeManager.colorScheme)
         }
     }
 }

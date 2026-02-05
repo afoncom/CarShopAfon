@@ -9,16 +9,19 @@ import SwiftUI
 
 struct MainTabView: View {
     @ObservedObject private var coordinator: AppCoordinator
+    @StateObject private var themeManager = ThemeManager()
     @State var rootScreen: AllCarsScreen
     let assembly: AppAssembly
     
     init(
         coordinator: AppCoordinator,
-        assembly: AppAssembly
+        assembly: AppAssembly,
+        themeManager: ThemeManager
     ) {
         self.rootScreen = AllCarsModule.build(
             agregator: assembly.agregator,
-            coordinator: coordinator
+            coordinator: coordinator,
+            themeManager: themeManager
         )
         
         self.coordinator = coordinator
@@ -36,7 +39,9 @@ struct MainTabView: View {
                         case .addCar:
                             AddCarModule.build(agregator: assembly.agregator)
                         case .allCars:
-                            AllCarsModule.build(agregator: assembly.agregator, coordinator: coordinator)
+                            AllCarsModule.build(agregator: assembly.agregator, coordinator: coordinator, themeManager: themeManager)
+                        case .setting:
+                            SettingModule.build(themeManager: themeManager)
                         }
                     }
             }
@@ -44,12 +49,10 @@ struct MainTabView: View {
                 Label("Все автомобили", systemImage: "car.side")
             }
             
-            VStack {
-                Text("Настройки")
-            }
-            .tabItem {
-                Label("Настройки", systemImage: "gear")
-            }
+            SettingModule.build(themeManager: themeManager)
+                .tabItem {
+                    Label("Настройки", systemImage: "gear")
+                }
             
             VStack {
                 Text("Аккаунт")
