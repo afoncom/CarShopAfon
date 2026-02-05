@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainTabView: View {
     @ObservedObject private var coordinator: AppCoordinator
-    @StateObject private var themeManager = ThemeManager()
+    @EnvironmentObject private var themeManager: ThemeManager
     @State var rootScreen: AllCarsScreen
     let assembly: AppAssembly
     
@@ -19,7 +19,7 @@ struct MainTabView: View {
     ) {
         self.rootScreen = AllCarsModule.build(
             agregator: assembly.agregator,
-            coordinator: coordinator,
+            coordinator: coordinator
         )
         
         self.coordinator = coordinator
@@ -44,7 +44,8 @@ struct MainTabView: View {
             .tabItem {
                 Label("Все автомобили", systemImage: "car.side")
             }
-            SettingModule.build(themeManager: themeManager)
+            SettingModule.build()
+                .environmentObject(themeManager)
                 .tabItem {
                     Label("Настройки", systemImage: "gear")
                 }

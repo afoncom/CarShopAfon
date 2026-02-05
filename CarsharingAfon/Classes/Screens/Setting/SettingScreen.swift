@@ -13,6 +13,7 @@ struct SettingScreen: View {
     private let presenter: SettingPresenter
     
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var themeManager: ThemeManager
     
     init(
         viewModel: SettingViewModel,
@@ -39,7 +40,7 @@ struct SettingScreen: View {
                         
                         Spacer()
                         
-                        Toggle("", isOn: $viewModel.themeManager.isDarkMode)
+                        Toggle("", isOn: $themeManager.isDarkMode)
                     }
                     
                     // Language Picker
@@ -52,7 +53,7 @@ struct SettingScreen: View {
                         
                         Spacer()
                         
-                        Picker("", selection: $viewModel.themeManager.language) {
+                        Picker("", selection: $themeManager.language) {
                             Text("Русский").tag("ru")
                             Text("English").tag("en")
                         }
@@ -126,7 +127,7 @@ struct SettingScreen: View {
                     }
                 }
             }
-            .preferredColorScheme(viewModel.themeManager.colorScheme)
+            .preferredColorScheme(themeManager.colorScheme)
         }
     }
 }

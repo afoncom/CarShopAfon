@@ -10,14 +10,15 @@ import SwiftUI
 @main
 struct CarsharingAfonApp: App {
     @StateObject private var coordinator: AppCoordinator
-    private let appAssembly: AppAssembly
+    @StateObject private var themeManager = ThemeManager()
+    private let assembly: AppAssembly
     
     init() {
         let coordinator = AppCoordinator(rootRoute: .welcome)
         _coordinator = StateObject(wrappedValue: coordinator)
         
         let assembly = AppAssemblyImpl()
-        self.appAssembly = assembly
+        self.assembly = assembly
     }
     
     var body: some Scene {
@@ -26,7 +27,8 @@ struct CarsharingAfonApp: App {
             case .welcome:
                 WelcomeModule.build(coordinator: coordinator)
             case .main:
-                MainTabView(coordinator: coordinator, assembly: appAssembly)
+                MainTabView(coordinator: coordinator, assembly: assembly)
+                    .environmentObject(themeManager)
             }
         }
     }

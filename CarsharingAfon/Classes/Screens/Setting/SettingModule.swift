@@ -8,10 +8,8 @@
 import SwiftUI
 
 final class SettingModule {
-    static func build(
-        themeManager: ThemeManager
-    ) -> some View {
-        let viewModel = SettingViewModel(themeManager: themeManager)
+    static func build() -> some View {
+        let viewModel = SettingViewModel()
         let presenter = SettingPresenterImpl(viewModel: viewModel)
         
         return SettingScreen(viewModel: viewModel, presenter: presenter)
