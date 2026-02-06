@@ -11,10 +11,14 @@ final class SettingModule {
     static func build(
         assembly: AppAssembly
     ) -> some View {
-        let viewModel = SettingViewModel()
+        let themeManager = assembly.themeManager
+        let viewModel = SettingViewModel(
+            isDarkMode: themeManager.isDarkMode,
+            language: themeManager.language
+        )
         let presenter = SettingPresenterImpl(
             viewModel: viewModel,
-            themeManager: assembly.themeManager
+            themeManager: themeManager
         )
         
         return SettingScreen(viewModel: viewModel, presenter: presenter)

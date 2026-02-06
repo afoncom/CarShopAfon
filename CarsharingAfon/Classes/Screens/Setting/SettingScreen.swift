@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SettingScreen: View {
     @ObservedObject private var viewModel: SettingViewModel
-    @ObservedObject private var presenter: SettingPresenterImpl
+    private var presenter: SettingPresenter
     
     @Environment(\.dismiss) private var dismiss
     
@@ -22,6 +22,25 @@ struct SettingScreen: View {
         self.presenter = presenter
     }
     
+    private var darkModeBinding: Binding<Bool> {
+        Binding(
+            get: { viewModel.isDarkMode },
+            set: {
+                viewModel.isDarkMode = $0
+                presenter.toggleDarkMode()
+            }
+        )
+    }
+    
+    private var languageBinding: Binding<String> {
+        Binding(
+            get: { viewModel.language },
+            set: {
+                viewModel.language = $0
+                presenter.setLanguage($0)
+            }
+        )
+    }
     // MARK: - Body
     
     var body: some View {
@@ -39,7 +58,7 @@ struct SettingScreen: View {
                         
                         Spacer()
                         
-                        Toggle("", isOn: $presenter.themeManager.isDarkMode)
+                        Toggle("", isOn: darkModeBinding)
                     }
                     
                     // Language Picker
@@ -52,7 +71,7 @@ struct SettingScreen: View {
                         
                         Spacer()
                         
-                        Picker("", selection: $presenter.themeManager.language) {
+                        Picker("", selection: languageBinding) {
                             Text("Русский").tag("ru")
                             Text("English").tag("en")
                         }
@@ -126,7 +145,7 @@ struct SettingScreen: View {
                     }
                 }
             }
-            .preferredColorScheme(presenter.themeManager.colorScheme)
+            .preferredColorScheme(presenter.colorScheme)
         }
     }
 }
