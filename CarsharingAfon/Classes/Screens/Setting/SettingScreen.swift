@@ -21,26 +21,6 @@ struct SettingScreen: View {
         self.viewModel = viewModel
         self.presenter = presenter
     }
-    
-    private var darkModeBinding: Binding<Bool> {
-        Binding(
-            get: { viewModel.isDarkMode },
-            set: {
-                viewModel.isDarkMode = $0
-                presenter.toggleDarkMode()
-            }
-        )
-    }
-    
-    private var languageBinding: Binding<String> {
-        Binding(
-            get: { viewModel.language },
-            set: {
-                viewModel.language = $0
-                presenter.setLanguage($0)
-            }
-        )
-    }
     // MARK: - Body
     
     var body: some View {
@@ -58,7 +38,11 @@ struct SettingScreen: View {
                         
                         Spacer()
                         
-                        Toggle("", isOn: darkModeBinding)
+                        Toggle("", isOn: $viewModel.isDarkMode)
+                            .labelsHidden()
+                            .onChange(of: viewModel.isDarkMode) { newValue in
+                                presenter.toggleDarkMode(newValue)
+                            }
                     }
                     
                     // Language Picker
@@ -71,11 +55,14 @@ struct SettingScreen: View {
                         
                         Spacer()
                         
-                        Picker("", selection: languageBinding) {
+                        Picker("", selection: $viewModel.language) {
                             Text("Русский").tag("ru")
                             Text("English").tag("en")
                         }
                         .pickerStyle(.menu)
+                        .onChange(of: viewModel.language) { newValue in
+                            presenter.setLanguage(newValue)
+                        }
                     }
                 }
                 // MARK: - Поддержка
@@ -145,7 +132,9 @@ struct SettingScreen: View {
                     }
                 }
             }
-            .preferredColorScheme(presenter.colorScheme)
+            .preferredColorScheme(
+                viewModel.isDarkMode ? .dark : .light
+            )
         }
     }
 }
