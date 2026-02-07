@@ -12,8 +12,6 @@ struct SettingScreen: View {
     @ObservedObject private var viewModel: SettingViewModel
     private var presenter: SettingPresenter
     
-    @Environment(\.dismiss) private var dismiss
-    
     init(
         viewModel: SettingViewModel,
         presenter: SettingPresenterImpl
@@ -21,6 +19,7 @@ struct SettingScreen: View {
         self.viewModel = viewModel
         self.presenter = presenter
     }
+    
     // MARK: - Body
     
     var body: some View {
@@ -117,7 +116,7 @@ struct SettingScreen: View {
                         
                         Spacer()
                         
-                        Text("1.0.0")
+                        Text(viewModel.appVersion)
                             .foregroundColor(.gray)
                     }
                 }
@@ -125,13 +124,6 @@ struct SettingScreen: View {
             }
             .navigationTitle("Настройки")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Готово") {
-                        dismiss()
-                    }
-                }
-            }
             .preferredColorScheme(
                 viewModel.isDarkMode ? .dark : .light
             )

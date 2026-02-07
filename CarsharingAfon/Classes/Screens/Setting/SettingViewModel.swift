@@ -11,6 +11,7 @@ import Combine
 final class SettingViewModel: ObservableObject {
     @Published var isDarkMode: Bool
     @Published var language: String
+    let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
     
     init(
         isDarkMode: Bool,
