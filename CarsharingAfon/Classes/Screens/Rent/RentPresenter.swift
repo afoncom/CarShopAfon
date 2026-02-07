@@ -6,7 +6,7 @@
 //
 
 protocol RentPresenter {
-
+    
 }
 
 final class RentPresenterImpl {
@@ -18,5 +18,5 @@ final class RentPresenterImpl {
 }
 
 extension RentPresenterImpl: RentPresenter {
-
+    
 }

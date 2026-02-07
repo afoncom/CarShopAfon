@@ -6,7 +6,7 @@
 //
 
 protocol RentCompletePresenter {
-
+    
 }
 
 final class RentCompletePresenterImpl {

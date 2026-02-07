@@ -60,6 +60,8 @@ only_rules:
   - last_where                             # Предпочитает last(where:) вместо reversed().first(where:)
   - legacy_cggeometry_functions
   - legacy_constant
+  - line_length                            # Контролирует максимальную длину строки
+  - number_separator                       # Проверяет разделители в больших числах
   - legacy_constructor
   - legacy_hashing
   - legacy_multiple
@@ -82,7 +84,7 @@ only_rules:
   - redundant_discardable_let
   - redundant_nil_coalescing
   - redundant_objc_attribute
-  - redundant_optional_initialization
+  - implicit_optional_initialization
   - redundant_set_access_control
   - redundant_string_enum_value
   - redundant_void_return
@@ -93,7 +95,6 @@ only_rules:
   - trailing_comma
   - trailing_newline
   - trailing_semicolon
-  - unused_capture_list
   - unused_control_flow_label
   - unused_enumerated
   - unused_optional_binding
@@ -142,8 +143,9 @@ identifier_name:
     - 'y2'
     - 'z2'
 
-unneeded_override:
-  affect_initializers: true               # Распространяет проверку на инициализаторы
+line_length:
+  warning: 120
+  error: 150
 
 deployment_target:
   macOS_deployment_target: '14'
@@ -190,13 +192,3 @@ custom_rules:
   no_alignment_center:
     regex: '\b\(alignment: .center\b'
     message: 'This alignment is the default.'
-  excluded:
-    - 'x'
-    - 'y'
-    - 'z'
-    - 'a'
-    - 'b'
-
-line_length:
-  warning: 120
-  error: 150
