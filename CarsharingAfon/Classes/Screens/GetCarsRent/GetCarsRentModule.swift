@@ -11,7 +11,7 @@ final class GetCarsRentModule {
     static func build(
         carId: String,
         agregator: Agregator,
-        coordinator: RentCoordinator
+        coordinator: GetCarsRentCoordinator
     ) -> some View {
         let viewModel = GetCarsRentViewModel(selectedCarId: carId)
         let presenter = GetCarsRentPresenterImpl(

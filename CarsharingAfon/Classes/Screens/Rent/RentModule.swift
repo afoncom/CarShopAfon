@@ -9,7 +9,7 @@ import SwiftUI
 
 final class RentModule {
     static func build(
-        coordinator: RentCoordinator
+        coordinator: GetCarsRentCoordinator
     ) -> RentScreen {
         let viewModel = RentViewModel()
         let presenter = RentPresenterImpl(viewModel: viewModel, coordinator: coordinator)

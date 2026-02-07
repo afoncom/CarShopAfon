@@ -48,7 +48,7 @@ extension AppCoordinator: WelcomeCoordinator {
     }
 }
 
-extension AppCoordinator: RentCoordinator {
+extension AppCoordinator: GetCarsRentCoordinator {
     func openRentScreen() {
         path.append(Route.rent)
     }
