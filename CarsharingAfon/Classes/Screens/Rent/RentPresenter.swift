@@ -11,14 +11,9 @@ protocol RentPresenter {
 
 final class RentPresenterImpl {
     private let viewModel: RentViewModel
-    private let coordinator: GetCarsRentCoordinator
     
-    init(
-        viewModel: RentViewModel,
-        coordinator: GetCarsRentCoordinator
-    ) {
+    init(viewModel: RentViewModel) {
         self.viewModel = viewModel
-        self.coordinator = coordinator
     }
 }
 

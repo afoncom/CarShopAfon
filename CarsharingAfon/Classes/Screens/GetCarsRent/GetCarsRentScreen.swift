@@ -80,7 +80,9 @@ extension GetCarsRentScreen {
             .cornerRadius(12)
             .padding()
             
-            Button(action: {}) {
+            Button(action: {
+                presenter.openRentCompleteView()
+            }) {
                 Text ("Вернуть")
                     .frame(maxWidth: .infinity)
                     .foregroundColor(.white)

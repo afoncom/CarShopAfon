@@ -8,18 +8,18 @@
 protocol GetCarsRentPresenter {
     func loadCar(id: String) async
     func openRentScreen()
+    func openRentCompleteView()
 }
 
 final class GetCarsRentPresenterImpl {
     private let viewModel: GetCarsRentViewModel
     private let agregator: Agregator
     private let coordinator: GetCarsRentCoordinator
-    
+
     init(
         viewModel: GetCarsRentViewModel,
         agregator: Agregator,
         coordinator: GetCarsRentCoordinator
-        
     ) {
         self.viewModel = viewModel
         self.agregator = agregator
@@ -38,7 +38,13 @@ extension GetCarsRentPresenterImpl: GetCarsRentPresenter {
             viewModel.viewState = .error
         }
     }
+    
     func openRentScreen() {
         coordinator.openRentScreen()
+    }
+    
+    func openRentCompleteView() {
+        coordinator.openRentCompleteView()
+
     }
 }

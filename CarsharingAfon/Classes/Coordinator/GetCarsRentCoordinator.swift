@@ -8,4 +8,5 @@
 
 protocol GetCarsRentCoordinator {
     func openRentScreen()
+    func openRentCompleteView()
 }
