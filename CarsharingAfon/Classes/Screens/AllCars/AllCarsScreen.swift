@@ -63,6 +63,7 @@ extension AllCarsScreen {
                         .foregroundColor(car.isRented ? .red : .green)
                 }
             }
+            .contentShape(Rectangle())
             .onTapGesture {
                 presenter.showDetails(car: car)
             }
