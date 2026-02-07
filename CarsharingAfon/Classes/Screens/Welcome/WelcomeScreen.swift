@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct WelcomeScreen: View {
-    @ObservedObject private var viewModel: WelcomeViewModel
+    @StateObject private var viewModel: WelcomeViewModel
     private let presenter: WelcomePresenter
     
     init(
         viewModel: WelcomeViewModel,
         presenter: WelcomePresenter
     ) {
-        self.viewModel = viewModel
+        self._viewModel = StateObject(wrappedValue: viewModel)
         self.presenter = presenter
     }
     
