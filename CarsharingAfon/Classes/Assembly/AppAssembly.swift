@@ -10,10 +10,12 @@ import Foundation
 
 protocol AppAssembly {
     var agregator: Agregator { get }
+    var themeManager: ThemeManager { get }
 }
 
 
 final class AppAssemblyImpl: AppAssembly {
+    
     private let carManager1 = CarManagerImpl(
         listCar: [
             RegularCar(window: 4, door: 5, brand: "BMW", model: "M3"),
@@ -41,7 +43,7 @@ final class AppAssemblyImpl: AppAssembly {
     private var carStatusProvider: CarStatusProvider {
         CarStatusProviderImpl(carManagers: carManagers)
     }
-    
+    let themeManager = ThemeManager()
     var agregator: Agregator {
         AgregatorImpl(carManagers: carManagers)
     }

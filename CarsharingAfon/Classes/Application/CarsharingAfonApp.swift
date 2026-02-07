@@ -16,7 +16,8 @@ struct CarsharingAfonApp: App {
         let coordinator = AppCoordinator(rootRoute: .welcome)
         _coordinator = StateObject(wrappedValue: coordinator)
         
-        self.assembly = AppAssemblyImpl()
+        let assembly = AppAssemblyImpl()
+        self.assembly = assembly
     }
     
     var body: some Scene {

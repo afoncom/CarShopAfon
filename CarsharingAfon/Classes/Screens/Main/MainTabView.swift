@@ -43,14 +43,10 @@ struct MainTabView: View {
             .tabItem {
                 Label("Все автомобили", systemImage: "car.side")
             }
-            
-            VStack {
-                Text("Настройки")
-            }
-            .tabItem {
-                Label("Настройки", systemImage: "gear")
-            }
-            
+            SettingModule.build(assembly: assembly)
+                .tabItem {
+                    Label("Настройки", systemImage: "gear")
+                }
             VStack {
                 Text("Аккаунт")
             }

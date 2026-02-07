@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AllCarsScreen: View {
     @ObservedObject private var viewModel: AllCarsViewModel
-    //    @State var selectedTab = 1
     private let presenter: AllCarsPresenter
     
     init(
@@ -31,21 +30,21 @@ struct AllCarsScreen: View {
                 Text("Ошибка")
             }
         }
-            .navigationTitle("Все автомобили")
-            .navigationBarTitleDisplayMode(.large)
-            .navigationBarBackButtonHidden(viewModel.viewState != .loaded)
-            .toolbar {
-                if viewModel.viewState == .loaded {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: { presenter.openAddCar() }) {
-                            Image(systemName: "plus")
-                        }
+        .navigationTitle("Все автомобили")
+        .navigationBarTitleDisplayMode(.large)
+        .navigationBarBackButtonHidden(viewModel.viewState != .loaded)
+        .toolbar {
+            if viewModel.viewState == .loaded {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { presenter.openAddCar() }) {
+                        Image(systemName: "plus")
                     }
                 }
             }
-            .task {
-                await presenter.loadCars()
-            }
+        }
+        .task {
+            await presenter.loadCars()
+        }
     }
 }
 
