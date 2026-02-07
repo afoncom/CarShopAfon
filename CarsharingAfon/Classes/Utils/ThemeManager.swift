@@ -15,15 +15,8 @@ final class ThemeManager: ObservableObject {
         }
     }
     
-    @Published var language: String {
-        didSet {
-            UserDefaults.standard.set(language, forKey: "language")
-        }
-    }
-    
     init() {
         self.isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
-        self.language = UserDefaults.standard.string(forKey: "language") ?? "ru"
     }
     
     var colorScheme: ColorScheme? {

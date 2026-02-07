@@ -11,6 +11,7 @@ import Foundation
 protocol AppAssembly {
     var agregator: Agregator { get }
     var themeManager: ThemeManager { get }
+    var languageManager: LanguageManager { get }
 }
 
 
@@ -44,6 +45,7 @@ final class AppAssemblyImpl: AppAssembly {
         CarStatusProviderImpl(carManagers: carManagers)
     }
     let themeManager = ThemeManager()
+    let languageManager = LanguageManager()
     var agregator: Agregator {
         AgregatorImpl(carManagers: carManagers)
     }
