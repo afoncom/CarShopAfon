@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct AddCarScreen: View {
-    @ObservedObject private var viewModel: AddCarViewModel
+    @StateObject private var viewModel: AddCarViewModel
     private let presenter: AddCarPresenter
     
     init(
         viewModel: AddCarViewModel,
         presenter: AddCarPresenter
     ) {
-        self.viewModel = viewModel
+        self._viewModel = StateObject(wrappedValue: viewModel)
         self.presenter = presenter
     }
     

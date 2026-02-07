@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct SettingScreen: View {
-    @ObservedObject private var viewModel: SettingViewModel
+    @StateObject private var viewModel: SettingViewModel
     private var presenter: SettingPresenter
     
     init(
         viewModel: SettingViewModel,
         presenter: SettingPresenterImpl
     ) {
-        self.viewModel = viewModel
+        self._viewModel = StateObject(wrappedValue: viewModel)
         self.presenter = presenter
     }
     

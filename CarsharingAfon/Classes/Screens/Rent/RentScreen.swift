@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct RentScreen: View {
-    @ObservedObject private var viewModel: RentViewModel
+    @StateObject private var viewModel: RentViewModel
     private let presenter: RentPresenter
     
     init(
         viewModel: RentViewModel,
         presenter: RentPresenter
     ) {
-        self.viewModel = viewModel
+        self._viewModel = StateObject(wrappedValue: viewModel)
         self.presenter = presenter
     }
     
