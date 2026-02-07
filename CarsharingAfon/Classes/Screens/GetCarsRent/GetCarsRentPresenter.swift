@@ -15,7 +15,7 @@ final class GetCarsRentPresenterImpl {
     private let viewModel: GetCarsRentViewModel
     private let agregator: Agregator
     private let coordinator: GetCarsRentCoordinator
-
+    
     init(
         viewModel: GetCarsRentViewModel,
         agregator: Agregator,
@@ -45,6 +45,6 @@ extension GetCarsRentPresenterImpl: GetCarsRentPresenter {
     
     func openRentCompleteView() {
         coordinator.openRentCompleteView()
-
+        
     }
 }
