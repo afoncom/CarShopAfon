@@ -8,11 +8,9 @@
 import SwiftUI
 
 final class RentCompleteModule {
-    static func build(
-        coordinator: GetCarsRentCoordinator
-    ) -> RentCompleteScreen {
+    static func build() -> RentCompleteScreen {
         let viewModel = RentCompleteViewModel()
-        let presenter = RentCompletePresenterImpl(viewModel: viewModel, coordinator: coordinator)
+        let presenter = RentCompletePresenterImpl(viewModel: viewModel)
         
         return RentCompleteScreen(viewModel: viewModel, presenter: presenter)
     }
