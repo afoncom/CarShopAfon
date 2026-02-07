@@ -12,13 +12,15 @@ final class SettingModule {
         assembly: AppAssembly
     ) -> some View {
         let themeManager = assembly.themeManager
+        let languageManager = assembly.languageManager
         let viewModel = SettingViewModel(
             isDarkMode: themeManager.isDarkMode,
-            language: themeManager.language
+            language: languageManager.language
         )
         let presenter = SettingPresenterImpl(
             viewModel: viewModel,
-            themeManager: themeManager
+            themeManager: themeManager,
+            languageManager: languageManager
         )
         
         return SettingScreen(viewModel: viewModel, presenter: presenter)

@@ -16,13 +16,16 @@ protocol SettingPresenter {
 final class SettingPresenterImpl {
     private let themeManager: ThemeManager
     private let viewModel: SettingViewModel
+    private let languageManager: LanguageManager
     
     init(
         viewModel: SettingViewModel,
         themeManager: ThemeManager,
+        languageManager: LanguageManager
     ) {
         self.viewModel = viewModel
         self.themeManager = themeManager
+        self.languageManager = languageManager
     }
 }
 
@@ -32,6 +35,6 @@ extension SettingPresenterImpl: SettingPresenter {
     }
     
     func setLanguage(_ lang: String) {
-        themeManager.language = lang
+        languageManager.language = lang
     }
 }
