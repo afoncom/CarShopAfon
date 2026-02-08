@@ -9,10 +9,10 @@ import SwiftUI
 
 final class SettingModule {
     static func build(
-        assembly: AppAssembly
+        settingAssembly: SettingAssembly
     ) -> some View {
-        let themeManager = assembly.themeManager
-        let languageManager = assembly.languageManager
+        let themeManager = settingAssembly.themeManager
+        let languageManager = settingAssembly.languageManager
         let viewModel = SettingViewModel(
             isDarkMode: themeManager.isDarkMode,
             language: languageManager.language

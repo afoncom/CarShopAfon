@@ -10,10 +10,7 @@ import Foundation
 
 protocol AppAssembly {
     var agregator: Agregator { get }
-    var themeManager: ThemeManager { get }
-    var languageManager: LanguageManager { get }
 }
-
 
 final class AppAssemblyImpl: AppAssembly {
     
@@ -46,7 +43,12 @@ final class AppAssemblyImpl: AppAssembly {
     }
     let themeManager: ThemeManager = ThemeManagerImpl()
     var languageManager: LanguageManager = LanguageManagerImpl()
+    
     var agregator: Agregator {
         AgregatorImpl(carManagers: carManagers)
     }
+}
+
+extension AppAssemblyImpl: SettingAssembly {
+    
 }
