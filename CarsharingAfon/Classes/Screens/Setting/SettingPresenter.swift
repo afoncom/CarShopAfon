@@ -14,9 +14,9 @@ protocol SettingPresenter {
 }
 
 final class SettingPresenterImpl {
-    private let themeManager: ThemeManager
+    private var themeManager: ThemeManager
     private let viewModel: SettingViewModel
-    private let languageManager: LanguageManager
+    private var languageManager: LanguageManager
     
     init(
         viewModel: SettingViewModel,

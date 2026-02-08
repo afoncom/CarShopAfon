@@ -8,7 +8,11 @@
 import SwiftUI
 import Combine
 
-final class LanguageManager: ObservableObject {
+protocol LanguageManager {
+    var language: String { get set }
+}
+
+final class LanguageManagerImpl: ObservableObject {
     
     @Published var language: String {
         didSet {
@@ -19,4 +23,8 @@ final class LanguageManager: ObservableObject {
     init() {
         self.language = UserDefaults.standard.string(forKey: "language") ?? "ru"
     }
+}
+
+extension LanguageManagerImpl: LanguageManager {
+    
 }

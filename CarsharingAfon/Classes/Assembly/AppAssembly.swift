@@ -44,8 +44,8 @@ final class AppAssemblyImpl: AppAssembly {
     private var carStatusProvider: CarStatusProvider {
         CarStatusProviderImpl(carManagers: carManagers)
     }
-    let themeManager = ThemeManager()
-    let languageManager = LanguageManager()
+    let themeManager: ThemeManager = ThemeManagerImpl()
+    var languageManager: LanguageManager = LanguageManagerImpl()
     var agregator: Agregator {
         AgregatorImpl(carManagers: carManagers)
     }
