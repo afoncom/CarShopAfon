@@ -8,7 +8,12 @@
 import SwiftUI
 import Combine
 
-final class ThemeManager: ObservableObject {
+protocol ThemeManager {
+    var isDarkMode: Bool { get set }
+    var colorScheme: ColorScheme? { get }
+}
+
+final class ThemeManagerImpl: ObservableObject {
     @Published var isDarkMode: Bool {
         didSet {
             UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
@@ -22,4 +27,8 @@ final class ThemeManager: ObservableObject {
     var colorScheme: ColorScheme? {
         isDarkMode ? .dark : .light
     }
+}
+
+extension ThemeManagerImpl: ThemeManager {
+    
 }
