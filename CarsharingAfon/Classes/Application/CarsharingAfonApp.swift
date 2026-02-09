@@ -18,7 +18,6 @@ struct CarsharingAfonApp: App {
         
         let assembly = AppAssemblyImpl()
         self.assembly = assembly
-        
     }
     
     var body: some Scene {
