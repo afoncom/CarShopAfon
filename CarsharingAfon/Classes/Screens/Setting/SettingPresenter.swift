@@ -9,14 +9,15 @@ import SwiftUI
 import Combine
 
 protocol SettingPresenter {
+    func load()
     func toggleDarkMode(_ isDark: Bool)
     func setLanguage(_ lang: String)
 }
 
 final class SettingPresenterImpl {
-    private var themeManager: ThemeManager
     private let viewModel: SettingViewModel
-    private var languageManager: LanguageManager
+    private let themeManager: ThemeManager
+    private let languageManager: LanguageManager
     
     init(
         viewModel: SettingViewModel,
@@ -30,11 +31,24 @@ final class SettingPresenterImpl {
 }
 
 extension SettingPresenterImpl: SettingPresenter {
+    func load() {
+        viewModel.viewState = .loading
+        
+        let isDark = themeManager.isDarkModeEnabled()
+        let lang = languageManager.getLanguage()
+        
+        viewModel.isDarkMode = isDark
+        viewModel.language = lang
+        viewModel.viewState = .loaded
+    }
+    
     func toggleDarkMode(_ isDark: Bool) {
-        themeManager.isDarkMode = isDark
+        themeManager.setDarkMode(isDark)
+        viewModel.isDarkMode = isDark
     }
     
     func setLanguage(_ lang: String) {
-        languageManager.language = lang
+        languageManager.setLanguage(lang)
+        viewModel.language = lang
     }
 }

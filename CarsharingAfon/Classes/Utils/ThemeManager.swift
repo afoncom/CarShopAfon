@@ -9,8 +9,8 @@ import SwiftUI
 import Combine
 
 protocol ThemeManager {
-    var isDarkMode: Bool { get set }
-    var colorScheme: ColorScheme? { get }
+    func isDarkModeEnabled() -> Bool
+    func setDarkMode(_ enabled: Bool)
 }
 
 final class ThemeManagerImpl: ObservableObject {
@@ -24,11 +24,17 @@ final class ThemeManagerImpl: ObservableObject {
         self.isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
     }
     
-    var colorScheme: ColorScheme? {
+    private var colorScheme: ColorScheme? {
         isDarkMode ? .dark : .light
     }
 }
 
 extension ThemeManagerImpl: ThemeManager {
+    func isDarkModeEnabled() -> Bool {
+        isDarkMode
+    }
     
+    func setDarkMode(_ enabled: Bool) {
+        isDarkMode = enabled
+    }
 }
