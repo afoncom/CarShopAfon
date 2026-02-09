@@ -9,7 +9,8 @@ import SwiftUI
 import Combine
 
 protocol LanguageManager {
-    var language: String { get set }
+    func getLanguage() -> String
+    func setLanguage(_ language: String)
 }
 
 final class LanguageManagerImpl: ObservableObject {
@@ -26,5 +27,11 @@ final class LanguageManagerImpl: ObservableObject {
 }
 
 extension LanguageManagerImpl: LanguageManager {
+    func getLanguage() -> String {
+        language
+    }
     
+    func setLanguage(_ language: String) {
+        self.language = language
+    }
 }

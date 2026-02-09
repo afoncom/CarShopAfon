@@ -8,16 +8,16 @@
 import Foundation
 import Combine
 
+enum SettingViewState {
+    case loading
+    case loaded
+    case error
+}
+
 final class SettingViewModel: ObservableObject {
-    @Published var isDarkMode: Bool
-    @Published var language: String
+    @Published var viewState: SettingViewState = .loading
+    @Published var isDarkMode: Bool = false
+    @Published var language: String = ""
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
     
-    init(
-        isDarkMode: Bool,
-        language: String
-    ) {
-        self.isDarkMode = isDarkMode
-        self.language = language
-    }
 }
