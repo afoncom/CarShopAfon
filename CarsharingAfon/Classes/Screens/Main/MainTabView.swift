@@ -9,17 +9,14 @@ import SwiftUI
 
 struct MainTabView: View {
     @ObservedObject private var coordinator: AppCoordinator
-    let settingAssembly: SettingAssembly
-    let assembly: AppAssembly
+    let assembly: AppAssembly & SettingAssembly
     
     init(
         coordinator: AppCoordinator,
-        assembly: AppAssembly,
-        settingAssembly: SettingAssembly
+        assembly: AppAssembly & SettingAssembly
     ) {
         self.coordinator = coordinator
         self.assembly = assembly
-        self.settingAssembly = settingAssembly
     }
     
     var body: some View {
@@ -48,7 +45,7 @@ struct MainTabView: View {
             .tabItem {
                 Label("Все автомобили", systemImage: "car.side")
             }
-            SettingModule.build(settingAssembly: settingAssembly)
+            SettingModule.build(settingAssembly: assembly)
                 .tabItem {
                     Label("Настройки", systemImage: "gear")
                 }

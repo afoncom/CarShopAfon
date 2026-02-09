@@ -10,8 +10,7 @@ import SwiftUI
 @main
 struct CarsharingAfonApp: App {
     @StateObject private var coordinator: AppCoordinator
-    private let assembly: AppAssembly
-    private let settingAssembly: SettingAssembly
+    private let assembly: AppAssembly & SettingAssembly
     
     init() {
         let coordinator = AppCoordinator(rootRoute: .welcome)
@@ -20,7 +19,6 @@ struct CarsharingAfonApp: App {
         let assembly = AppAssemblyImpl()
         self.assembly = assembly
         
-        self.settingAssembly = assembly as any SettingAssembly
     }
     
     var body: some Scene {
@@ -29,7 +27,7 @@ struct CarsharingAfonApp: App {
             case .welcome:
                 WelcomeModule.build(coordinator: coordinator)
             case .main:
-                MainTabView(coordinator: coordinator, assembly: assembly, settingAssembly: settingAssembly)
+                MainTabView(coordinator: coordinator, assembly: assembly)
             }
         }
     }
