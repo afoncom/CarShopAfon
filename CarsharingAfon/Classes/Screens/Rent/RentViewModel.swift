@@ -8,5 +8,5 @@
 import Combine
 
 final class RentViewModel: ObservableObject {
-
+    
 }

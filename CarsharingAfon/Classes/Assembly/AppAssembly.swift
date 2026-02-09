@@ -14,7 +14,6 @@ protocol AppAssembly {
     var languageManager: LanguageManager { get }
 }
 
-
 final class AppAssemblyImpl: AppAssembly {
     
     private let carManager1 = CarManagerImpl(
@@ -49,4 +48,8 @@ final class AppAssemblyImpl: AppAssembly {
     var agregator: Agregator {
         AgregatorImpl(carManagers: carManagers)
     }
+}
+
+extension AppAssemblyImpl: SettingAssembly {
+    
 }

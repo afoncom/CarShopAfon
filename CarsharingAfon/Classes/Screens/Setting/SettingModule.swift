@@ -9,7 +9,7 @@ import SwiftUI
 
 final class SettingModule {
     static func build(
-        assembly: AppAssembly
+        settingAssembly: SettingAssembly
     ) -> some View {
         let viewModel = SettingViewModel()
         let presenter = SettingPresenterImpl(

@@ -9,11 +9,11 @@ import SwiftUI
 
 struct MainTabView: View {
     @ObservedObject private var coordinator: AppCoordinator
-    let assembly: AppAssembly
+    let assembly: AppAssembly & SettingAssembly
     
     init(
         coordinator: AppCoordinator,
-        assembly: AppAssembly
+        assembly: AppAssembly & SettingAssembly
     ) {
         self.coordinator = coordinator
         self.assembly = assembly
@@ -26,7 +26,11 @@ struct MainTabView: View {
                     .navigationDestination(for: Route.self) { route in
                         switch route {
                         case .carDetails(let carId):
-                            GetCarsRentModule.build(carId: carId, agregator: assembly.agregator, coordinator: coordinator)
+                            GetCarsRentModule.build(
+                                carId: carId,
+                                agregator: assembly.agregator,
+                                coordinator: coordinator
+                            )
                         case .addCar:
                             AddCarModule.build(agregator: assembly.agregator)
                         case .allCars:
@@ -41,7 +45,7 @@ struct MainTabView: View {
             .tabItem {
                 Label("Все автомобили", systemImage: "car.side")
             }
-            SettingModule.build(assembly: assembly)
+            SettingModule.build(settingAssembly: assembly)
                 .tabItem {
                     Label("Настройки", systemImage: "gear")
                 }
