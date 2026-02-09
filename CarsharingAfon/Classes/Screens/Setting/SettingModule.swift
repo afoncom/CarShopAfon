@@ -14,8 +14,8 @@ final class SettingModule {
         let viewModel = SettingViewModel()
         let presenter = SettingPresenterImpl(
             viewModel: viewModel,
-            themeManager: assembly.themeManager,
-            languageManager: assembly.languageManager
+            themeManager: settingAssembly.themeManager,
+            languageManager: settingAssembly.languageManager
         )
         
         return SettingScreen(viewModel: viewModel, presenter: presenter)
