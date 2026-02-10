@@ -5,28 +5,23 @@
 //  Created by afon.com on 01.02.2026.
 //
 
-import SwiftUI
-import Combine
+import Foundation
 
-final class ThemeManager: ObservableObject {
-    @Published var isDarkMode: Bool {
-        didSet {
-            UserDefaults.standard.set(isDarkMode, forKey: "isDarkMode")
-        }
+protocol ThemeManager {
+    func isDarkModeEnabled() -> Bool
+    func setDarkMode(_ enabled: Bool)
+}
+
+final class ThemeManagerImpl {
+ 
+}
+
+extension ThemeManagerImpl: ThemeManager {
+    func isDarkModeEnabled() -> Bool {
+        UserDefaults.standard.bool(forKey: "isDarkMode")
     }
     
-    @Published var language: String {
-        didSet {
-            UserDefaults.standard.set(language, forKey: "language")
-        }
-    }
-    
-    init() {
-        self.isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
-        self.language = UserDefaults.standard.string(forKey: "language") ?? "ru"
-    }
-    
-    var colorScheme: ColorScheme? {
-        isDarkMode ? .dark : .light
+    func setDarkMode(_ enabled: Bool) {
+        UserDefaults.standard.set(enabled, forKey: "isDarkMode")
     }
 }

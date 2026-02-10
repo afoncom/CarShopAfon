@@ -9,16 +9,13 @@ import SwiftUI
 
 final class SettingModule {
     static func build(
-        assembly: AppAssembly
+        settingAssembly: SettingAssembly
     ) -> some View {
-        let themeManager = assembly.themeManager
-        let viewModel = SettingViewModel(
-            isDarkMode: themeManager.isDarkMode,
-            language: themeManager.language
-        )
+        let viewModel = SettingViewModel()
         let presenter = SettingPresenterImpl(
             viewModel: viewModel,
-            themeManager: themeManager
+            themeManager: settingAssembly.themeManager,
+            languageManager: settingAssembly.languageManager
         )
         
         return SettingScreen(viewModel: viewModel, presenter: presenter)

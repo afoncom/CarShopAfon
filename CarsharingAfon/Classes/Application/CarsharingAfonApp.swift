@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct CarsharingAfonApp: App {
     @StateObject private var coordinator: AppCoordinator
-    private let assembly: AppAssembly
+    private let assembly: AppAssembly & SettingAssembly
     
     init() {
         let coordinator = AppCoordinator(rootRoute: .welcome)
