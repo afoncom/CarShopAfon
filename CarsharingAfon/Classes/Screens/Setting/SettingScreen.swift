@@ -93,44 +93,44 @@ extension SettingScreen {
             // MARK: - Поддержка
             Section("Поддержка") {
                 // Rate App
-                HStack {
-                    Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
-                        .frame(width: 24, height: 24)
-                    
-                    Text("Оценить приложение")
-                    
-                    Spacer()
-                    
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.gray)
-                        .font(.caption)
-                }
-                .contentShape(Rectangle())
-                .accessibilityAddTraits(.isButton)
-                .onTapGesture {
+                Button {
                     print("Rate App tapped")
+                } label: {
+                    HStack {
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                            .frame(width: 24, height: 24)
+                        
+                        Text("Оценить приложение")
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.gray)
+                            .font(.caption)
+                    }
                 }
+                .buttonStyle(.plain)
                 
                 // Send Feedback
-                HStack {
-                    Image(systemName: "envelope.fill")
-                        .foregroundColor(.blue)
-                        .frame(width: 24, height: 24)
-                    
-                    Text("Отправить отзыв")
-                    
-                    Spacer()
-                    
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.gray)
-                        .font(.caption)
-                }
-                .contentShape(Rectangle())
-                .accessibilityAddTraits(.isButton)
-                .onTapGesture {
+                Button {
                     print("Send Feedback tapped")
+                } label: {
+                    HStack {
+                        Image(systemName: "envelope.fill")
+                            .foregroundColor(.blue)
+                            .frame(width: 24, height: 24)
+                        
+                        Text("Отправить отзыв")
+                        
+                        Spacer()
+                        
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.gray)
+                            .font(.caption)
+                    }
                 }
+                .buttonStyle(.plain)
                 
                 // Version
                 HStack {
