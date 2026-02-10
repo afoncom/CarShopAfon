@@ -15,7 +15,7 @@ enum SettingViewState {
 }
 
 final class SettingViewModel: ObservableObject {
-    @Published var viewState: SettingViewState = .loading
+    @Published var viewState: SettingViewState = .loaded
     @Published var isDarkMode: Bool = false
     @Published var language: String = ""
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"

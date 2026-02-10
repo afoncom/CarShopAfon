@@ -5,33 +5,23 @@
 //  Created by afon.com on 07.02.2026.
 //
 
-import SwiftUI
-import Combine
+import Foundation
 
 protocol LanguageManager {
     func getLanguage() -> String
     func setLanguage(_ language: String)
 }
 
-final class LanguageManagerImpl: ObservableObject {
+final class LanguageManagerImpl {
     
-    @Published var language: String {
-        didSet {
-            UserDefaults.standard.set(language, forKey: "language")
-        }
-    }
-    
-    init() {
-        self.language = UserDefaults.standard.string(forKey: "language") ?? "ru"
-    }
 }
 
 extension LanguageManagerImpl: LanguageManager {
     func getLanguage() -> String {
-        language
+        UserDefaults.standard.string(forKey: "language") ?? "ru"
     }
     
     func setLanguage(_ language: String) {
-        self.language = language
+        UserDefaults.standard.set(language, forKey: "language")
     }
 }

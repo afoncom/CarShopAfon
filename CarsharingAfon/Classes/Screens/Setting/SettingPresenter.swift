@@ -32,23 +32,15 @@ final class SettingPresenterImpl {
 
 extension SettingPresenterImpl: SettingPresenter {
     func load() {
-        viewModel.viewState = .loading
-        
-        let isDark = themeManager.isDarkModeEnabled()
-        let lang = languageManager.getLanguage()
-        
-        viewModel.isDarkMode = isDark
-        viewModel.language = lang
-        viewModel.viewState = .loaded
+        viewModel.isDarkMode = themeManager.isDarkModeEnabled()
+        viewModel.language = languageManager.getLanguage()
     }
     
     func toggleDarkMode(_ isDark: Bool) {
         themeManager.setDarkMode(isDark)
-        viewModel.isDarkMode = isDark
     }
     
     func setLanguage(_ lang: String) {
         languageManager.setLanguage(lang)
-        viewModel.language = lang
     }
 }
