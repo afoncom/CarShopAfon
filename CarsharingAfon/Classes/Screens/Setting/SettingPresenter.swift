@@ -34,6 +34,7 @@ extension SettingPresenterImpl: SettingPresenter {
     func load() {
         viewModel.isDarkMode = themeManager.isDarkModeEnabled()
         viewModel.language = languageManager.getLanguage()
+        viewModel.viewState = .loaded
     }
     
     func toggleDarkMode(_ isDark: Bool) {
