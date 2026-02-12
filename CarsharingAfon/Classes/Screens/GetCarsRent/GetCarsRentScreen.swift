@@ -25,14 +25,13 @@ struct GetCarsRentScreen: View {
             case .loading:
                 ProgressView()
             case .loaded:
-                VStack {
-                    makeDetailsView()
-                    makeButtonsView()
-                }
+                makeDetailsView()
             case .error:
                 Text("Ошибка")
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.background)
         .navigationTitle("Detaling")
         .navigationBarTitleDisplayMode(.inline)
         .task {
@@ -45,52 +44,67 @@ struct GetCarsRentScreen: View {
 
 extension GetCarsRentScreen {
     func makeDetailsView() -> some View {
-        VStack(spacing: 12) {
-            if let car = viewModel.selectedCar {
-                Text ("Бренд: \(car.brand)")
-                    .font(.body)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Марка: \(car.model)")
-                    .font(.body)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Двери: \(car.door)")
-                    .font(.body)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Окна: \(car.window)")
-                    .font(.body)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Статус автомобиля: \(car.isRented ? "В аренде" : "Свободно")")
-                    .font(.body)
-                    .presentationDetents([.medium])
-                    .frame(maxWidth: .infinity, alignment: .leading)
+        GeometryReader { proxy in
+            VStack(spacing: 12) {
+                Spacer()
+                
+                
+                Rectangle()
+                    .fill(Color.backgroundsmallview)
+                    .frame(height: proxy.size.height / 2)
+                    .overlay(
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Car.name")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            Spacer()
+                            
+                            VStack {
+                                HStack {
+                                    Text("Price")
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                    
+                                    Text("$34040")
+                                        .font(.title3)
+                                        .fontWeight(.bold)
+                                        .foregroundColor(.white)
+                                }
+                                .padding(20)
+                                
+                                
+                                HStack(spacing: 12) {
+                                    Button("Visit Store") {
+                                        
+                                    }
+                                    .buttonStyle(.bordered)
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity)
+                                    Spacer()
+                                    Button("Buy Now") {
+                                        
+                                    }
+                                    .buttonStyle(.borderedProminent)
+                                    .foregroundColor(.black)
+                                    .tint(.white)
+                                }
+                            }
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .fill(.white.opacity(0.1))
+                            )
+                            .padding(.horizontal, 5)
+                        }
+                            .padding(20)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    )
+                    .ignoresSafeArea()
+                    .cornerRadius(20)
+                    .background(Color.backgroundsmallview)
             }
-        }
-    }
-    func makeButtonsView() -> some View {
-        HStack {
-            Button(action: {
-                presenter.openRentScreen()
-            }) {
-                Text("Взять в аренду")
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(.white)
-                    .padding()
-            }
-            .background(.green)
-            .cornerRadius(12)
-            .padding()
-            
-            Button(action: {
-                presenter.openRentCompleteView()
-            }) {
-                Text ("Вернуть")
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(.white)
-                    .padding()
-            }
-            .background(.red)
-            .cornerRadius(12)
-            .padding()
         }
     }
 }
