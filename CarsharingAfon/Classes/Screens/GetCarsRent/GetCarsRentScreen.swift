@@ -37,6 +37,7 @@ struct GetCarsRentScreen: View {
         .task {
             await presenter.loadCar(id: viewModel.selectedCarId)
         }
+        .ignoresSafeArea()
     }
 }
 
@@ -113,7 +114,6 @@ extension GetCarsRentScreen {
                     .cornerRadius(20)
             }
         }
-        .ignoresSafeArea()
     }
 }
 
