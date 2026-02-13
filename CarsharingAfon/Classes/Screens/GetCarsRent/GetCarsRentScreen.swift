@@ -62,7 +62,7 @@ extension GetCarsRentScreen {
                             
                             VStack {
                                 HStack {
-                                    Text("Price")
+                                    Text("Mathews Price")
                                         .font(.caption)
                                         .foregroundColor(.gray)
                                     Spacer()
@@ -72,23 +72,32 @@ extension GetCarsRentScreen {
                                         .fontWeight(.bold)
                                         .foregroundColor(.white)
                                 }
-                                .padding(20)
+                                .frame(maxWidth: .infinity)
                                 
                                 
-                                HStack(spacing: 12) {
-                                    Button("Visit Store") {
+                                HStack(spacing: 6) {
+                                    Button(action: {}) {
+                                        Text("Visit Store")
                                         
+                                            .foregroundColor(.white)
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.vertical, 12)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 20)
+                                                    .stroke(Color.gray, lineWidth: 1)
+                                            )
                                     }
-                                    .buttonStyle(.bordered)
-                                    .foregroundColor(.white)
-                                    .frame(maxWidth: .infinity)
-                                    Spacer()
-                                    Button("Buy Now") {
-                                        
+                                    
+                                    Button(action: {}) {
+                                        Text("Buy Now")
+                                            .foregroundColor(.black)
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.vertical, 12)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 20)
+                                                    .fill(Color.white)
+                                            )
                                     }
-                                    .buttonStyle(.borderedProminent)
-                                    .foregroundColor(.black)
-                                    .tint(.white)
                                 }
                             }
                             .padding()
@@ -96,15 +105,15 @@ extension GetCarsRentScreen {
                                 RoundedRectangle(cornerRadius: 16)
                                     .fill(.white.opacity(0.1))
                             )
-                            .padding(.horizontal, 5)
+                            .padding(.bottom, 80)
                         }
                             .padding(20)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     )
-                    .ignoresSafeArea()
-                    .cornerRadius(20)
                     .background(Color.backgroundsmallview)
+                    .cornerRadius(20)
             }
+            .ignoresSafeArea()
         }
     }
 }
