@@ -45,9 +45,8 @@ struct GetCarsRentScreen: View {
 extension GetCarsRentScreen {
     func makeDetailsView() -> some View {
         GeometryReader { proxy in
-            VStack(spacing: 12) {
+            VStack {
                 Spacer()
-                
                 
                 Rectangle()
                     .fill(Color.backgroundsmallview)
@@ -113,8 +112,8 @@ extension GetCarsRentScreen {
                     .background(Color.backgroundsmallview)
                     .cornerRadius(20)
             }
-            .ignoresSafeArea()
         }
+        .ignoresSafeArea()
     }
 }
 
