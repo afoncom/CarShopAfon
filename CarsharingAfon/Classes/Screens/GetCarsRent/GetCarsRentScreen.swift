@@ -54,10 +54,58 @@ extension GetCarsRentScreen {
                     .frame(height: proxy.size.height / 2)
                     .overlay(
                         VStack(alignment: .leading, spacing: 16) {
-                            Text("Car.name")
+                            Text("Nissan Pathfinder")
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
+                            Spacer()
+                            
+                            VStack(alignment: .leading, spacing: 20) {
+                                HStack {
+                                    SpecItem(
+                                        icon: "🏔️",
+                                        title: "Highway",
+                                        value: "20/27 MPG"
+                                    )
+                                    Divider()
+                                        .frame(height: 40)
+                                        .background(Color.gray.opacity(0.3))
+                            
+                            
+                                    SpecItem(
+                                        icon: "⚙️",
+                                        title: "Transmission",
+                                        value: "9-speed"
+                                    )
+                                    Divider()
+                                        .frame(height: 40)
+                                        .background(Color.gray.opacity(0.3))
+                            
+                                    SpecItem(
+                                        icon: "🔧",
+                                        title: "Engine",
+                                        value: "6 Cyl - 3.5 L"
+                                    )
+                                }
+                                Divider()
+                                    .background(Color.gray.opacity(0.3))
+                            
+                                HStack {
+                                    SpecItem(icon: "🚙", title: "Body Style", value: "SUV")
+                                    Divider()
+                                        .frame(height: 40)
+                                        .background(Color.gray.opacity(0.3))
+                            
+                                    SpecItem(icon: "🎨", title: "Exterior Color", value: "Everest White")
+                                    Divider()
+                                        .frame(height: 40)
+                                        .background(Color.gray.opacity(0.3))
+                            
+                                    SpecItem(icon: "⛽️", title: "Fuel", value: "Gas Regulae")
+                                    Divider()
+                                        .background(Color.gray.opacity(0.3))
+                                }
+                            }
                             Spacer()
                             
                             VStack {
@@ -118,6 +166,36 @@ extension GetCarsRentScreen {
 }
 
 
+
+
+struct SpecItem: View {
+    let icon: String
+    let title: String
+    let value: String
+    
+    var body: some View {
+        VStack(spacing: 4) {
+            ZStack {
+                Circle()
+                    .fill(Color.gray.opacity(0.2))
+                    .frame(width: 30, height: 30)
+                
+                Text(icon)
+                    .font(.system(size: 15))
+            }
+            
+            Text(title)
+                .font(.caption)
+                .foregroundColor(.gray)
+            Text(value)
+                .font(.subheadline)
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+        }
+        .frame(maxWidth: .infinity)
+    }
+}
+
 extension GetCarsRentScreen {
     enum ViewState {
         case loading
@@ -125,3 +203,5 @@ extension GetCarsRentScreen {
         case error
     }
 }
+
+
