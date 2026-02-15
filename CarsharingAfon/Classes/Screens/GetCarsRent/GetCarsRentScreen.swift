@@ -41,7 +41,6 @@ struct GetCarsRentScreen: View {
 }
 
 
-
 extension GetCarsRentScreen {
     func makeDetailsView() -> some View {
         VStack {
@@ -75,7 +74,6 @@ extension GetCarsRentScreen {
         }
     }
 }
-
 
 
 extension GetCarsRentScreen {
@@ -148,7 +146,6 @@ extension GetCarsRentScreen {
         )
     }
 }
-
 
 struct SpecItem: View {
     let icon: String

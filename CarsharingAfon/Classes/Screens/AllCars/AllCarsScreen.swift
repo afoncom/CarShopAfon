@@ -75,9 +75,15 @@ extension AllCarsScreen {
                         }
                     }
                     Spacer()
+                    
                     Text(car.isRented ? "В аренде" : "Свободно")
-                        .font(.caption)
+                        .font(.caption2)
+                        .fontWeight(.semibold)
                         .foregroundColor(car.isRented ? .red : .green)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(car.isRented ? Color.red.opacity(0.1) : Color.green.opacity(0.1))
+                        .cornerRadius(6)
                 }
             }
             .contentShape(Rectangle())

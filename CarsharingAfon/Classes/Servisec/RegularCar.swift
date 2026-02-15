@@ -19,6 +19,7 @@ protocol Car {
     
     var started: Bool { get }
     var isRented: Bool { get }
+    
     func start()
     func stop()
     func rent(_ isRented: Bool)
@@ -49,7 +50,7 @@ final class RegularCar: Car {
         self.isRented = isRented
     }
     
-
+    
     init(
         brand: String, model: String, highway: String, transmission: String, engine: String, bodyStyle: BodyStyle,
         exteriorColor: String, fuel: FuelType
