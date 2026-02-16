@@ -13,9 +13,9 @@ protocol Car {
     var highway: String { get }
     var transmission: String { get }
     var engine: String { get }
-    var bodyStyle: String { get }
+    var bodyStyle: BodyStyle { get }
     var exteriorColor: String { get }
-    var fuel: String { get }
+    var fuel: FuelType { get }
     
     var started: Bool { get }
     var isRented: Bool { get }
@@ -31,9 +31,9 @@ final class RegularCar: Car {
     let highway: String
     let transmission: String
     let engine: String
-    let bodyStyle: String
+    let bodyStyle: BodyStyle
     let exteriorColor: String
-    let fuel: String
+    let fuel: FuelType
     
     var started: Bool = false
     var isRented: Bool = false
@@ -53,7 +53,7 @@ final class RegularCar: Car {
     
     init(
         brand: String, model: String, highway: String, transmission: String,
-        engine: String, bodyStyle: String, exteriorColor: String, fuel: String
+        engine: String, bodyStyle: BodyStyle, exteriorColor: String, fuel: FuelType
     ) {
         self.brand = brand
         self.model = model

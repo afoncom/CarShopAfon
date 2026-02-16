@@ -66,7 +66,7 @@ extension AllCarsScreen {
                                 .foregroundColor(.gray)
                         }
                         HStack(spacing: 16) {
-                            Label(car.bodyStyle, systemImage: "car")
+                            Label(car.bodyStyle.name, systemImage: "car")
                                 .font(.caption)
                                 .foregroundColor(.gray)
                             Label(car.exteriorColor, systemImage: "paintpalette")

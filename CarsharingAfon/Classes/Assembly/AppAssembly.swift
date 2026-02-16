@@ -20,19 +20,19 @@ final class AppAssemblyImpl: AppAssembly {
         listCar: [
             RegularCar(
                 brand: "BMW", model: "M3", highway: "20/27 MPG", transmission: "9-speed", engine: "6 Cyl - 3.5 L",
-                bodyStyle: "SUV", exteriorColor: "White", fuel: "Gas Regulae"
+                bodyStyle: .sedan, exteriorColor: "White", fuel: .gasoline
             ),
             RegularCar(
                 brand: "BMW", model: "X5",highway: "20/27 MPG", transmission: "9-speed", engine: "6 Cyl - 3.5 L",
-                bodyStyle: "SUV", exteriorColor: "Black", fuel: "Gas Regulae"
+                bodyStyle: .suv, exteriorColor: "Black", fuel: .diesel
             ),
             RegularCar(
                 brand: "Audi", model: "A8", highway: "20/27 MPG", transmission: "9-speed", engine: "6 Cyl - 3.5 L",
-                bodyStyle: "SUV", exteriorColor: "Everest White", fuel: "Gas Regulae"
+                bodyStyle: .sedan, exteriorColor: "Everest White", fuel: .gasoline
             ),
             RegularCar(
                 brand: "Audi", model: "A5", highway: "20/27 MPG", transmission: "9-speed",
-                engine: "6 Cyl - 3.5 L", bodyStyle: "SUV", exteriorColor: "Green", fuel: "Gas Regulae"
+                engine: "6 Cyl - 3.5 L", bodyStyle: .coupe, exteriorColor: "Green", fuel: .diesel
             )
         ]
     )
@@ -41,19 +41,19 @@ final class AppAssemblyImpl: AppAssembly {
         cars: [
             RegularCar(
                 brand: "Geely", model: "Coolry", highway: "20/27 MPG", transmission: "9-speed", engine: "6 Cyl - 3.5 L",
-                bodyStyle: "SUV", exteriorColor: "Cherry Burgundy", fuel: "Gas Regulae"
+                bodyStyle: .suv, exteriorColor: "Cherry Burgundy", fuel: .gasoline
             ),
             RegularCar(
                 brand: "Tesla", model: "Model3", highway: "20/27 MPG", transmission: "9-speed", engine: "6 Cyl - 3.5 L",
-                bodyStyle: "SUV", exteriorColor: "Gray", fuel: "Gas Regulae"
+                bodyStyle: .sedan, exteriorColor: "Gray", fuel: .electro
             ),
             RegularCar(
                 brand: "Renault", model: "Logan", highway: "20/27 MPG", transmission: "9-speed", engine: "6 Cyl - 3.5 L",
-                bodyStyle: "SUV", exteriorColor: "Red", fuel: "Gas Regulae"
+                bodyStyle: .sedan, exteriorColor: "Red", fuel: .gasoline
             ),
             RegularCar(
                 brand: "Lada", model: "Vesta", highway: "20/27 MPG", transmission: "9-speed", engine: "6 Cyl - 3.5 L",
-                bodyStyle: "SUV", exteriorColor: "Total Black", fuel: "Gas Regulae"
+                bodyStyle: .sedan, exteriorColor: "Total Black", fuel: .gasoline
             )
         ]
     )

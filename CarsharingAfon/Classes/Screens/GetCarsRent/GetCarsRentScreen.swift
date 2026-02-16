@@ -45,9 +45,12 @@ extension GetCarsRentScreen {
     func makeDetailsView() -> some View {
         VStack {
             
-            Image("audi-a8-white")
-                .resizable()
-            
+            AsyncImage(url: URL(string: "https://i.ibb.co/chZdH3GL/audi-a8-white.png")) { image in
+                image
+                    .resizable()
+            } placeholder: {
+                ProgressView()
+            }
             Spacer()
             
             VStack(alignment: .leading, spacing: 16) {
@@ -85,11 +88,11 @@ extension GetCarsRentScreen {
             }
             
             HStack(spacing: 0) {
-                SpecItem(icon: "🚙", title: "Body Style", value: viewModel.selectedCar?.bodyStyle ?? "")
+                SpecItem(icon: "🚙", title: "Body Style", value: viewModel.selectedCar?.bodyStyle.name ?? "")
                 Spacer()
                 SpecItem(icon: "🎨", title: "Exterior Color", value: viewModel.selectedCar?.exteriorColor ?? "")
                 Spacer()
-                SpecItem(icon: "⛽️", title: "Fuel", value: viewModel.selectedCar?.fuel ?? "")
+                SpecItem(icon: "⛽️", title: "Fuel", value: viewModel.selectedCar?.fuel.name ?? "")
             }
         }
     }
