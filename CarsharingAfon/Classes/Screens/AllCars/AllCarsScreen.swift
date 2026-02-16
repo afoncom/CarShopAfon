@@ -54,13 +54,36 @@ extension AllCarsScreen {
             VStack(alignment: .leading, spacing: 4) {
                 Text("\(car.brand) \(car.model)")
                     .font(.headline)
-                HStack {
-                    Text("Окна: \(car.window),  Двери: \(car.door)")
-                        .font(.subheadline)
+                
+                HStack(spacing: 12) {
+                    VStack(alignment: .leading, spacing: 6) {
+                        HStack(spacing: 16) {
+                            Label(car.highway, systemImage: "fuelpump")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            Label(car.transmission, systemImage: "gearshape")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                        HStack(spacing: 16) {
+                            Label(car.bodyStyle.name, systemImage: "car")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                            Label(car.exteriorColor, systemImage: "paintpalette")
+                                .font(.caption)
+                                .foregroundColor(.gray)
+                        }
+                    }
                     Spacer()
+                    
                     Text(car.isRented ? "В аренде" : "Свободно")
-                        .font(.caption)
+                        .font(.caption2)
+                        .fontWeight(.semibold)
                         .foregroundColor(car.isRented ? .red : .green)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(car.isRented ? Color.red.opacity(0.1) : Color.green.opacity(0.1))
+                        .cornerRadius(6)
                 }
             }
             .contentShape(Rectangle())

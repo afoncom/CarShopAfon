@@ -10,10 +10,16 @@ import Foundation
 protocol Car {
     var brand: String { get }
     var model: String { get }
-    var window: Int { get }
-    var door: Int { get }
+    var highway: String { get }
+    var transmission: String { get }
+    var engine: String { get }
+    var bodyStyle: BodyStyle { get }
+    var exteriorColor: String { get }
+    var fuel: FuelType { get }
+    
     var started: Bool { get }
     var isRented: Bool { get }
+    
     func start()
     func stop()
     func rent(_ isRented: Bool)
@@ -21,10 +27,13 @@ protocol Car {
 
 final class RegularCar: Car {
     let brand: String
-    
     let model: String
-    let window: Int
-    let door: Int
+    let highway: String
+    let transmission: String
+    let engine: String
+    let bodyStyle: BodyStyle
+    let exteriorColor: String
+    let fuel: FuelType
     
     var started: Bool = false
     var isRented: Bool = false
@@ -42,11 +51,18 @@ final class RegularCar: Car {
     }
     
     
-    init(window: Int, door: Int, brand: String, model: String) {
-        self.window = window
-        self.door = door
-        self.model = model
+    init(
+        brand: String, model: String, highway: String, transmission: String, engine: String, bodyStyle: BodyStyle,
+        exteriorColor: String, fuel: FuelType
+    ) {
         self.brand = brand
+        self.model = model
+        self.highway = highway
+        self.transmission = transmission
+        self.engine = engine
+        self.bodyStyle = bodyStyle
+        self.exteriorColor = exteriorColor
+        self.fuel = fuel
     }
 }
 
