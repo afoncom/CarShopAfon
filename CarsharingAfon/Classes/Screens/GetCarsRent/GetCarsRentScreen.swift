@@ -37,7 +37,6 @@ struct GetCarsRentScreen: View {
         .task {
             await presenter.loadCar(id: viewModel.selectedCarId)
         }
-        .ignoresSafeArea()
     }
 }
 
@@ -45,127 +44,110 @@ struct GetCarsRentScreen: View {
 
 extension GetCarsRentScreen {
     func makeDetailsView() -> some View {
-        GeometryReader { proxy in
-            VStack {
-                Spacer()
+        VStack {
+            
+            AsyncImage(url: URL(string: "https://i.ibb.co/chZdH3GL/audi-a8-white.png")) { image in
+                image
+                    .resizable()
+            } placeholder: {
+                ProgressView()
+            }
+            Spacer()
+            
+            VStack(alignment: .leading, spacing: 16) {
+                Text((viewModel.selectedCar?.brand ?? "") + " " + (viewModel.selectedCar?.model ?? ""))
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
                 
+                makeDetailsViewTable()
+                
+                makeDetailsViewUnderTabView()
+            }
+            .padding(20)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
                 Rectangle()
                     .fill(Color.backgroundsmallview)
-                    .frame(height: proxy.size.height / 2)
-                    .overlay(
-                        VStack(alignment: .leading, spacing: 16) {
-                            Text("Nissan Pathfinder")
-                                .font(.title2)
-                                .fontWeight(.bold)
-                                .foregroundColor(.white)
-                            Spacer()
-                            
-                            VStack(alignment: .leading, spacing: 20) {
-                                HStack {
-                                    SpecItem(
-                                        icon: "🏔️",
-                                        title: "Highway",
-                                        value: "20/27 MPG"
-                                    )
-                                    Divider()
-                                        .frame(height: 40)
-                                        .background(Color.gray.opacity(0.3))
-                            
-                            
-                                    SpecItem(
-                                        icon: "⚙️",
-                                        title: "Transmission",
-                                        value: "9-speed"
-                                    )
-                                    Divider()
-                                        .frame(height: 40)
-                                        .background(Color.gray.opacity(0.3))
-                            
-                                    SpecItem(
-                                        icon: "🔧",
-                                        title: "Engine",
-                                        value: "6 Cyl - 3.5 L"
-                                    )
-                                }
-                                Divider()
-                                    .background(Color.gray.opacity(0.3))
-                            
-                                HStack {
-                                    SpecItem(icon: "🚙", title: "Body Style", value: "SUV")
-                                    Divider()
-                                        .frame(height: 40)
-                                        .background(Color.gray.opacity(0.3))
-                            
-                                    SpecItem(icon: "🎨", title: "Exterior Color", value: "Everest White")
-                                    Divider()
-                                        .frame(height: 40)
-                                        .background(Color.gray.opacity(0.3))
-                            
-                                    SpecItem(icon: "⛽️", title: "Fuel", value: "Gas Regulae")
-                                    Divider()
-                                        .background(Color.gray.opacity(0.3))
-                                }
-                            }
-                            Spacer()
-                            
-                            VStack {
-                                HStack {
-                                    Text("Mathews Price")
-                                        .font(.caption)
-                                        .foregroundColor(.gray)
-                                    Spacer()
-                                    
-                                    Text("$34040")
-                                        .font(.title3)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.white)
-                                }
-                                .frame(maxWidth: .infinity)
-                                
-                                
-                                HStack(spacing: 6) {
-                                    Button(action: {}) {
-                                        Text("Visit Store")
-                                        
-                                            .foregroundColor(.white)
-                                            .frame(maxWidth: .infinity)
-                                            .padding(.vertical, 12)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 20)
-                                                    .stroke(Color.gray, lineWidth: 1)
-                                            )
-                                    }
-                                    
-                                    Button(action: {}) {
-                                        Text("Buy Now")
-                                            .foregroundColor(.black)
-                                            .frame(maxWidth: .infinity)
-                                            .padding(.vertical, 12)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 20)
-                                                    .fill(Color.white)
-                                            )
-                                    }
-                                }
-                            }
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .fill(.white.opacity(0.1))
-                            )
-                            .padding(.bottom, 80)
-                        }
-                            .padding(20)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    )
-                    .background(Color.backgroundsmallview)
                     .cornerRadius(20)
-            }
+                    .ignoresSafeArea(edges: [.bottom])
+            )
         }
     }
 }
 
 
+
+extension GetCarsRentScreen {
+    func makeDetailsViewTable() -> some View {
+        VStack(spacing: 20) {
+            HStack(spacing: 0) {
+                SpecItem(icon: "🏔️", title: "Highway", value: viewModel.selectedCar?.highway ?? "")
+                Spacer()
+                SpecItem(icon: "⚙️", title: "Transmission", value: viewModel.selectedCar?.transmission ?? "")
+                Spacer()
+                SpecItem(icon: "🔧", title: "Engine", value: viewModel.selectedCar?.engine ?? "")
+            }
+            
+            HStack(spacing: 0) {
+                SpecItem(icon: "🚙", title: "Body Style", value: viewModel.selectedCar?.bodyStyle.name ?? "")
+                Spacer()
+                SpecItem(icon: "🎨", title: "Exterior Color", value: viewModel.selectedCar?.exteriorColor ?? "")
+                Spacer()
+                SpecItem(icon: "⛽️", title: "Fuel", value: viewModel.selectedCar?.fuel.name ?? "")
+            }
+        }
+    }
+    
+    
+    func makeDetailsViewUnderTabView() -> some View {
+        VStack {
+            HStack {
+                Text("Mathews Price")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                Spacer()
+                
+                Text("$34040")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity)
+            
+            
+            HStack(spacing: 6) {
+                Button(action: {}) {
+                    Text("Visit Store")
+                    
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.gray, lineWidth: 1)
+                        )
+                }
+                
+                Button(action: {}) {
+                    Text("Buy Now")
+                        .foregroundColor(.black)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(Color.white)
+                        )
+                }
+            }
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(.white.opacity(0.1))
+        )
+    }
+}
 
 
 struct SpecItem: View {
@@ -203,5 +185,3 @@ extension GetCarsRentScreen {
         case error
     }
 }
-
-
