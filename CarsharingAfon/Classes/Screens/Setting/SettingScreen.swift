@@ -56,7 +56,7 @@ extension SettingScreen {
                 // Dark Mode Toggle
                 HStack {
                     Image(systemName: "moon.fill")
-                        .foregroundColor(Color.myBlue)
+                        .foregroundColor(Color.symbolDarkTheme)
                         .frame(width: 24, height: 24)
                     
                     Text(L10n.Text.darkMode)
@@ -73,7 +73,7 @@ extension SettingScreen {
                 // Language Picker
                 HStack {
                     Image(systemName: "globe")
-                        .foregroundColor(Color.myOrange)
+                        .foregroundColor(Color.symbolLanguage)
                         .frame(width: 24, height: 24)
                     
                     Text(L10n.Text.language)
@@ -98,7 +98,7 @@ extension SettingScreen {
                 } label: {
                     HStack {
                         Image(systemName: "star.fill")
-                            .foregroundColor(Color.myYellow)
+                            .foregroundColor(Color.symbolGradeApp)
                             .frame(width: 24, height: 24)
                         
                         Text(L10n.Text.rateTheApp)
@@ -118,7 +118,7 @@ extension SettingScreen {
                 } label: {
                     HStack {
                         Image(systemName: "envelope.fill")
-                            .foregroundColor(Color.myBlue)
+                            .foregroundColor(Color.symbolSendFeedback)
                             .frame(width: 24, height: 24)
                         
                         Text(L10n.Text.sendFeedback)
