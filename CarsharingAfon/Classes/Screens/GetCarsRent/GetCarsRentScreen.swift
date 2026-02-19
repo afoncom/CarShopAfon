@@ -66,7 +66,7 @@ extension GetCarsRentScreen {
                 Text((viewModel.selectedCar?.brand.rawValue ?? "") + " " + (viewModel.selectedCar?.model ?? ""))
                     .font(.title2)
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.textWhite)
                 
                 makeDetailsViewTable()
                 
@@ -76,7 +76,7 @@ extension GetCarsRentScreen {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 Rectangle()
-                    .fill(Color.backgroundsmallview)
+                    .fill(Color.backgroundSub)
                     .cornerRadius(20)
                     .ignoresSafeArea(edges: [.bottom])
             )
@@ -136,28 +136,27 @@ extension GetCarsRentScreen {
             HStack {
                 Text(L10n.Text.price)
                     .font(.caption)
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color.textSubGray)
                 Spacer()
                 
                 Text("$34040")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.textWhite)
             }
             .frame(maxWidth: .infinity)
             
             
             HStack(spacing: 6) {
-
                 Button(action: { showSafari = true }
                 ) {
                     Text(L10n.Button.visitStore)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color.textWhite)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
                         .background(
                             RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.gray, lineWidth: 1)
+                                .stroke(Color.textSubGray, lineWidth: 1)
                         )
                 }
                 
@@ -168,7 +167,7 @@ extension GetCarsRentScreen {
                         .padding(.vertical, 12)
                         .background(
                             RoundedRectangle(cornerRadius: 20)
-                                .fill(Color.white)
+                                .fill(Color.textWhite)
                         )
                 }
             }
@@ -176,7 +175,7 @@ extension GetCarsRentScreen {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(.white.opacity(0.1))
+                .fill(Color.textWhite.opacity(0.1))
         )
     }
 }
@@ -190,7 +189,7 @@ struct SpecItem: View {
         VStack(spacing: 4) {
             ZStack {
                 Circle()
-                    .fill(Color.gray.opacity(0.2))
+                    .fill(Color.textSubGray.opacity(0.2))
                     .frame(width: 30, height: 30)
                 
                 Text(icon)
@@ -199,11 +198,11 @@ struct SpecItem: View {
             
             Text(title)
                 .font(.caption)
-                .foregroundColor(.gray)
+                .foregroundColor(Color.textSubGray)
             Text(value)
                 .font(.subheadline)
                 .fontWeight(.semibold)
-                .foregroundColor(.white)
+                .foregroundColor(Color.textWhite)
         }
         .frame(maxWidth: .infinity)
     }
