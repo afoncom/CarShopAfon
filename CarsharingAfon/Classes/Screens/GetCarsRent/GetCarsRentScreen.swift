@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SafariServices
+
 
 struct GetCarsRentScreen: View {
     @StateObject private var viewModel: GetCarsRentViewModel
@@ -37,7 +37,7 @@ struct GetCarsRentScreen: View {
         .navigationTitle(L10n.NavigationTitle.characteristic)
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showSafari) {
-            if let url = URL(string: "https://www.audi.co.uk/en/models/a8/a8/") {
+            if let url = viewModel.selectedCar?.shopURL {
              SafariView(url: url)
             } else {
                 Text("Не удалось загрузить страницу")
@@ -207,15 +207,6 @@ struct SpecItem: View {
         }
         .frame(maxWidth: .infinity)
     }
-}
-
-struct SafariView: UIViewControllerRepresentable {
-    let url: URL
-    
-    func makeUIViewController(context: Context) -> SFSafariViewController {
-        SFSafariViewController(url: url)
-    }
-    func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {}
 }
 
 extension GetCarsRentScreen {
