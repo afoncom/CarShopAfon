@@ -66,7 +66,7 @@ extension GetCarsRentScreen {
                 Text((viewModel.selectedCar?.brand.rawValue ?? "") + " " + (viewModel.selectedCar?.model ?? ""))
                     .font(.title2)
                     .fontWeight(.bold)
-                    .foregroundColor(Color.textWhite)
+                    .foregroundColor(Color.text)
                 
                 makeDetailsViewTable()
                 
@@ -142,7 +142,7 @@ extension GetCarsRentScreen {
                 Text("$34040")
                     .font(.title3)
                     .fontWeight(.bold)
-                    .foregroundColor(Color.textWhite)
+                    .foregroundColor(Color.text)
             }
             .frame(maxWidth: .infinity)
             
@@ -151,7 +151,7 @@ extension GetCarsRentScreen {
                 Button(action: { showSafari = true }
                 ) {
                     Text(L10n.Button.visitStore)
-                        .foregroundColor(Color.textWhite)
+                        .foregroundColor(Color.text)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
                         .background(
@@ -167,7 +167,7 @@ extension GetCarsRentScreen {
                         .padding(.vertical, 12)
                         .background(
                             RoundedRectangle(cornerRadius: 20)
-                                .fill(Color.textWhite)
+                                .fill(Color.text)
                         )
                 }
             }
@@ -175,7 +175,7 @@ extension GetCarsRentScreen {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(Color.textWhite.opacity(0.1))
+                .fill(Color.text.opacity(0.1))
         )
     }
 }
@@ -202,7 +202,7 @@ struct SpecItem: View {
             Text(value)
                 .font(.subheadline)
                 .fontWeight(.semibold)
-                .foregroundColor(Color.textWhite)
+                .foregroundColor(Color.text)
         }
         .frame(maxWidth: .infinity)
     }

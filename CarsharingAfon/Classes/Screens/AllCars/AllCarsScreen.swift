@@ -79,10 +79,10 @@ extension AllCarsScreen {
                     Text(car.isRented ? L10n.Text.rent : L10n.Text.free)
                         .font(.caption2)
                         .fontWeight(.semibold)
-                        .foregroundColor(car.isRented ? Color.myRed : Color.myGreen)
+                        .foregroundColor(car.isRented ? Color.negative : Color.positive)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
-                        .background(car.isRented ? Color.myRed.opacity(0.1) : Color.myGreen.opacity(0.1))
+                        .background(car.isRented ? Color.negative.opacity(0.1) : Color.positive.opacity(0.1))
                         .cornerRadius(6)
                 }
             }
