@@ -60,18 +60,18 @@ extension AllCarsScreen {
                         HStack(spacing: 16) {
                             Label(car.highway, systemImage: "fuelpump")
                                 .font(.caption)
-                                .foregroundColor(.gray)
+                                .foregroundColor(Color.textSubGray)
                             Label(car.transmission, systemImage: "gearshape")
                                 .font(.caption)
-                                .foregroundColor(.gray)
+                                .foregroundColor(Color.textSubGray)
                         }
                         HStack(spacing: 16) {
                             Label(car.bodyStyle.name, systemImage: "car")
                                 .font(.caption)
-                                .foregroundColor(.gray)
+                                .foregroundColor(Color.textSubGray)
                             Label(car.exteriorColor, systemImage: "paintpalette")
                                 .font(.caption)
-                                .foregroundColor(.gray)
+                                .foregroundColor(Color.textSubGray)
                         }
                     }
                     Spacer()
@@ -79,10 +79,10 @@ extension AllCarsScreen {
                     Text(car.isRented ? L10n.Text.rent : L10n.Text.free)
                         .font(.caption2)
                         .fontWeight(.semibold)
-                        .foregroundColor(car.isRented ? .red : .green)
+                        .foregroundColor(car.isRented ? Color.negative : Color.positive)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
-                        .background(car.isRented ? Color.red.opacity(0.1) : Color.green.opacity(0.1))
+                        .background(car.isRented ? Color.negative.opacity(0.1) : Color.positive.opacity(0.1))
                         .cornerRadius(6)
                 }
             }

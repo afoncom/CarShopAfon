@@ -56,7 +56,7 @@ extension SettingScreen {
                 // Dark Mode Toggle
                 HStack {
                     Image(systemName: "moon.fill")
-                        .foregroundColor(.blue)
+                        .foregroundColor(Color.symbolDarkTheme)
                         .frame(width: 24, height: 24)
                     
                     Text(L10n.Text.darkMode)
@@ -73,7 +73,7 @@ extension SettingScreen {
                 // Language Picker
                 HStack {
                     Image(systemName: "globe")
-                        .foregroundColor(.orange)
+                        .foregroundColor(Color.symbolLanguage)
                         .frame(width: 24, height: 24)
                     
                     Text(L10n.Text.language)
@@ -98,7 +98,7 @@ extension SettingScreen {
                 } label: {
                     HStack {
                         Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
+                            .foregroundColor(Color.symbolGradeApp)
                             .frame(width: 24, height: 24)
                         
                         Text(L10n.Text.rateTheApp)
@@ -106,7 +106,7 @@ extension SettingScreen {
                         Spacer()
                         
                         Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color.textSubGray)
                             .font(.caption)
                     }
                 }
@@ -118,7 +118,7 @@ extension SettingScreen {
                 } label: {
                     HStack {
                         Image(systemName: "envelope.fill")
-                            .foregroundColor(.blue)
+                            .foregroundColor(Color.symbolSendFeedback)
                             .frame(width: 24, height: 24)
                         
                         Text(L10n.Text.sendFeedback)
@@ -126,7 +126,7 @@ extension SettingScreen {
                         Spacer()
                         
                         Image(systemName: "chevron.right")
-                            .foregroundColor(.gray)
+                            .foregroundColor(Color.textSubGray)
                             .font(.caption)
                     }
                 }
@@ -135,7 +135,7 @@ extension SettingScreen {
                 // Version
                 HStack {
                     Image(systemName: "info.circle.fill")
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color.textSubGray)
                         .frame(width: 24, height: 24)
                     
                     Text(L10n.Text.version)
@@ -143,7 +143,7 @@ extension SettingScreen {
                     Spacer()
                     
                     Text(viewModel.appVersion)
-                        .foregroundColor(.gray)
+                        .foregroundColor(Color.textSubGray)
                 }
             }
             
