@@ -12,7 +12,7 @@
 "text.loaded" = "Загружено";
 "text.rent" = "Арендована";
 "text.free" = "Свободна";
-"navigationTitle.settings" = "Settings";
+"navigationTitle.settings" = "Настройки";
 "section.preferences" = "Предпочтения";
 "text.DarkMode" = "Темный режим";
 "text.language" = "Язык";
@@ -22,7 +22,7 @@
 "text.rateTheApp" = "Оценит приложение";
 "text.sendFeedback" = "Отправить отзыв";
 "text.version" = "Версия";
-"text.rentedIsCompleted" = "Rented is completed";
+"text.rentedIsCompleted" = "Аренда завершена";
 "navigationTitle.account" = "Аккаунт";
 "navigationTitle.characteristic" = "Характеристики";
 "title.highway" = "Дорожный";
@@ -34,7 +34,7 @@
 "text.price" = "Цена";
 "button.visitStore" = "Перейти в магазин";
 "bodyStyle.sedan" = "Седан";
-"bodyStyle.hatchback" = "Хечбек";
+"bodyStyle.hatchback" = "Хэтчбек";
 "bodyStyle.suv" = "Внедорожник";
 "bodyStyle.coupe" = "Купе";
 "bodyStyle.wagon" = "Микроавтобус";
