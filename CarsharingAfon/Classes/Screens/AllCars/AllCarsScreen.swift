@@ -27,10 +27,10 @@ struct AllCarsScreen: View {
             case .loaded:
                 makeListAllCarsView()
             case .error:
-                Text("Ошибка")
+                Text(L10n.Text.error)
             }
         }
-        .navigationTitle("Все автомобили")
+        .navigationTitle(L10n.NavigationTitle.allCars)
         .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden(viewModel.viewState != .loaded)
         .toolbar {
@@ -76,7 +76,7 @@ extension AllCarsScreen {
                     }
                     Spacer()
                     
-                    Text(car.isRented ? "В аренде" : "Свободно")
+                    Text(car.isRented ? L10n.Text.rent : L10n.Text.free)
                         .font(.caption2)
                         .fontWeight(.semibold)
                         .foregroundColor(car.isRented ? .red : .green)

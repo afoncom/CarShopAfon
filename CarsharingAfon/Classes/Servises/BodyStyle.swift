@@ -17,15 +17,15 @@ enum BodyStyle: Codable {
     var name: String {
         switch self {
         case .sedan:
-            return "Sedan"
+            return L10n.BodyStyle.sedan
         case .hatchback:
-            return "Hatchback"
+            return L10n.BodyStyle.hatchback
         case .suv:
-            return "SUV"
+            return L10n.BodyStyle.suv
         case .coupe:
-            return "Coupe"
+            return L10n.BodyStyle.coupe
         case .wagon:
-            return "Wagon"
+            return L10n.BodyStyle.wagon
         }
     }
 }
