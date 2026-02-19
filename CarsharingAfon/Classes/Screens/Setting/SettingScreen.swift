@@ -65,7 +65,7 @@ extension SettingScreen {
                     
                     Toggle("", isOn: $viewModel.isDarkMode)
                         .labelsHidden()
-                        .onChange(of: viewModel.isDarkMode) { newValue in
+                        .onChange(of: viewModel.isDarkMode) { _, newValue in
                             presenter.toggleDarkMode(newValue)
                         }
                 }
@@ -85,7 +85,7 @@ extension SettingScreen {
                         Text("English").tag("en")
                     }
                     .pickerStyle(.menu)
-                    .onChange(of: viewModel.language) { newValue in
+                    .onChange(of: viewModel.language) { _, newValue in
                         presenter.setLanguage(newValue)
                     }
                 }

@@ -128,7 +128,7 @@ extension GetCarsRentScreen {
                 }
                 
                 Button(action: {}) {
-                    Text("Buy Now")
+                    Text(L10n.Button.buy)
                         .foregroundColor(.black)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
