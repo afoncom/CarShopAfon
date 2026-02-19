@@ -52,7 +52,7 @@ extension AllCarsScreen {
     func makeListAllCarsView() -> some View {
         List(Array(viewModel.allCars.enumerated()), id: \.offset) { index, car in
             VStack(alignment: .leading, spacing: 4) {
-                Text("\(car.brand) \(car.model)")
+                Text("\(car.brand.rawValue) \(car.model)")
                     .font(.headline)
                 
                 HStack(spacing: 12) {
