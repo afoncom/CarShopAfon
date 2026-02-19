@@ -20,7 +20,7 @@ struct RentScreen: View {
     }
     
     var body: some View {
-        Text("Взять в аренду")
+        Text(L10n.Text.rent)
     }
 }
 

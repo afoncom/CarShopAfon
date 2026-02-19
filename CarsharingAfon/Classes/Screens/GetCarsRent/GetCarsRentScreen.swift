@@ -27,12 +27,12 @@ struct GetCarsRentScreen: View {
             case .loaded:
                 makeDetailsView()
             case .error:
-                Text("Ошибка")
+                Text(L10n.Text.error)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.background)
-        .navigationTitle("Detaling")
+        .navigationTitle(L10n.NavigationTitle.characteristic)
         .navigationBarTitleDisplayMode(.inline)
         .task {
             await presenter.loadCar(id: viewModel.selectedCarId)
@@ -80,19 +80,43 @@ extension GetCarsRentScreen {
     func makeDetailsViewTable() -> some View {
         VStack(spacing: 20) {
             HStack(spacing: 0) {
-                SpecItem(icon: "🏔️", title: "Highway", value: viewModel.selectedCar?.highway ?? "")
+                SpecItem(
+                    icon: "🏔️",
+                    title: L10n.Title.highway,
+                    value: viewModel.selectedCar?.highway ?? ""
+                )
                 Spacer()
-                SpecItem(icon: "⚙️", title: "Transmission", value: viewModel.selectedCar?.transmission ?? "")
+                SpecItem(
+                    icon: "⚙️",
+                    title: L10n.Title.transmission,
+                    value: viewModel.selectedCar?.transmission ?? ""
+                )
                 Spacer()
-                SpecItem(icon: "🔧", title: "Engine", value: viewModel.selectedCar?.engine ?? "")
+                SpecItem(
+                    icon: "🔧",
+                    title: L10n.Title.engine,
+                    value: viewModel.selectedCar?.engine ?? ""
+                )
             }
             
             HStack(spacing: 0) {
-                SpecItem(icon: "🚙", title: "Body Style", value: viewModel.selectedCar?.bodyStyle.name ?? "")
+                SpecItem(
+                    icon: "🚙",
+                    title: L10n.Title.bodyStyle,
+                    value: viewModel.selectedCar?.bodyStyle.name ?? ""
+                )
                 Spacer()
-                SpecItem(icon: "🎨", title: "Exterior Color", value: viewModel.selectedCar?.exteriorColor ?? "")
+                SpecItem(
+                    icon: "🎨",
+                    title: L10n.Title.exteriorColor,
+                    value: viewModel.selectedCar?.exteriorColor ?? ""
+                )
                 Spacer()
-                SpecItem(icon: "⛽️", title: "Fuel", value: viewModel.selectedCar?.fuel.name ?? "")
+                SpecItem(
+                    icon: "⛽️",
+                    title: L10n.Title.fuel,
+                    value: viewModel.selectedCar?.fuel.name ?? ""
+                )
             }
         }
     }
@@ -101,7 +125,7 @@ extension GetCarsRentScreen {
     func makeDetailsViewUnderTabView() -> some View {
         VStack {
             HStack {
-                Text("Mathews Price")
+                Text(L10n.Text.price)
                     .font(.caption)
                     .foregroundColor(.gray)
                 Spacer()
@@ -116,7 +140,7 @@ extension GetCarsRentScreen {
             
             HStack(spacing: 6) {
                 Button(action: {}) {
-                    Text("Visit Store")
+                    Text(L10n.Button.visitStore)
                     
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -128,7 +152,7 @@ extension GetCarsRentScreen {
                 }
                 
                 Button(action: {}) {
-                    Text("Buy Now")
+                    Text(L10n.Button.buy)
                         .foregroundColor(.black)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)

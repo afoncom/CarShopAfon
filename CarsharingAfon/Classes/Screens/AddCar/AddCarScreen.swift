@@ -27,10 +27,10 @@ struct AddCarScreen: View {
                 ProgressView()
             case .loaded:
                 VStack {
-                    Text("Загружено")
+                    Text(L10n.Text.loaded)
                 }
             case .error:
-                Text("Ошибка")
+                Text(L10n.Text.error)
             }
         }
         

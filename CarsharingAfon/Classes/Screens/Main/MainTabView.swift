@@ -43,17 +43,17 @@ struct MainTabView: View {
                     }
             }
             .tabItem {
-                Label("Все автомобили", systemImage: "car.side")
+                Label(L10n.NavigationTitle.allCars, systemImage: "car.side")
             }
             SettingModule.build(settingAssembly: assembly)
                 .tabItem {
-                    Label("Настройки", systemImage: "gear")
+                    Label(L10n.NavigationTitle.settings, systemImage: "gear")
                 }
             VStack {
-                Text("Аккаунт")
+                Text(L10n.NavigationTitle.account)
             }
             .tabItem {
-                Label("Аккаунт", systemImage: "person.circle")
+                Label(L10n.NavigationTitle.account, systemImage: "person.circle")
             }
         }
     }

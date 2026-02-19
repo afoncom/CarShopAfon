@@ -16,13 +16,13 @@ enum FuelType: Codable {
     var name: String {
         switch self {
         case .diesel:
-            return "Diesel"
+            return L10n.FuelType.diesel
         case .gas:
-            return "Gas"
+            return L10n.FuelType.gas
         case .gasoline:
-            return "Gasoline"
+            return L10n.FuelType.gasoline
         case .electro:
-            return "Electric"
+            return L10n.FuelType.electric
         }
     }
 }

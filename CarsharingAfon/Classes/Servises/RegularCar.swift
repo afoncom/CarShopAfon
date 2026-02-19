@@ -52,8 +52,14 @@ final class RegularCar: Car {
     
     
     init(
-        brand: String, model: String, highway: String, transmission: String, engine: String, bodyStyle: BodyStyle,
-        exteriorColor: String, fuel: FuelType
+        brand: String,
+        model: String,
+        highway: String,
+        transmission: String,
+        engine: String,
+        bodyStyle: BodyStyle,
+        exteriorColor: String,
+        fuel: FuelType
     ) {
         self.brand = brand
         self.model = model

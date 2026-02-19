@@ -1,0 +1,44 @@
+/* 
+  Localizable.strings
+  CarsharingAfon
+
+  Created by afon.com on 18.02.2026.
+  
+*/
+
+"button.buy" = "Купить";
+"navigationTitle.allCars" = "Все автомобили";
+"text.error" = "Ошибка";
+"text.loaded" = "Загружено";
+"text.rent" = "Арендована";
+"text.free" = "Свободна";
+"navigationTitle.settings" = "Настройки";
+"section.preferences" = "Предпочтения";
+"text.DarkMode" = "Темный режим";
+"text.language" = "Язык";
+"text.russian" = "Русский";
+"text.english" = "Английский";
+"section.support" = "Поддержка";
+"text.rateTheApp" = "Оценит приложение";
+"text.sendFeedback" = "Отправить отзыв";
+"text.version" = "Версия";
+"text.rentedIsCompleted" = "Аренда завершена";
+"navigationTitle.account" = "Аккаунт";
+"navigationTitle.characteristic" = "Характеристики";
+"title.highway" = "Дорожный";
+"title.transmission" = "Коробка передач";
+"title.engine" = "Двигатель";
+"title.bodyStyle" = "Тип кузова";
+"title.exteriorColor" = "Цвет";
+"title.fuel" = "Топливо";
+"text.price" = "Цена";
+"button.visitStore" = "Перейти в магазин";
+"bodyStyle.sedan" = "Седан";
+"bodyStyle.hatchback" = "Хэтчбек";
+"bodyStyle.suv" = "Внедорожник";
+"bodyStyle.coupe" = "Купе";
+"bodyStyle.wagon" = "Микроавтобус";
+"fuelType.diesel" = "Дизель";
+"fuelType.gas" = "Газ";
+"fuelType.gasoline" = "Бензин";
+"fuelType.electric" = "Електро";

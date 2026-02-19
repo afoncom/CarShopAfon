@@ -20,7 +20,7 @@ struct RentCompleteScreen: View {
     }
     
     var body: some View {
-        Text("Аренда завершена")
+        Text(L10n.Text.rentedIsCompleted)
     }
 }
 

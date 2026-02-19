@@ -33,10 +33,10 @@ struct SettingScreen: View {
                     makeSettingsListView()
                     
                 case .error:
-                    Text("Ошибка загрузки")
+                    Text(L10n.Text.error)
                 }
             }
-            .navigationTitle("Настройки")
+            .navigationTitle(L10n.NavigationTitle.settings)
             .navigationBarTitleDisplayMode(.inline)
             .preferredColorScheme(
                 viewModel.isDarkMode ? .dark : .light
@@ -52,20 +52,20 @@ extension SettingScreen {
     private func makeSettingsListView() -> some View {
         List {
             // MARK: - Предпочтения
-            Section("Предпочтения") {
+            Section(L10n.Section.preferences) {
                 // Dark Mode Toggle
                 HStack {
                     Image(systemName: "moon.fill")
                         .foregroundColor(.blue)
                         .frame(width: 24, height: 24)
                     
-                    Text("Темный режим")
+                    Text(L10n.Text.darkMode)
                     
                     Spacer()
                     
                     Toggle("", isOn: $viewModel.isDarkMode)
                         .labelsHidden()
-                        .onChange(of: viewModel.isDarkMode) { newValue in
+                        .onChange(of: viewModel.isDarkMode) { _, newValue in
                             presenter.toggleDarkMode(newValue)
                         }
                 }
@@ -76,22 +76,22 @@ extension SettingScreen {
                         .foregroundColor(.orange)
                         .frame(width: 24, height: 24)
                     
-                    Text("Язык")
+                    Text(L10n.Text.language)
                     
                     Spacer()
                     
                     Picker("", selection: $viewModel.language) {
-                        Text("Русский").tag("ru")
-                        Text("English").tag("en")
+                        Text(L10n.Text.russian).tag("ru")
+                        Text(L10n.Text.english).tag("en")
                     }
                     .pickerStyle(.menu)
-                    .onChange(of: viewModel.language) { newValue in
+                    .onChange(of: viewModel.language) { _, newValue in
                         presenter.setLanguage(newValue)
                     }
                 }
             }
             // MARK: - Поддержка
-            Section("Поддержка") {
+            Section(L10n.Section.support) {
                 // Rate App
                 Button {
                     print("Rate App tapped")
@@ -101,7 +101,7 @@ extension SettingScreen {
                             .foregroundColor(.yellow)
                             .frame(width: 24, height: 24)
                         
-                        Text("Оценить приложение")
+                        Text(L10n.Text.rateTheApp)
                         
                         Spacer()
                         
@@ -121,7 +121,7 @@ extension SettingScreen {
                             .foregroundColor(.blue)
                             .frame(width: 24, height: 24)
                         
-                        Text("Отправить отзыв")
+                        Text(L10n.Text.sendFeedback)
                         
                         Spacer()
                         
@@ -138,7 +138,7 @@ extension SettingScreen {
                         .foregroundColor(.gray)
                         .frame(width: 24, height: 24)
                     
-                    Text("Версия")
+                    Text(L10n.Text.version)
                     
                     Spacer()
                     
