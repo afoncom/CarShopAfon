@@ -8,7 +8,7 @@
 import Foundation
 
 protocol Car {
-    var brand: String { get }
+    var brand: Brand { get }
     var model: String { get }
     var highway: String { get }
     var transmission: String { get }
@@ -26,7 +26,7 @@ protocol Car {
 }
 
 final class RegularCar: Car {
-    let brand: String
+    let brand: Brand
     let model: String
     let highway: String
     let transmission: String
@@ -52,7 +52,7 @@ final class RegularCar: Car {
     
     
     init(
-        brand: String,
+        brand: Brand,
         model: String,
         highway: String,
         transmission: String,
@@ -72,8 +72,28 @@ final class RegularCar: Car {
     }
 }
 
+enum Brand: String, CaseIterable {
+    case bmw = "BMW"
+    case audi = "Audi"
+    case tesla = "Tesla"
+    case geely = "Geely"
+    case renault = "Renault"
+    case lada = "Lada"
+    
+    var shopURL: String {
+        switch self {
+        case .bmw: return "https://www.bmw.com"
+        case .audi: return "https://www.audi.com"
+        case .tesla: return "https://www.tesla.com"
+        case .geely: return "https://www.geely.com"
+        case .renault: return "https://www.renault.com"
+        case .lada: return "https://www.lada.ru"
+        }
+    }
+}
+
 extension Car {
     var id: String {
-        brand + model
+        brand.rawValue + model
     }
 }

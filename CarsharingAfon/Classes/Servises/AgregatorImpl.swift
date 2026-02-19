@@ -10,8 +10,8 @@ import Foundation
 protocol Agregator {
     func getAllCars() -> [RegularCar]
     func deleteAllCars()
-    func rent(brand: String, model: String, isRenting: Bool) -> Bool
-    func startStopCar(brand: String, model: String, isStart: Bool) -> Bool
+    func rent(brand: Brand, model: String, isRenting: Bool) -> Bool
+    func startStopCar(brand: Brand, model: String, isStart: Bool) -> Bool
     func getCarById(id: String) -> RegularCar?
 }
 
@@ -30,7 +30,7 @@ final class AgregatorImpl: Agregator {
         carManagers.forEach { $0.deleteAllCars() }
     }
     
-    func rent(brand: String, model: String, isRenting: Bool) -> Bool {
+    func rent(brand: Brand, model: String, isRenting: Bool) -> Bool {
         let allCars = getAllCars()
         
         for car in allCars {
@@ -42,7 +42,7 @@ final class AgregatorImpl: Agregator {
         return false
     }
     
-    func startStopCar(brand: String, model: String, isStart: Bool) -> Bool {
+    func startStopCar(brand: Brand, model: String, isStart: Bool) -> Bool {
         let allCar = getAllCars()
         
         for car in allCar {

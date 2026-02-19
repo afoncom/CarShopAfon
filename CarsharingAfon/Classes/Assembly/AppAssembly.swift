@@ -17,7 +17,7 @@ final class AppAssemblyImpl: AppAssembly {
     private let carManager1 = CarManagerImpl(
         listCar: [
             RegularCar(
-                brand: "BMW",
+                brand: .bmw,
                 model: "M3",
                 highway: "20/27 MPG",
                 transmission: "9-speed",
@@ -27,7 +27,7 @@ final class AppAssemblyImpl: AppAssembly {
                 fuel: .gasoline
             ),
             RegularCar(
-                brand: "BMW",
+                brand: .bmw,
                 model: "X5",
                 highway: "20/27 MPG",
                 transmission: "9-speed",
@@ -37,7 +37,7 @@ final class AppAssemblyImpl: AppAssembly {
                 fuel: .diesel
             ),
             RegularCar(
-                brand: "Audi",
+                brand: .audi,
                 model: "A8",
                 highway: "20/27 MPG",
                 transmission: "9-speed",
@@ -47,7 +47,7 @@ final class AppAssemblyImpl: AppAssembly {
                 fuel: .gasoline
             ),
             RegularCar(
-                brand: "Audi",
+                brand: .audi,
                 model: "A5",
                 highway: "20/27 MPG",
                 transmission: "9-speed",
@@ -62,7 +62,7 @@ final class AppAssemblyImpl: AppAssembly {
     private let carManager2 = CarManager2(
         cars: [
             RegularCar(
-                brand: "Geely",
+                brand: .geely,
                 model: "Coolry",
                 highway: "20/27 MPG",
                 transmission: "9-speed",
@@ -72,7 +72,7 @@ final class AppAssemblyImpl: AppAssembly {
                 fuel: .gasoline
             ),
             RegularCar(
-                brand: "Tesla",
+                brand: .tesla,
                 model: "Model3",
                 highway: "20/27 MPG",
                 transmission: "9-speed",
@@ -82,7 +82,7 @@ final class AppAssemblyImpl: AppAssembly {
                 fuel: .electro
             ),
             RegularCar(
-                brand: "Renault",
+                brand: .renault,
                 model: "Logan",
                 highway: "20/27 MPG",
                 transmission: "9-speed",
@@ -92,7 +92,7 @@ final class AppAssemblyImpl: AppAssembly {
                 fuel: .gasoline
             ),
             RegularCar(
-                brand: "Lada",
+                brand: .lada,
                 model: "Vesta",
                 highway: "20/27 MPG",
                 transmission: "9-speed",

@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+
 struct GetCarsRentScreen: View {
     @StateObject private var viewModel: GetCarsRentViewModel
+    @State private var showSafari = false
     private let presenter: GetCarsRentPresenter
     
     init(
@@ -34,6 +36,13 @@ struct GetCarsRentScreen: View {
         .background(Color.background)
         .navigationTitle(L10n.NavigationTitle.characteristic)
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showSafari) {
+            if let url = URL(string: viewModel.selectedCar?.brand.shopURL ?? "") {
+                SafariView(url: url)
+            } else {
+                Text("Не удалось загрузить страницу")
+            }
+        }
         .task {
             await presenter.loadCar(id: viewModel.selectedCarId)
         }
@@ -54,7 +63,7 @@ extension GetCarsRentScreen {
             Spacer()
             
             VStack(alignment: .leading, spacing: 16) {
-                Text((viewModel.selectedCar?.brand ?? "") + " " + (viewModel.selectedCar?.model ?? ""))
+                Text((viewModel.selectedCar?.brand.rawValue ?? "") + " " + (viewModel.selectedCar?.model ?? ""))
                     .font(.title2)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
@@ -139,9 +148,10 @@ extension GetCarsRentScreen {
             
             
             HStack(spacing: 6) {
-                Button(action: {}) {
+
+                Button(action: { showSafari = true }
+                ) {
                     Text(L10n.Button.visitStore)
-                    
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
