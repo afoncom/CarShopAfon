@@ -1,5 +1,5 @@
 //
-//  GetCarsRentScreen.swift
+//  CarDetailsScreen.swift
 //  CarsharingAfon
 //
 //  Created by afon.com on 17.01.2026.
@@ -8,14 +8,14 @@
 import SwiftUI
 
 
-struct GetCarsRentScreen: View {
-    @StateObject private var viewModel: GetCarsRentViewModel
+struct CarDetailsScreen: View {
+    @StateObject private var viewModel: CarDetailsViewModel
     @State private var showSafari = false
-    private let presenter: GetCarsRentPresenter
+    private let presenter: CarDetailsPresenter
     
     init(
-        viewModel: GetCarsRentViewModel,
-        presenter: GetCarsRentPresenter
+        viewModel: CarDetailsViewModel,
+        presenter: CarDetailsPresenter
     ) {
         self._viewModel = StateObject(wrappedValue: viewModel)
         self.presenter = presenter
@@ -52,7 +52,7 @@ struct GetCarsRentScreen: View {
 }
 
 
-extension GetCarsRentScreen {
+extension CarDetailsScreen {
     func makeDetailsView() -> some View {
         VStack {
             
@@ -87,7 +87,7 @@ extension GetCarsRentScreen {
 }
 
 
-extension GetCarsRentScreen {
+extension CarDetailsScreen {
     func makeDetailsViewTable() -> some View {
         VStack(spacing: 20) {
             HStack(spacing: 0) {
@@ -210,7 +210,7 @@ struct SpecItem: View {
     }
 }
 
-extension GetCarsRentScreen {
+extension CarDetailsScreen {
     enum ViewState {
         case loading
         case loaded
