@@ -23,7 +23,7 @@ struct SettingScreen: View {
     // MARK: - Body
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack {
                 switch viewModel.viewState {
                 case .loading:
@@ -39,13 +39,14 @@ struct SettingScreen: View {
             }
             .navigationTitle(L10n.NavigationTitle.settings)
             .navigationBarTitleDisplayMode(.inline)
+            .foregroundStyle(Color.appBackground)
             .preferredColorScheme(
                 viewModel.isDarkMode ? .dark : .light
             )
             .task {
                 presenter.load()
             }
-        }
+//        }
     }
 }
 
@@ -154,5 +155,8 @@ extension SettingScreen {
             }
             
         }
+        .listStyle(.plain)
+        .scrollContentBackground(.hidden)
+        .background(Color.clear)
     }
 }

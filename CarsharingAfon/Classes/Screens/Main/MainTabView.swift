@@ -35,6 +35,7 @@ struct MainTabView: View {
                             AddCarModule.build(agregator: assembly.agregator)
                         case .allCars:
                             AllCarsModule.build(agregator: assembly.agregator, coordinator: coordinator)
+                                .background(Color.appBackground)
                         case .rent:
                             RentModule.build()
                         case .rentComplete:
@@ -42,6 +43,7 @@ struct MainTabView: View {
                         }
                     }
             }
+            .background(Color.appBackground)
             .tabItem {
                 Label(L10n.NavigationTitle.allCars, systemImage: "car.side")
             }
@@ -57,5 +59,6 @@ struct MainTabView: View {
                 Label(L10n.NavigationTitle.account, systemImage: "person.circle")
             }
         }
+        .background(Color.appBackground)
     }
 }

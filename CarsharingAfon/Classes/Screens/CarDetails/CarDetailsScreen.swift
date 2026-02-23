@@ -34,7 +34,7 @@ struct CarDetailsScreen: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.background)
+//        .background(Color.background)
         .navigationTitle(L10n.NavigationTitle.characteristic)
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showSafari) {
@@ -78,7 +78,7 @@ extension CarDetailsScreen {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 Rectangle()
-                    .fill(Color.backgroundSub)
+//                    .fill(Color.AppBackgroundSub)
                     .cornerRadius(20)
                     .ignoresSafeArea(edges: [.bottom])
             )

@@ -92,7 +92,9 @@ extension AllCarsScreen {
             .onTapGesture {
                 presenter.showDetails(car: car)
             }
+            .listRowBackground(Color.clear)
         }
+        .scrollContentBackground(.hidden)
     }
 }
 
