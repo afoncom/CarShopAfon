@@ -51,6 +51,7 @@ struct MainTabView: View {
                 }
             VStack {
                 Text(L10n.NavigationTitle.account)
+                    .foregroundStyle(Color.textDark)
             }
             .tabItem {
                 Label(L10n.NavigationTitle.account, systemImage: "person.circle")

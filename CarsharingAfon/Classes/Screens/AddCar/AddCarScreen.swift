@@ -28,9 +28,11 @@ struct AddCarScreen: View {
             case .loaded:
                 VStack {
                     Text(L10n.Text.loaded)
+                        .foregroundStyle(Color.textDark)
                 }
             case .error:
                 Text(L10n.Text.error)
+                    .foregroundStyle(Color.textDark)
             }
         }
         

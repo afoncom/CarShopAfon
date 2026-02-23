@@ -21,6 +21,7 @@ struct RentScreen: View {
     
     var body: some View {
         Text(L10n.Text.rent)
+            .foregroundStyle(Color.text)
     }
 }
 
