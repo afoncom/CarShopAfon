@@ -114,7 +114,7 @@ extension SettingScreen {
                 
                 // Send Feedback
                 Button {
-                    print("Send Feedback tapped")
+                    presenter.sendFeedback()
                 } label: {
                     HStack {
                         Image(systemName: "envelope.fill")
