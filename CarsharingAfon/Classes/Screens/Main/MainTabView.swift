@@ -56,17 +56,16 @@ struct MainTabView: View {
             NavigationStack {
                 VStack {
                     Text(L10n.NavigationTitle.account)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(Color.appBackground)
+                        .navigationTitle(L10n.NavigationTitle.account)
+                        .navigationBarTitleDisplayMode(.inline)
                 }
-            VStack {
-                Text(L10n.NavigationTitle.account)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.appBackground)
-                .navigationTitle(L10n.NavigationTitle.account)
-                .navigationBarTitleDisplayMode(.inline)
             }
             .tabItem {
                 Label(L10n.NavigationTitle.account, systemImage: "person.circle")
             }
+            
         }
         .tabViewStyle(.automatic)
     }
