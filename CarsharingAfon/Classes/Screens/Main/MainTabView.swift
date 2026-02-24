@@ -26,7 +26,7 @@ struct MainTabView: View {
                     .navigationDestination(for: Route.self) { route in
                         switch route {
                         case .carDetails(let carId):
-                            GetCarsRentModule.build(
+                            CarDetailsModule.build(
                                 carId: carId,
                                 agregator: assembly.agregator,
                                 coordinator: coordinator

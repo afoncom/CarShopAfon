@@ -1,23 +1,23 @@
 //
-//  GetCarsRentPresenter.swift
+//  CarDetailsPresenter.swift
 //  CarsharingAfon
 //
 //  Created by afon.com on 17.01.2026.
 //
 
-protocol GetCarsRentPresenter {
+protocol CarDetailsPresenter {
     func loadCar(id: String) async
     func openRentScreen()
     func openRentCompleteView()
 }
 
-final class GetCarsRentPresenterImpl {
-    private let viewModel: GetCarsRentViewModel
+final class CarDetailsPresenterImpl {
+    private let viewModel: CarDetailsViewModel
     private let agregator: Agregator
     private let coordinator: GetCarsRentCoordinator
     
     init(
-        viewModel: GetCarsRentViewModel,
+        viewModel: CarDetailsViewModel,
         agregator: Agregator,
         coordinator: GetCarsRentCoordinator
     ) {
@@ -27,7 +27,7 @@ final class GetCarsRentPresenterImpl {
     }
 }
 
-extension GetCarsRentPresenterImpl: GetCarsRentPresenter {
+extension CarDetailsPresenterImpl: CarDetailsPresenter {
     func loadCar(id: String) async {
         try? await Task.sleep(for: .seconds(3))
         
