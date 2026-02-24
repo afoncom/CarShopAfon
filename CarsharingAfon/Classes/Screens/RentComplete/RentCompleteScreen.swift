@@ -21,6 +21,7 @@ struct RentCompleteScreen: View {
     
     var body: some View {
         Text(L10n.Text.rentedIsCompleted)
+            .foregroundStyle(Color.text)
     }
 }
 

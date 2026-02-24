@@ -30,6 +30,7 @@ struct GetCarsRentScreen: View {
                 makeDetailsView()
             case .error:
                 Text(L10n.Text.error)
+                    .foregroundStyle(Color.textDark)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -41,6 +42,7 @@ struct GetCarsRentScreen: View {
                 SafariView(url: url)
             } else {
                 Text("Не удалось загрузить страницу")
+                    .foregroundStyle(Color.textDark)
             }
         }
         .task {
