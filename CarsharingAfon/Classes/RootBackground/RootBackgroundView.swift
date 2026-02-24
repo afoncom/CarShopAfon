@@ -16,9 +16,9 @@ struct RootBackgroundView<Content: View>: View {
     
     var body: some View {
         ZStack {
-            Color("appBackground")
-                .edgesIgnoringSafeArea(.all)
-            
+            Color.appBackground
+                .ignoresSafeArea()
+
             content
         }
     }

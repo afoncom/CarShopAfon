@@ -35,7 +35,6 @@ struct MainTabView: View {
                             AddCarModule.build(agregator: assembly.agregator)
                         case .allCars:
                             AllCarsModule.build(agregator: assembly.agregator, coordinator: coordinator)
-                                .background(Color.appBackground)
                         case .rent:
                             RentModule.build()
                         case .rentComplete:
@@ -43,22 +42,32 @@ struct MainTabView: View {
                         }
                     }
             }
-            .background(Color.appBackground)
             .tabItem {
                 Label(L10n.NavigationTitle.allCars, systemImage: "car.side")
             }
-            SettingModule.build(settingAssembly: assembly)
-                .tabItem {
-                    Label(L10n.NavigationTitle.settings, systemImage: "gear")
+            
+            NavigationStack {
+                SettingModule.build(settingAssembly: assembly)
+            }
+            .tabItem {
+                Label(L10n.NavigationTitle.settings, systemImage: "gear")
+            }
+            
+            NavigationStack {
+                VStack {
+                    Text(L10n.NavigationTitle.account)
                 }
             VStack {
                 Text(L10n.NavigationTitle.account)
-                    .foregroundStyle(Color.textDark)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.appBackground)
+                .navigationTitle(L10n.NavigationTitle.account)
+                .navigationBarTitleDisplayMode(.inline)
             }
             .tabItem {
                 Label(L10n.NavigationTitle.account, systemImage: "person.circle")
             }
         }
-        .background(Color.appBackground)
+        .tabViewStyle(.automatic)
     }
 }

@@ -23,30 +23,30 @@ struct SettingScreen: View {
     // MARK: - Body
     
     var body: some View {
-//        NavigationView {
-            VStack {
-                switch viewModel.viewState {
-                case .loading:
-                    ProgressView()
-                    
-                case .loaded:
-                    makeSettingsListView()
-                    
-                case .error:
-                    Text(L10n.Text.error)
-                        .foregroundStyle(Color.textDark)
-                }
+        VStack {
+            switch viewModel.viewState {
+            case .loading:
+                ProgressView()
+                
+            case .loaded:
+                makeSettingsListView()
+                
+            case .error:
+                Text(L10n.Text.error)
             }
-            .navigationTitle(L10n.NavigationTitle.settings)
-            .navigationBarTitleDisplayMode(.inline)
-            .foregroundStyle(Color.appBackground)
-            .preferredColorScheme(
-                viewModel.isDarkMode ? .dark : .light
-            )
-            .task {
-                presenter.load()
-            }
-//        }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.appBackground)
+        .navigationTitle(L10n.NavigationTitle.settings)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(Color.appBackground, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
+        .preferredColorScheme(
+            viewModel.isDarkMode ? .dark : .light
+        )
+        .task {
+            presenter.load()
+        }
     }
 }
 
@@ -72,6 +72,8 @@ extension SettingScreen {
                             presenter.toggleDarkMode(newValue)
                         }
                 }
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.appBackground)
                 
                 // Language Picker
                 HStack {
@@ -93,6 +95,8 @@ extension SettingScreen {
                         presenter.setLanguage(newValue)
                     }
                 }
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.appBackground)
             }
             // MARK: - Поддержка
             Section(L10n.Section.support) {
@@ -116,6 +120,8 @@ extension SettingScreen {
                     }
                 }
                 .buttonStyle(.plain)
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.appBackground)
                 
                 // Send Feedback
                 Button {
@@ -137,6 +143,8 @@ extension SettingScreen {
                     }
                 }
                 .buttonStyle(.plain)
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.appBackground)
                 
                 // Version
                 HStack {
@@ -152,8 +160,9 @@ extension SettingScreen {
                     Text(viewModel.appVersion)
                         .foregroundColor(Color.textDark)
                 }
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.appBackground)
             }
-            
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)

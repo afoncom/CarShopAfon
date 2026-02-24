@@ -31,6 +31,8 @@ struct AllCarsScreen: View {
                     .foregroundStyle(Color.textDark)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.appBackground)
         .navigationTitle(L10n.NavigationTitle.allCars)
         .navigationBarTitleDisplayMode(.large)
         .navigationBarBackButtonHidden(viewModel.viewState != .loaded)
@@ -92,9 +94,10 @@ extension AllCarsScreen {
             .onTapGesture {
                 presenter.showDetails(car: car)
             }
-            .listRowBackground(Color.clear)
+            .listRowBackground(Color.appBackground)
         }
         .scrollContentBackground(.hidden)
+        .background(Color.clear)
     }
 }
 
