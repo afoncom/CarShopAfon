@@ -14,7 +14,7 @@ struct SettingScreen: View {
     
     init(
         viewModel: SettingViewModel,
-        presenter: SettingPresenterImpl
+        presenter: SettingPresenter
     ) {
         self._viewModel = StateObject(wrappedValue: viewModel)
         self.presenter = presenter

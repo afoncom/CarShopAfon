@@ -7,30 +7,25 @@
 
 import Foundation
 import MessageUI
-import SwiftUI
 
 protocol MailService {
     func sendFeedback()
 }
 
 final class MailServiceImpl: NSObject, MailService, MFMailComposeViewControllerDelegate {
+    private let mailRouter: MailRouter
+    
+    init(mailRouter: MailRouter) {
+        self.mailRouter = mailRouter
+    }
+    
     func sendFeedback() {
-        guard MFMailComposeViewController.canSendMail() else {
-            print("Mail services are not available")
-            return
-        }
-        
-        let composer = MFMailComposeViewController()
-        composer.setToRecipients(["support@afon.com"])
-        composer.setSubject("Carsharing Afon Feedback")
-        composer.setMessageBody("", isHTML: false)
-        composer.mailComposeDelegate = self
-        
-        if let scene = UIApplication.shared.connectedScenes.first(where:
-        { $0.activationState == .foregroundActive}) as? UIWindowScene,
-           let rootVC = scene.windows.first?.rootViewController {
-            rootVC.present(composer, animated: true)
-        }
+        mailRouter.presentMailComposer(
+            recipients: ["support@afon.com"],
+            subject: "Carsharing Afon Feedback",
+            body: "",
+            delegate: self
+        )
     }
     
     func mailComposeController(

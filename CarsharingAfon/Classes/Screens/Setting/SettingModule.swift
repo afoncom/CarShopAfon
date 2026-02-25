@@ -12,7 +12,7 @@ final class SettingModule {
         settingAssembly: SettingAssembly
     ) -> some View {
         let viewModel = SettingViewModel()
-        let mailService = MailServiceImpl()
+        let mailService = MailServiceImpl(mailRouter: settingAssembly.mailRouter)
         let presenter = SettingPresenterImpl(
             viewModel: viewModel,
             themeManager: settingAssembly.themeManager,
