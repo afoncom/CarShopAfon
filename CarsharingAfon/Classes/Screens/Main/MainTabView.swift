@@ -45,7 +45,7 @@ struct MainTabView: View {
             .tabItem {
                 Label(L10n.NavigationTitle.allCars, systemImage: "car.side")
             }
-            SettingModule.build(settingAssembly: assembly)
+            SettingModule.build(settingAssembly: assembly, coordinator: coordinator)
                 .tabItem {
                     Label(L10n.NavigationTitle.settings, systemImage: "gear")
                 }

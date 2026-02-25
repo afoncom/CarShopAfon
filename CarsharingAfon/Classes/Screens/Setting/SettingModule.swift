@@ -9,7 +9,8 @@ import SwiftUI
 
 final class SettingModule {
     static func build(
-        settingAssembly: SettingAssembly
+        settingAssembly: SettingAssembly,
+        coordinator: SystemCoordinator
     ) -> some View {
         let viewModel = SettingViewModel()
         let reviewService = ReviewServiceImpl()
@@ -17,7 +18,7 @@ final class SettingModule {
             viewModel: viewModel,
             themeManager: settingAssembly.themeManager,
             languageManager: settingAssembly.languageManager,
-            reviewService: reviewService
+            coordinator: coordinator, reviewService: reviewService
         )
         
         return SettingScreen(viewModel: viewModel, presenter: presenter)

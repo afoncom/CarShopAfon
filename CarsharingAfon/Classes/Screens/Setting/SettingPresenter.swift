@@ -19,17 +19,20 @@ final class SettingPresenterImpl {
     private let viewModel: SettingViewModel
     private let themeManager: ThemeManager
     private let languageManager: LanguageManager
+    private let coordinator: SystemCoordinator
     private let reviewService: ReviewService
     
     init(
         viewModel: SettingViewModel,
         themeManager: ThemeManager,
         languageManager: LanguageManager,
+        coordinator: SystemCoordinator,
         reviewService: ReviewService
     ) {
         self.viewModel = viewModel
         self.themeManager = themeManager
         self.languageManager = languageManager
+        self.coordinator = coordinator
         self.reviewService = reviewService
     }
 }
