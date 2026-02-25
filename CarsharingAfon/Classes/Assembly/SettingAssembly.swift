@@ -8,4 +8,5 @@
 protocol SettingAssembly: AppAssembly {
     var themeManager: ThemeManager { get }
     var languageManager: LanguageManager { get }
+    var reviewRouter: ReviewRouter { get }
 }

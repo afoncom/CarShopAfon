@@ -12,10 +12,13 @@ protocol ReviewService {
 }
 
 final class ReviewServiceImpl: ReviewService {
+    private let reviewRouter: ReviewRouter
+    
+    init(reviewRouter: ReviewRouter) {
+        self.reviewRouter = reviewRouter
+    }
+    
     func requestAppReview() {
-        if let scene = UIApplication.shared.connectedScenes
-            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
-            AppStore.requestReview(in: scene)
-        }
+        reviewRouter.requestReview()
     }
 }
