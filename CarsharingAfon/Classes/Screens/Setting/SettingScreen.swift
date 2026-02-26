@@ -97,7 +97,7 @@ extension SettingScreen {
             Section(L10n.Section.support) {
                 // Rate App
                 Button {
-                    print("Rate App tapped")
+                    presenter.requestAppReview()
                 } label: {
                     HStack {
                         Image(systemName: "star.fill")
