@@ -117,7 +117,6 @@ final class AppAssemblyImpl: AppAssembly {
     var agregator: Agregator {
         AgregatorImpl(carManagers: carManagers)
     }
-    var reviewRouter: ReviewRouter = ReviewRouterImpl()
 }
 
 extension AppAssemblyImpl: SettingAssembly {

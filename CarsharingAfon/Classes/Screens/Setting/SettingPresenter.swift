@@ -19,18 +19,18 @@ final class SettingPresenterImpl {
     private let viewModel: SettingViewModel
     private let themeManager: ThemeManager
     private let languageManager: LanguageManager
-    private let reviewService: ReviewService
+    private let reviewRouter: ReviewRouter
     
     init(
         viewModel: SettingViewModel,
         themeManager: ThemeManager,
         languageManager: LanguageManager,
-        reviewService: ReviewService
+        reviewRouter: ReviewRouter
     ) {
         self.viewModel = viewModel
         self.themeManager = themeManager
         self.languageManager = languageManager
-        self.reviewService = reviewService
+        self.reviewRouter = reviewRouter
     }
 }
 
@@ -50,6 +50,6 @@ extension SettingPresenterImpl: SettingPresenter {
     }
     
     func requestAppReview() {
-        reviewService.requestAppReview()
+        reviewRouter.requestReview()
     }
 }

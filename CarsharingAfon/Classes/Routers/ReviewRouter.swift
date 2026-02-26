@@ -1,12 +1,11 @@
 //
-//  Untitled.swift
+//  ReviewRouter.swift
 //  CarsharingAfon
 //
 //  Created by afon.com on 26.02.2026.
 //
 
 import StoreKit
-import UIKit
 
 protocol ReviewRouter {
     func requestReview()
