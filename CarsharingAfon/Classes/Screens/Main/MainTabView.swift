@@ -74,11 +74,10 @@ extension MainTabView {
         NavigationView {
             Text(L10n.NavigationTitle.account)
                 .foregroundStyle(Color.textDark)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(Color.appBackground)
+                .navigationTitle(L10n.NavigationTitle.account)
+                .navigationBarTitleDisplayMode(.inline)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.appBackground)
-        .navigationTitle(L10n.NavigationTitle.account)
-        .navigationBarTitleDisplayMode(.inline)
-        
     }
 }
