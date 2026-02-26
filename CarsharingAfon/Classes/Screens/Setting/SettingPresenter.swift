@@ -12,6 +12,7 @@ protocol SettingPresenter {
     func load()
     func toggleDarkMode(_ isDark: Bool)
     func setLanguage(_ lang: String)
+    func sendFeedback()
     func requestAppReview()
 }
 
@@ -19,18 +20,18 @@ final class SettingPresenterImpl {
     private let viewModel: SettingViewModel
     private let themeManager: ThemeManager
     private let languageManager: LanguageManager
-    private let reviewRouter: ReviewRouter
+    private let settingRouter: SettingRouter
     
     init(
         viewModel: SettingViewModel,
         themeManager: ThemeManager,
         languageManager: LanguageManager,
-        reviewRouter: ReviewRouter
+        settingRouter: SettingRouter
     ) {
         self.viewModel = viewModel
         self.themeManager = themeManager
         self.languageManager = languageManager
-        self.reviewRouter = reviewRouter
+        self.settingRouter = settingRouter
     }
 }
 
@@ -49,7 +50,11 @@ extension SettingPresenterImpl: SettingPresenter {
         languageManager.setLanguage(lang)
     }
     
+    func sendFeedback() {
+        settingRouter.sendFeedback()
+    }
+    
     func requestAppReview() {
-        reviewRouter.requestReview()
+        settingRouter.requestReview()
     }
 }

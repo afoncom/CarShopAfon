@@ -14,7 +14,7 @@ struct SettingScreen: View {
     
     init(
         viewModel: SettingViewModel,
-        presenter: SettingPresenterImpl
+        presenter: SettingPresenter
     ) {
         self._viewModel = StateObject(wrappedValue: viewModel)
         self.presenter = presenter
@@ -118,7 +118,7 @@ extension SettingScreen {
                 
                 // Send Feedback
                 Button {
-                    print("Send Feedback tapped")
+                    presenter.sendFeedback()
                 } label: {
                     HStack {
                         Image(systemName: "envelope.fill")
