@@ -23,7 +23,7 @@ struct SettingScreen: View {
     // MARK: - Body
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             switch viewModel.viewState {
             case .loading:
                 ProgressView()
@@ -72,8 +72,6 @@ extension SettingScreen {
                             presenter.toggleDarkMode(newValue)
                         }
                 }
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.appBackground)
                 
                 // Language Picker
                 HStack {
@@ -95,9 +93,7 @@ extension SettingScreen {
                         presenter.setLanguage(newValue)
                     }
                 }
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.appBackground)
-            }
+            } 
             // MARK: - Поддержка
             Section(L10n.Section.support) {
                 // Rate App
@@ -120,8 +116,6 @@ extension SettingScreen {
                     }
                 }
                 .buttonStyle(.plain)
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.appBackground)
                 
                 // Send Feedback
                 Button {
@@ -143,8 +137,6 @@ extension SettingScreen {
                     }
                 }
                 .buttonStyle(.plain)
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.appBackground)
                 
                 // Version
                 HStack {
@@ -160,8 +152,6 @@ extension SettingScreen {
                     Text(viewModel.appVersion)
                         .foregroundColor(Color.textDark)
                 }
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.appBackground)
             }
         }
         .listStyle(.plain)

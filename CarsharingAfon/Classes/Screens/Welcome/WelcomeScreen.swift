@@ -20,18 +20,14 @@ struct WelcomeScreen: View {
     }
     
     var body: some View {
-        ZStack {
-            Color.clear
-                .ignoresSafeArea()
-
-            VStack(spacing: 12) {
-                Text ("CarsharingAfon")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .center)
-            }
-            .padding()
+        VStack(spacing: 12) {
+            Text ("CarsharingAfon")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .frame(maxWidth: .infinity, alignment: .center)
         }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .task {
             try? await Task.sleep(for: .seconds(3))
             presenter.completeWelcome()

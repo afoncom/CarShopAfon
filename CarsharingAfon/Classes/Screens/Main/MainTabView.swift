@@ -46,26 +46,22 @@ struct MainTabView: View {
                 Label(L10n.NavigationTitle.allCars, systemImage: "car.side")
             }
             
-            NavigationStack {
-                SettingModule.build(settingAssembly: assembly)
-            }
-            .tabItem {
-                Label(L10n.NavigationTitle.settings, systemImage: "gear")
-            }
-            
-            NavigationStack {
-                VStack {
-                    Text(L10n.NavigationTitle.account)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color.appBackground)
-                        .navigationTitle(L10n.NavigationTitle.account)
-                        .navigationBarTitleDisplayMode(.inline)
+            SettingModule.build(settingAssembly: assembly)
+                .tabItem {
+                    Label(L10n.NavigationTitle.settings, systemImage: "gear")
                 }
+            VStack {
+                Text(L10n.NavigationTitle.account)
+                    .foregroundStyle(Color.textDark)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.appBackground)
+            .navigationTitle(L10n.NavigationTitle.account)
+            .navigationBarTitleDisplayMode(.inline)
+            
             .tabItem {
                 Label(L10n.NavigationTitle.account, systemImage: "person.circle")
             }
-            
         }
         .tabViewStyle(.automatic)
     }
