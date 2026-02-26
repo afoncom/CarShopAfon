@@ -19,18 +19,18 @@ final class SettingPresenterImpl {
     private let viewModel: SettingViewModel
     private let themeManager: ThemeManager
     private let languageManager: LanguageManager
-    private let mailService: MailService
+    private let mailRouter: MailRouter
     
     init(
         viewModel: SettingViewModel,
         themeManager: ThemeManager,
         languageManager: LanguageManager,
-        mailService: MailService
+        mailRouter: MailRouter
     ) {
         self.viewModel = viewModel
         self.themeManager = themeManager
         self.languageManager = languageManager
-        self.mailService = mailService
+        self.mailRouter = mailRouter
     }
 }
 
@@ -50,6 +50,6 @@ extension SettingPresenterImpl: SettingPresenter {
     }
     
     func sendFeedback() {
-        mailService.sendFeedback()
+        mailRouter.sendFeedback()
     }
 }
