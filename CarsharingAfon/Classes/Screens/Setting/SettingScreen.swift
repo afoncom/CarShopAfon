@@ -135,6 +135,7 @@ extension SettingScreen {
                     .foregroundColor(Color.textSubGray)
                     .font(.caption)
             }
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
     }
@@ -157,6 +158,7 @@ extension SettingScreen {
                     .foregroundColor(Color.textSubGray)
                     .font(.caption)
             }
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
     }
