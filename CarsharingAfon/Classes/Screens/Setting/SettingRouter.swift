@@ -1,19 +1,32 @@
 //
-//  MailRouter.swift
+//  SettingRouter.swift
 //  CarsharingAfon
 //
-//  Created by afon.com on 25.02.2026.
+//  Created by afon.com on 26.02.2026.
 //
 
-//import UIKit
+import StoreKit
 import MessageUI
 
-protocol MailRouter {
+protocol SettingRouter {
+    func requestReview()
     func sendFeedback()
 }
 
-final class MailRouterImpl: NSObject, MailRouter, MFMailComposeViewControllerDelegate {
+final class SettingRouterImpl: NSObject, SettingRouter, MFMailComposeViewControllerDelegate {
+    func requestReview() {
+        if let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+            AppStore.requestReview(in: scene)
+        }
+    }
+    
     func sendFeedback() {
+        guard MFMailComposeViewController.canSendMail() else {
+            print("Mail services are not available")
+            return
+        }
+        
         let composer = MFMailComposeViewController()
         composer.setToRecipients(["support@afon.com"])
         composer.setSubject("Carsharing Afon Feedback")
@@ -27,6 +40,7 @@ final class MailRouterImpl: NSObject, MailRouter, MFMailComposeViewControllerDel
             rootVC.present(composer, animated: true)
         }
     }
+    
     // MARK: - MFMailComposeViewControllerDelegate
     
     func mailComposeController(
@@ -37,3 +51,6 @@ final class MailRouterImpl: NSObject, MailRouter, MFMailComposeViewControllerDel
         controller.dismiss(animated: true)
     }
 }
+
+
+

@@ -12,14 +12,12 @@ final class SettingModule {
         settingAssembly: SettingAssembly
     ) -> some View {
         let viewModel = SettingViewModel()
-        let mailRouter = MailRouterImpl()
-        let reviewRouter = ReviewRouterImpl()
+        let settingRouter = SettingRouterImpl()
         let presenter = SettingPresenterImpl(
             viewModel: viewModel,
             themeManager: settingAssembly.themeManager,
             languageManager: settingAssembly.languageManager,
-            mailRouter: mailRouter
-            reviewRouter: reviewRouter
+            settingRouter: settingRouter
         )
         
         return SettingScreen(viewModel: viewModel, presenter: presenter)
