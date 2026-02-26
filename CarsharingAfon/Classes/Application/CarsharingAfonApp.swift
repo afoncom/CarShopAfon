@@ -11,6 +11,7 @@ import SwiftUI
 struct CarsharingAfonApp: App {
     @StateObject private var coordinator: AppCoordinator
     private let assembly: AppAssembly & SettingAssembly
+    @State private var languageChanged = false
     
     init() {
         let coordinator = AppCoordinator(rootRoute: .welcome)
@@ -22,11 +23,18 @@ struct CarsharingAfonApp: App {
     
     var body: some Scene {
         WindowGroup {
-            switch coordinator.rootRoute {
-            case .welcome:
-                WelcomeModule.build(coordinator: coordinator)
-            case .main:
-                MainTabView(coordinator: coordinator, assembly: assembly)
+            Group {
+                switch coordinator.rootRoute {
+                case .welcome:
+                    WelcomeModule.build(coordinator: coordinator)
+                case .main:
+                    MainTabView(coordinator: coordinator, assembly: assembly)
+                }
+            }
+            .environment(\.languageManager, assembly.languageManager)
+            .id(languageChanged)
+            .onReceive(NotificationCenter.default.publisher(for: Notification.Name("LanguageChanged"))) { _ in
+                languageChanged.toggle()
             }
         }
     }

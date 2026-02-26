@@ -43,5 +43,6 @@ extension SettingPresenterImpl: SettingPresenter {
     
     func setLanguage(_ lang: String) {
         languageManager.setLanguage(lang)
+        viewModel.language = lang
     }
 }

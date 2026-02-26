@@ -11,6 +11,7 @@ import SwiftUI
 struct SettingScreen: View {
     @StateObject private var viewModel: SettingViewModel
     private var presenter: SettingPresenter
+    @Environment(\.languageManager) private var languageManager
     
     init(
         viewModel: SettingViewModel,
@@ -43,6 +44,10 @@ struct SettingScreen: View {
             )
             .task {
                 presenter.load()
+            }
+            
+            .onReceive(NotificationCenter.default.publisher(for: Notification.Name("LanguageChanged"))) { _ in
+                viewModel.language = languageManager.getLanguage()
             }
         }
     }
@@ -81,8 +86,9 @@ extension SettingScreen {
                     Spacer()
                     
                     Picker("", selection: $viewModel.language) {
-                        Text(L10n.Text.russian).tag("ru")
-                        Text(L10n.Text.english).tag("en")
+                        ForEach(Language.allCases, id: \.self) { language in
+                            Text(language.displayName).tag(language.rawValue)
+                        }
                     }
                     .pickerStyle(.menu)
                     .onChange(of: viewModel.language) { _, newValue in
