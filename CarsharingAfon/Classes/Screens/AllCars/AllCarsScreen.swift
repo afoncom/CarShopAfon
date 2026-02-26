@@ -28,6 +28,7 @@ struct AllCarsScreen: View {
                 makeListAllCarsView()
             case .error:
                 Text(L10n.Text.error)
+                    .foregroundStyle(Color.textDark)
             }
         }
         .navigationTitle(L10n.NavigationTitle.allCars)
@@ -53,6 +54,7 @@ extension AllCarsScreen {
         List(Array(viewModel.allCars.enumerated()), id: \.offset) { index, car in
             VStack(alignment: .leading, spacing: 4) {
                 Text("\(car.brand.rawValue) \(car.model)")
+                    .foregroundStyle(Color.textDark)
                     .font(.headline)
                 
                 HStack(spacing: 12) {

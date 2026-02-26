@@ -34,6 +34,7 @@ struct SettingScreen: View {
                     
                 case .error:
                     Text(L10n.Text.error)
+                        .foregroundStyle(Color.textDark)
                 }
             }
             .navigationTitle(L10n.NavigationTitle.settings)
@@ -60,6 +61,7 @@ extension SettingScreen {
                         .frame(width: 24, height: 24)
                     
                     Text(L10n.Text.darkMode)
+                        .foregroundStyle(Color.textDark)
                     
                     Spacer()
                     
@@ -77,6 +79,7 @@ extension SettingScreen {
                         .frame(width: 24, height: 24)
                     
                     Text(L10n.Text.language)
+                        .foregroundStyle(Color.textDark)
                     
                     Spacer()
                     
@@ -94,7 +97,7 @@ extension SettingScreen {
             Section(L10n.Section.support) {
                 // Rate App
                 Button {
-                    print("Rate App tapped")
+                    presenter.requestAppReview()
                 } label: {
                     HStack {
                         Image(systemName: "star.fill")
@@ -102,6 +105,7 @@ extension SettingScreen {
                             .frame(width: 24, height: 24)
                         
                         Text(L10n.Text.rateTheApp)
+                            .foregroundStyle(Color.textDark)
                         
                         Spacer()
                         
@@ -122,6 +126,7 @@ extension SettingScreen {
                             .frame(width: 24, height: 24)
                         
                         Text(L10n.Text.sendFeedback)
+                            .foregroundStyle(Color.textDark)
                         
                         Spacer()
                         
@@ -139,11 +144,12 @@ extension SettingScreen {
                         .frame(width: 24, height: 24)
                     
                     Text(L10n.Text.version)
+                        .foregroundStyle(Color.textDark)
                     
                     Spacer()
                     
                     Text(viewModel.appVersion)
-                        .foregroundColor(Color.textSubGray)
+                        .foregroundColor(Color.textDark)
                 }
             }
             
