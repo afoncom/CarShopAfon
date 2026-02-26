@@ -34,7 +34,7 @@ struct CarDetailsScreen: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.background)
+        .background(Color.appBackground)
         .navigationTitle(L10n.NavigationTitle.characteristic)
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showSafari) {
@@ -76,12 +76,7 @@ extension CarDetailsScreen {
             }
             .padding(20)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .background(
-                Rectangle()
-                    .fill(Color.backgroundSub)
-                    .cornerRadius(20)
-                    .ignoresSafeArea(edges: [.bottom])
-            )
+            .background(Color.appBackground)
         }
     }
 }

@@ -22,11 +22,16 @@ struct CarsharingAfonApp: App {
     
     var body: some Scene {
         WindowGroup {
-            switch coordinator.rootRoute {
-            case .welcome:
-                WelcomeModule.build(coordinator: coordinator)
-            case .main:
-                MainTabView(coordinator: coordinator, assembly: assembly)
+            ZStack {
+                Color.appBackground
+                    .ignoresSafeArea()
+                
+                switch coordinator.rootRoute {
+                case .welcome:
+                    WelcomeModule.build(coordinator: coordinator)
+                case .main:
+                    MainTabView(coordinator: coordinator, assembly: assembly)
+                }
             }
         }
     }

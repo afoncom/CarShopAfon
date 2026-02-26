@@ -9,7 +9,6 @@ import Combine
 import SwiftUI
 
 enum Route: Hashable, Equatable {
-    case allCars
     case carDetails(String)
     case addCar
     case rent
