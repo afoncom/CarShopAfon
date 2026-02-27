@@ -1,5 +1,5 @@
 //
-//  SettingPresenter.swift
+//  SettingsPresenter.swift
 //  CarShopAfon
 //
 //  Created by afon.com on 01.02.2026.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-protocol SettingPresenter {
+protocol SettingsPresenter {
     func load()
     func toggleDarkMode(_ isDark: Bool)
     func setLanguage(_ lang: String)
@@ -16,26 +16,26 @@ protocol SettingPresenter {
     func requestAppReview()
 }
 
-final class SettingPresenterImpl {
-    private let viewModel: SettingViewModel
+final class SettingsPresenterImpl {
+    private let viewModel: SettingsViewModel
     private let themeManager: ThemeManager
     private let languageManager: LanguageManager
-    private let settingRouter: SettingRouter
+    private let settingsRouter: SettingsRouter
     
     init(
-        viewModel: SettingViewModel,
+        viewModel: SettingsViewModel,
         themeManager: ThemeManager,
         languageManager: LanguageManager,
-        settingRouter: SettingRouter
+        settingsRouter: SettingsRouter
     ) {
         self.viewModel = viewModel
         self.themeManager = themeManager
         self.languageManager = languageManager
-        self.settingRouter = settingRouter
+        self.settingsRouter = settingsRouter
     }
 }
 
-extension SettingPresenterImpl: SettingPresenter {
+extension SettingsPresenterImpl: SettingsPresenter {
     func load() {
         viewModel.isDarkMode = themeManager.isDarkModeEnabled()
         viewModel.language = languageManager.getLanguage()
@@ -51,10 +51,10 @@ extension SettingPresenterImpl: SettingPresenter {
     }
     
     func sendFeedback() {
-        settingRouter.sendFeedback()
+        settingsRouter.sendFeedback()
     }
     
     func requestAppReview() {
-        settingRouter.requestReview()
+        settingsRouter.requestReview()
     }
 }

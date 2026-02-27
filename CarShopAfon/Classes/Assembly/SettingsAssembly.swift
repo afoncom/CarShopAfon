@@ -1,12 +1,12 @@
 //
-//  SettingAssembly.swift
+//  SettingsAssembly.swift
 //  CarShopAfon
 
 //
 //  Created by afon.com on 08.02.2026.
 //
 
-protocol SettingAssembly: AppAssembly {
+protocol SettingsAssembly: AppAssembly {
     var themeManager: ThemeManager { get }
     var languageManager: LanguageManager { get }
 }

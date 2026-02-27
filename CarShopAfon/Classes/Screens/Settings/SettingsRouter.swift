@@ -1,5 +1,5 @@
 //
-//  SettingRouter.swift
+//  SettingsRouter.swift
 //  CarShopAfon
 //
 //  Created by afon.com on 26.02.2026.
@@ -8,12 +8,12 @@
 import StoreKit
 import MessageUI
 
-protocol SettingRouter {
+protocol SettingsRouter {
     func requestReview()
     func sendFeedback()
 }
 
-final class SettingRouterImpl: NSObject, SettingRouter, MFMailComposeViewControllerDelegate {
+final class SettingsRouterImpl: NSObject, SettingsRouter, MFMailComposeViewControllerDelegate {
     func requestReview() {
         if let scene = UIApplication.shared.connectedScenes
             .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
