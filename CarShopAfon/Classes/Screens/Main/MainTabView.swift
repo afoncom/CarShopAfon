@@ -45,6 +45,7 @@ extension MainTabView {
     var allCarsNavigationView: some View {
         NavigationStack(path: $coordinator.path) {
             AllCarsModule.build(agregator: assembly.agregator, coordinator: coordinator)
+                .navigationBarTitleDisplayMode(.inline)
                 .navigationDestination(for: Route.self) { route in
                     switch route {
                     case .carDetails(let carId):
@@ -67,6 +68,7 @@ extension MainTabView {
     var settingNavigationView: some View {
         NavigationView {
             SettingModule.build(settingAssembly: assembly)
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
     
