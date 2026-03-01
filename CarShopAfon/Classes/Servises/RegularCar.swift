@@ -16,6 +16,7 @@ protocol Car {
     var bodyStyle: BodyStyle { get }
     var exteriorColor: String { get }
     var fuel: FuelType { get }
+    var imageURL: String { get }
     
     var started: Bool { get }
     var isRented: Bool { get }
@@ -34,6 +35,7 @@ final class RegularCar: Car {
     let bodyStyle: BodyStyle
     let exteriorColor: String
     let fuel: FuelType
+    let imageURL: String
     
     var started: Bool = false
     var isRented: Bool = false
@@ -59,7 +61,8 @@ final class RegularCar: Car {
         engine: String,
         bodyStyle: BodyStyle,
         exteriorColor: String,
-        fuel: FuelType
+        fuel: FuelType,
+        imageURL: String
     ) {
         self.brand = brand
         self.model = model
@@ -69,6 +72,7 @@ final class RegularCar: Car {
         self.bodyStyle = bodyStyle
         self.exteriorColor = exteriorColor
         self.fuel = fuel
+        self.imageURL = imageURL
     }
 }
 

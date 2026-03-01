@@ -56,7 +56,7 @@ extension CarDetailsScreen {
     func makeDetailsView() -> some View {
         VStack {
             
-            AsyncImage(url: URL(string: "https://i.ibb.co/chZdH3GL/audi-a8-white.png")) { image in
+            AsyncImage(url: URL(string: viewModel.selectedCar?.imageURL ?? "")) { image in
                 image
                     .resizable()
             } placeholder: {
