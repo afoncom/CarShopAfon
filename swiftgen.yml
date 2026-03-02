@@ -1,7 +1,7 @@
 strings:
-  inputs: "CarsharingAfon/Localizable/en.lproj/Localizable.strings"
+  inputs: "CarShopAfon/Localizable/en.lproj/Localizable.strings"
   outputs:
     templatePath: SwiftGenTemplates/strings-swift4.stencil
-    output: "CarsharingAfon/Localizable/Strings.swift"
+    output: "CarShopAfon/Localizable/Strings.swift"
     params:
       enumName: "L10n"
