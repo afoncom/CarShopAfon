@@ -56,23 +56,7 @@ extension CarDetailsScreen {
     func makeDetailsView() -> some View {
         VStack {
             
-            if let imageURLString = viewModel.selectedCar?.imageURL,
-               !imageURLString.isEmpty,
-               let imageUrl = URL(string: imageURLString) {
-                AsyncImage(url: imageUrl) { image in
-                    image.resizable()
-                } placeholder: {
-                    ProgressView()
-                }
-            } else {
-                Rectangle()
-                    .fill(Color.gray.opacity(0.3))
-                    .frame(height: 200)
-                    .overlay {
-                        Text("No image")
-                            .foregroundColor(.gray)
-                    }
-            }
+            carImageView()
             
             Spacer()
             
@@ -89,6 +73,34 @@ extension CarDetailsScreen {
             .padding(20)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(Color.appBackground)
+        }
+    }
+    
+    @ViewBuilder
+    func carImageView() -> some View {
+        if let imageURLString = viewModel.selectedCar?.imageURL,
+           !imageURLString.isEmpty,
+           let imageUrl = URL(string: imageURLString) {
+            AsyncImage(url: imageUrl) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 200)
+                    .frame(maxWidth: .infinity)
+            } placeholder: {
+                ProgressView()
+                    .frame(height: 200)
+                    .frame(maxWidth: .infinity)
+            }
+        } else {
+            Rectangle()
+                .fill(Color.gray.opacity(0.3))
+                .frame(height: 200)
+                .frame(maxWidth: .infinity)
+                .overlay {
+                    Text("No image")
+                        .foregroundColor(.gray)
+                }
         }
     }
 }
