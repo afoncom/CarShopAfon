@@ -1,5 +1,5 @@
 //
-//  SettingScreen.swift
+//  SettingsScreen.swift
 //  CarShopAfon
 //
 //  Created by afon.com on 01.02.2026.
@@ -8,13 +8,13 @@
 
 import SwiftUI
 
-struct SettingScreen: View {
-    @StateObject private var viewModel: SettingViewModel
-    private var presenter: SettingPresenter
+struct SettingsScreen: View {
+    @StateObject private var viewModel: SettingsViewModel
+    private var presenter: SettingsPresenter
     
     init(
-        viewModel: SettingViewModel,
-        presenter: SettingPresenter
+        viewModel: SettingsViewModel,
+        presenter: SettingsPresenter
     ) {
         self._viewModel = StateObject(wrappedValue: viewModel)
         self.presenter = presenter
@@ -38,6 +38,9 @@ struct SettingScreen: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.appBackground)
         .navigationTitle(L10n.NavigationTitle.settings)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(Color.appBackground, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
         .preferredColorScheme(
             viewModel.isDarkMode ? .dark : .light
         )
@@ -47,7 +50,7 @@ struct SettingScreen: View {
     }
 }
 
-extension SettingScreen {
+extension SettingsScreen {
     private func makeSettingsListView() -> some View {
         List {
             // MARK: - Предпочтения
