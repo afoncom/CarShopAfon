@@ -58,7 +58,7 @@ final class AppAssemblyImpl: AppAssembly {
                 bodyStyle: .coupe,
                 exteriorColor: "Green",
                 fuel: .diesel,
-                imageURL:"https://i.ibb.co/FbPwq2pz/Audi-A5-Green.jpg"
+                imageURL: "https://i.ibb.co/FbPwq2pz/Audi-A5-Green.jpg"
             )
         ]
     )
