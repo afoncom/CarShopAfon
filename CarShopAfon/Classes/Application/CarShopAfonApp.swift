@@ -33,6 +33,7 @@ struct CarShopAfonApp: App {
                     MainTabView(coordinator: coordinator, assembly: assembly)
                 }
             }
+            .accentColor(.textDark)
         }
     }
 }

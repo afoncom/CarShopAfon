@@ -38,7 +38,6 @@ struct MainTabView: View {
                 }
         }
         .tabViewStyle(.automatic)
-        .accentColor(.textDark)
     }
 }
 
