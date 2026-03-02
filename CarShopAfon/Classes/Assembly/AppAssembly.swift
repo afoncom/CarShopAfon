@@ -119,6 +119,6 @@ final class AppAssemblyImpl: AppAssembly {
     }
 }
 
-extension AppAssemblyImpl: SettingAssembly {
+extension AppAssemblyImpl: SettingsAssembly {
     
 }
