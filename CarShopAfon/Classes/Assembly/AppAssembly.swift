@@ -25,7 +25,7 @@ final class AppAssemblyImpl: AppAssembly {
                 bodyStyle: .sedan,
                 exteriorColor: "White",
                 fuel: .gasoline,
-                imageURL: "https://ibb.co/F4MQ8QcW"
+                imageURL: "https://i.ibb.co/hFjG2GrM/BMW-M3.jpg"
             ),
             RegularCar(
                 brand: .bmw,
@@ -36,7 +36,7 @@ final class AppAssemblyImpl: AppAssembly {
                 bodyStyle: .suv,
                 exteriorColor: "Black",
                 fuel: .diesel,
-                imageURL: "https://ibb.co/G43cmxHK"
+                imageURL: "https://i.ibb.co/1tJ8cvzD/BMW-X5.jpg"
             ),
             RegularCar(
                 brand: .audi,
@@ -58,7 +58,7 @@ final class AppAssemblyImpl: AppAssembly {
                 bodyStyle: .coupe,
                 exteriorColor: "Green",
                 fuel: .diesel,
-                imageURL: "https://ibb.co/xq3DGNCq/"
+                imageURL:"https://i.ibb.co/FbPwq2pz/Audi-A5-Green.jpg"
             )
         ]
     )
@@ -74,7 +74,7 @@ final class AppAssemblyImpl: AppAssembly {
                 bodyStyle: .suv,
                 exteriorColor: "Cherry Burgundy",
                 fuel: .gasoline,
-                imageURL: "https://ibb.co/9Hftb2zQ"
+                imageURL: "https://i.ibb.co/9Hftb2zQ/car-22.png"
             ),
             RegularCar(
                 brand: .tesla,
@@ -85,7 +85,7 @@ final class AppAssemblyImpl: AppAssembly {
                 bodyStyle: .sedan,
                 exteriorColor: "Gray",
                 fuel: .electro,
-                imageURL: "https://ibb.co/1GtkfNP2"
+                imageURL: "https://i.ibb.co/TBvHFSC0/TTesscla.png"
             ),
             RegularCar(
                 brand: .renault,
@@ -96,7 +96,7 @@ final class AppAssemblyImpl: AppAssembly {
                 bodyStyle: .sedan,
                 exteriorColor: "Red",
                 fuel: .gasoline,
-                imageURL: "https://ibb.co/Kc8jnPbV"
+                imageURL: "https://i.ibb.co/Kc8jnPbV/Reno-logan-red.png"
             ),
             RegularCar(
                 brand: .lada,
@@ -107,7 +107,7 @@ final class AppAssemblyImpl: AppAssembly {
                 bodyStyle: .sedan,
                 exteriorColor: "Total Black",
                 fuel: .gasoline,
-                imageURL: "https://ibb.co/27QfwDwH"
+                imageURL: "https://i.ibb.co/27QfwDwH/Lada-Vesta.png"
             )
         ]
     )
