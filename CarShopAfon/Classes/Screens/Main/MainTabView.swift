@@ -45,6 +45,7 @@ extension MainTabView {
     var allCarsNavigationView: some View {
         NavigationStack(path: $coordinator.path) {
             AllCarsModule.build(agregator: assembly.agregator, coordinator: coordinator)
+                .navigationTitle(L10n.NavigationTitle.allCars)
                 .navigationDestination(for: Route.self) { route in
                     switch route {
                     case .carDetails(let carId):
@@ -66,7 +67,8 @@ extension MainTabView {
     
     var settingsNavigationView: some View {
         NavigationView {
-            SettingsModule.build(settingsAssembly: assembly)
+            SettingModule.build(settingAssembly: assembly)
+                .navigationTitle(L10n.NavigationTitle.settings)
         }
     }
     
@@ -77,7 +79,6 @@ extension MainTabView {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.appBackground)
                 .navigationTitle(L10n.NavigationTitle.account)
-                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
