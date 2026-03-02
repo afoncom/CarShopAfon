@@ -9,11 +9,11 @@ import SwiftUI
 
 struct MainTabView: View {
     @ObservedObject private var coordinator: AppCoordinator
-    let assembly: AppAssembly & SettingAssembly
+    let assembly: AppAssembly & SettingsAssembly
     
     init(
         coordinator: AppCoordinator,
-        assembly: AppAssembly & SettingAssembly
+        assembly: AppAssembly & SettingsAssembly
     ) {
         self.coordinator = coordinator
         self.assembly = assembly
@@ -27,7 +27,7 @@ struct MainTabView: View {
                     Label(L10n.NavigationTitle.allCars, systemImage: "car.side")
                 }
             
-            settingNavigationView
+            settingsNavigationView
                 .tabItem {
                     Label(L10n.NavigationTitle.settings, systemImage: "gear")
                 }
@@ -45,6 +45,7 @@ extension MainTabView {
     var allCarsNavigationView: some View {
         NavigationStack(path: $coordinator.path) {
             AllCarsModule.build(agregator: assembly.agregator, coordinator: coordinator)
+                .navigationTitle(L10n.NavigationTitle.allCars)
                 .navigationDestination(for: Route.self) { route in
                     switch route {
                     case .carDetails(let carId):
@@ -64,9 +65,10 @@ extension MainTabView {
         }
     }
     
-    var settingNavigationView: some View {
+    var settingsNavigationView: some View {
         NavigationView {
             SettingModule.build(settingAssembly: assembly)
+                .navigationTitle(L10n.NavigationTitle.settings)
         }
     }
     
@@ -77,7 +79,6 @@ extension MainTabView {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.appBackground)
                 .navigationTitle(L10n.NavigationTitle.account)
-                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
