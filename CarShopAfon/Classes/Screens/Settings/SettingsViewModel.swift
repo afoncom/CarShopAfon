@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import MessageUI
 
 enum SettingsViewState {
     case loading
@@ -21,7 +20,4 @@ final class SettingsViewModel: ObservableObject {
     @Published var language: String = ""
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
     
-    var canSendMail: Bool {
-        MFMailComposeViewController.canSendMail()
-    }
 }
