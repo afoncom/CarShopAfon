@@ -38,9 +38,6 @@ struct SettingScreen: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.appBackground)
         .navigationTitle(L10n.NavigationTitle.settings)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(Color.appBackground, for: .navigationBar)
-        .toolbarBackground(.visible, for: .navigationBar)
         .preferredColorScheme(
             viewModel.isDarkMode ? .dark : .light
         )
