@@ -51,6 +51,3 @@ final class SettingsRouterImpl: NSObject, SettingsRouter, MFMailComposeViewContr
         controller.dismiss(animated: true)
     }
 }
-
-
-
