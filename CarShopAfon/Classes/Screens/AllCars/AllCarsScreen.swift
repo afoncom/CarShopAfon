@@ -54,30 +54,21 @@ struct AllCarsScreen: View {
 extension AllCarsScreen {
     func makeListAllCarsView() -> some View {
         List(Array(viewModel.allCars.enumerated()), id: \.offset) { index, car in
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 8) {
                 Text("\(car.brand.rawValue) \(car.model)")
                     .foregroundStyle(Color.textDark)
                     .font(.headline)
                 
                 HStack(spacing: 12) {
                     VStack(alignment: .leading, spacing: 6) {
-                        HStack(spacing: 16) {
-                            Label(car.highway, systemImage: "fuelpump")
-                                .font(.caption)
-                                .foregroundColor(Color.textSubGray)
-                            Label(car.transmission, systemImage: "gearshape")
-                                .font(.caption)
-                                .foregroundColor(Color.textSubGray)
-                        }
-                        HStack(spacing: 16) {
-                            Label(car.bodyStyle.name, systemImage: "car")
-                                .font(.caption)
-                                .foregroundColor(Color.textSubGray)
-                            Label(car.exteriorColor, systemImage: "paintpalette")
-                                .font(.caption)
-                                .foregroundColor(Color.textSubGray)
-                        }
+                        Label(car.highway, systemImage: "fuelpump")
+                        Label(car.transmission, systemImage: "gearshape")
+                        Label(car.bodyStyle.name, systemImage: "car")
+                        Label(car.exteriorColor, systemImage: "paintpalette")
                     }
+                    .font(.caption)
+                    .foregroundColor(Color.textSubGray)
+                    
                     Spacer()
                     
                     Text(car.isRented ? L10n.Text.rent : L10n.Text.free)
