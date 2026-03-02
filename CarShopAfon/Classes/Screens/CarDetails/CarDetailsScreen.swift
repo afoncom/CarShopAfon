@@ -56,12 +56,24 @@ extension CarDetailsScreen {
     func makeDetailsView() -> some View {
         VStack {
             
-            AsyncImage(url: URL(string: viewModel.selectedCar?.imageURL ?? "")) { image in
-                image
-                    .resizable()
-            } placeholder: {
-                ProgressView()
+            if let imageURLString = viewModel.selectedCar?.imageURL,
+               !imageURLString.isEmpty,
+               let imageUrl = URL(string: imageURLString) {
+                AsyncImage(url: imageUrl) { image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                }
+            } else {
+                Rectangle()
+                    .fill(Color.gray.opacity(0.3))
+                    .frame(height: 200)
+                    .overlay {
+                        Text("No image")
+                            .foregroundColor(.gray)
+                    }
             }
+            
             Spacer()
             
             VStack(alignment: .leading, spacing: 16) {
