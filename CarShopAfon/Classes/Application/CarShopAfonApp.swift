@@ -12,6 +12,8 @@ struct CarShopAfonApp: App {
     @StateObject private var coordinator: AppCoordinator
     private let assembly: AppAssembly & SettingsAssembly
     
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    
     init() {
         let coordinator = AppCoordinator(rootRoute: .welcome)
         _coordinator = StateObject(wrappedValue: coordinator)
@@ -33,6 +35,7 @@ struct CarShopAfonApp: App {
                     MainTabView(coordinator: coordinator, assembly: assembly)
                 }
             }
+            .preferredColorScheme(isDarkMode ? .dark : .light)
         }
     }
 }

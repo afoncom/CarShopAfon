@@ -37,8 +37,6 @@ final class SettingsPresenterImpl {
 
 extension SettingsPresenterImpl: SettingsPresenter {
     func load() {
-        viewModel.isDarkMode = themeManager.isDarkModeEnabled()
-        viewModel.language = languageManager.getLanguage()
         viewModel.viewState = .loaded
     }
     
