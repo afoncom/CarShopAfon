@@ -64,7 +64,9 @@ extension SettingsScreen {
             Section(L10n.Section.support) {
                 rateAppView
                 
-                sendFeedbackView
+                if viewModel.canSendMail {
+                    sendFeedbackView
+                }
                 
                 versionView
             }
