@@ -85,13 +85,11 @@ extension CarDetailsScreen {
                 image
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 200)
-                    .frame(maxWidth: .infinity)
             } placeholder: {
                 ProgressView()
-                    .frame(height: 200)
-                    .frame(maxWidth: .infinity)
             }
+            .frame(height: 200)
+            .frame(maxWidth: .infinity)
         } else {
             Rectangle()
                 .fill(Color.gray.opacity(0.3))
