@@ -11,14 +11,13 @@ final class SettingsModule {
     static func build(
         settingsAssembly: SettingsAssembly
     ) -> some View {
-        let viewModel = SettingsViewModel()
+        let viewModel = SettingsViewModel(mailService: settingsAssembly.mailService)
         let settingsRouter = SettingsRouterImpl()
         let presenter = SettingsPresenterImpl(
             viewModel: viewModel,
             themeManager: settingsAssembly.themeManager,
             languageManager: settingsAssembly.languageManager,
-            settingsRouter: settingsRouter,
-            mailService: settingsAssembly.mailService
+            settingsRouter: settingsRouter
         )
         
         return SettingsScreen(viewModel: viewModel, presenter: presenter)

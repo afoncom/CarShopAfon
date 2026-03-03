@@ -20,4 +20,13 @@ final class SettingsViewModel: ObservableObject {
     @Published var language: String = ""
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
     
+    private let mailService: MailService
+    
+    init(mailService: MailService) {
+        self.mailService = mailService
+    }
+    
+    func canSendMail() -> Bool {
+        mailService.canSendMail()
+    }
 }

@@ -14,7 +14,6 @@ protocol SettingsPresenter {
     func setLanguage(_ lang: String)
     func sendFeedback()
     func requestAppReview()
-    func canSendMail() -> Bool
 }
 
 final class SettingsPresenterImpl {
@@ -22,20 +21,17 @@ final class SettingsPresenterImpl {
     private let themeManager: ThemeManager
     private let languageManager: LanguageManager
     private let settingsRouter: SettingsRouter
-    private let mailService: MailService
     
     init(
         viewModel: SettingsViewModel,
         themeManager: ThemeManager,
         languageManager: LanguageManager,
         settingsRouter: SettingsRouter,
-        mailService: MailService
     ) {
         self.viewModel = viewModel
         self.themeManager = themeManager
         self.languageManager = languageManager
         self.settingsRouter = settingsRouter
-        self.mailService = mailService
     }
 }
 
@@ -60,9 +56,5 @@ extension SettingsPresenterImpl: SettingsPresenter {
     
     func requestAppReview() {
         settingsRouter.requestReview()
-    }
-    
-    func canSendMail() -> Bool {
-        mailService.canSendMail()
     }
 }
