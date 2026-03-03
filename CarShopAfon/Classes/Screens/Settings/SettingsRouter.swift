@@ -11,14 +11,9 @@ import MessageUI
 protocol SettingsRouter {
     func requestReview()
     func sendFeedback()
-    var canSendMail: Bool { get }
 }
 
 final class SettingsRouterImpl: NSObject, SettingsRouter, MFMailComposeViewControllerDelegate {
-    var canSendMail: Bool {
-        MFMailComposeViewController.canSendMail()
-    }
-    
     func requestReview() {
         if let scene = UIApplication.shared.connectedScenes
             .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
