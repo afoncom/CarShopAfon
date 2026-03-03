@@ -41,9 +41,6 @@ struct SettingsScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(Color.appBackground, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
-        .preferredColorScheme(
-            viewModel.isDarkMode ? .dark : .light
-        )
         .task {
             presenter.load()
         }
