@@ -18,15 +18,7 @@ final class SettingsViewModel: ObservableObject {
     @Published var viewState: SettingsViewState = .loading
     @Published var isDarkMode: Bool = false
     @Published var language: String = ""
+    @Published var canSendMail: Bool = false
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
     
-    private let mailService: MailService
-    
-    init(mailService: MailService) {
-        self.mailService = mailService
-    }
-    
-    func canSendMail() -> Bool {
-        mailService.canSendMail()
-    }
 }
