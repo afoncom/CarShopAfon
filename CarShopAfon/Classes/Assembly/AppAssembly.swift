@@ -24,7 +24,8 @@ final class AppAssemblyImpl: AppAssembly {
                 engine: "6 Cyl - 3.5 L",
                 bodyStyle: .sedan,
                 exteriorColor: "White",
-                fuel: .gasoline
+                fuel: .gasoline,
+                imageURL: "https://i.ibb.co/hFjG2GrM/BMW-M3.jpg"
             ),
             RegularCar(
                 brand: .bmw,
@@ -34,7 +35,8 @@ final class AppAssemblyImpl: AppAssembly {
                 engine: "6 Cyl - 3.5 L",
                 bodyStyle: .suv,
                 exteriorColor: "Black",
-                fuel: .diesel
+                fuel: .diesel,
+                imageURL: "https://i.ibb.co/1tJ8cvzD/BMW-X5.jpg"
             ),
             RegularCar(
                 brand: .audi,
@@ -44,7 +46,8 @@ final class AppAssemblyImpl: AppAssembly {
                 engine: "6 Cyl - 3.5 L",
                 bodyStyle: .sedan,
                 exteriorColor: "Everest White",
-                fuel: .gasoline
+                fuel: .gasoline,
+                imageURL: "https://i.ibb.co/chZdH3GL/audi-a8-white.png"
             ),
             RegularCar(
                 brand: .audi,
@@ -54,7 +57,8 @@ final class AppAssemblyImpl: AppAssembly {
                 engine: "6 Cyl - 3.5 L",
                 bodyStyle: .coupe,
                 exteriorColor: "Green",
-                fuel: .diesel
+                fuel: .diesel,
+                imageURL: "https://i.ibb.co/FbPwq2pz/Audi-A5-Green.jpg"
             )
         ]
     )
@@ -69,7 +73,8 @@ final class AppAssemblyImpl: AppAssembly {
                 engine: "6 Cyl - 3.5 L",
                 bodyStyle: .suv,
                 exteriorColor: "Cherry Burgundy",
-                fuel: .gasoline
+                fuel: .gasoline,
+                imageURL: "https://i.ibb.co/9Hftb2zQ/car-22.png"
             ),
             RegularCar(
                 brand: .tesla,
@@ -79,7 +84,8 @@ final class AppAssemblyImpl: AppAssembly {
                 engine: "6 Cyl - 3.5 L",
                 bodyStyle: .sedan,
                 exteriorColor: "Gray",
-                fuel: .electro
+                fuel: .electro,
+                imageURL: "https://i.ibb.co/TBvHFSC0/TTesscla.png"
             ),
             RegularCar(
                 brand: .renault,
@@ -89,7 +95,8 @@ final class AppAssemblyImpl: AppAssembly {
                 engine: "6 Cyl - 3.5 L",
                 bodyStyle: .sedan,
                 exteriorColor: "Red",
-                fuel: .gasoline
+                fuel: .gasoline,
+                imageURL: "https://i.ibb.co/Kc8jnPbV/Reno-logan-red.png"
             ),
             RegularCar(
                 brand: .lada,
@@ -99,7 +106,8 @@ final class AppAssemblyImpl: AppAssembly {
                 engine: "6 Cyl - 3.5 L",
                 bodyStyle: .sedan,
                 exteriorColor: "Total Black",
-                fuel: .gasoline
+                fuel: .gasoline,
+                imageURL: "https://i.ibb.co/27QfwDwH/Lada-Vesta.png"
             )
         ]
     )

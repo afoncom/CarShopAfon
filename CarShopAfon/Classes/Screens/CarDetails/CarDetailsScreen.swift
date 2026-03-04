@@ -56,12 +56,8 @@ extension CarDetailsScreen {
     func makeDetailsView() -> some View {
         VStack {
             
-            AsyncImage(url: URL(string: "https://i.ibb.co/chZdH3GL/audi-a8-white.png")) { image in
-                image
-                    .resizable()
-            } placeholder: {
-                ProgressView()
-            }
+            carImageView()
+            
             Spacer()
             
             VStack(alignment: .leading, spacing: 16) {
@@ -77,6 +73,32 @@ extension CarDetailsScreen {
             .padding(20)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(Color.appBackground)
+        }
+    }
+    
+    @ViewBuilder
+    func carImageView() -> some View {
+        if let imageURLString = viewModel.selectedCar?.imageURL,
+           !imageURLString.isEmpty,
+           let imageUrl = URL(string: imageURLString) {
+            AsyncImage(url: imageUrl) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(height: 200)
+            .frame(maxWidth: .infinity)
+        } else {
+            Rectangle()
+                .fill(Color.gray.opacity(0.3))
+                .frame(height: 200)
+                .frame(maxWidth: .infinity)
+                .overlay {
+                    Text("No image")
+                        .foregroundColor(.gray)
+                }
         }
     }
 }
