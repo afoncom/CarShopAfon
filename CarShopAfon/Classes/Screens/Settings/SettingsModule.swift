@@ -17,7 +17,8 @@ final class SettingsModule {
             viewModel: viewModel,
             themeManager: settingsAssembly.themeManager,
             languageManager: settingsAssembly.languageManager,
-            settingsRouter: settingsRouter
+            settingsRouter: settingsRouter,
+            mailService: settingsAssembly.mailService
         )
         
         return SettingsScreen(viewModel: viewModel, presenter: presenter)
