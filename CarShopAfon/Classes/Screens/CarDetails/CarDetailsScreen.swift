@@ -170,6 +170,7 @@ extension CarDetailsScreen {
                 Button(action: { showSafari = true }
                 ) {
                     Text(L10n.Button.visitStore)
+                        .font(.subheadline)
                         .foregroundColor(Color.text)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)
