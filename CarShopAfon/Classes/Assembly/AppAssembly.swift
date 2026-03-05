@@ -25,7 +25,7 @@ final class AppAssemblyImpl: AppAssembly {
                 bodyStyle: .sedan,
                 exteriorColor: "White",
                 fuel: .gasoline,
-                imageURL: "https://i.ibb.co/hFjG2GrM/BMW-M3.jpg"
+                imageURL: "https://i.ibb.co/Z1vfxybV/2026-03-05-21-20-43.png"
             ),
             RegularCar(
                 brand: .bmw,
@@ -36,7 +36,7 @@ final class AppAssemblyImpl: AppAssembly {
                 bodyStyle: .suv,
                 exteriorColor: "Black",
                 fuel: .diesel,
-                imageURL: "https://i.ibb.co/1tJ8cvzD/BMW-X5.jpg"
+                imageURL: "https://i.ibb.co/cXhFMxfr/2026-03-05-21-31-47.png"
             ),
             RegularCar(
                 brand: .audi,

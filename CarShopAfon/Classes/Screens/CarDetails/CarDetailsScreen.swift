@@ -88,8 +88,7 @@ extension CarDetailsScreen {
             } placeholder: {
                 ProgressView()
             }
-            .frame(height: 200)
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, minHeight: 300)
         } else {
             Rectangle()
                 .fill(Color.gray.opacity(0.3))
