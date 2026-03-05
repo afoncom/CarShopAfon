@@ -45,6 +45,7 @@ extension MainTabView {
     var allCarsNavigationView: some View {
         NavigationStack(path: $coordinator.path) {
             AllCarsModule.build(agregator: assembly.agregator, coordinator: coordinator)
+                .navigationTitle(L10n.NavigationTitle.allCars)
                 .navigationDestination(for: Route.self) { route in
                     switch route {
                     case .carDetails(let carId):
@@ -67,12 +68,14 @@ extension MainTabView {
     var settingsNavigationView: some View {
         NavigationView {
             SettingsModule.build(settingsAssembly: assembly)
+                .navigationTitle(L10n.NavigationTitle.settings)
         }
     }
     
     var accountNavigationView: some View {
         NavigationView {
             AccountModule.build()
+                .navigationTitle(L10n.NavigationTitle.account)
         }
     }
 }
