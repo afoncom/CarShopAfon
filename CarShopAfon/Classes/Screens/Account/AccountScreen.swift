@@ -34,8 +34,6 @@ struct AccountScreen: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.appBackground)
         .navigationTitle(L10n.NavigationTitle.account)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.visible, for: .navigationBar)
         .task {
             presenter.load()
         }
