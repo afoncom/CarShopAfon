@@ -16,7 +16,6 @@ final class SettingsModule {
         let presenter = SettingsPresenterImpl(
             viewModel: viewModel,
             themeManager: settingsAssembly.themeManager,
-            languageManager: settingsAssembly.languageManager,
             settingsRouter: settingsRouter,
             mailService: settingsAssembly.mailService
         )
