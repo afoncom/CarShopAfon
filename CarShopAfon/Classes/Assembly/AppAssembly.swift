@@ -121,7 +121,6 @@ final class AppAssemblyImpl: AppAssembly {
         CarStatusProviderImpl(carManagers: carManagers)
     }
     let themeManager: ThemeManager = ThemeManagerImpl()
-    var languageManager: LanguageManager = LanguageManagerImpl()
     let mailService: MailService = MailServiceImpl()
     var agregator: Agregator {
         AgregatorImpl(carManagers: carManagers)

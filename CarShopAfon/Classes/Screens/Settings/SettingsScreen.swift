@@ -50,8 +50,6 @@ extension SettingsScreen {
             // MARK: - Предпочтения
             Section(L10n.Section.preferences) {
                 darkModeView
-                
-                languagePickerView
             }
             .listRowBackground(Color.appBackground)
             .foregroundStyle(Color.text.opacity(0.7))
@@ -90,28 +88,6 @@ extension SettingsScreen {
                 .onChange(of: viewModel.isDarkMode) { _, newValue in
                     presenter.toggleDarkMode(newValue)
                 }
-        }
-    }
-    
-    var languagePickerView: some View {
-        HStack {
-            Image(systemName: "globe")
-                .foregroundColor(Color.symbolLanguage)
-                .frame(width: 24, height: 24)
-            
-            Text(L10n.Text.language)
-                .foregroundStyle(Color.textDark)
-            
-            Spacer()
-            
-            Picker("", selection: $viewModel.language) {
-                Text(L10n.Text.russian).tag("ru")
-                Text(L10n.Text.english).tag("en")
-            }
-            .pickerStyle(.menu)
-            .onChange(of: viewModel.language) { _, newValue in
-                presenter.setLanguage(newValue)
-            }
         }
     }
     
