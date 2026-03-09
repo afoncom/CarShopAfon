@@ -121,9 +121,6 @@ final class AppAssemblyImpl: AppAssembly {
         [dieselCarManager, gasolineCarManager, electroCarManager]
     }
     
-    private var carStatusProvider: CarStatusProvider {
-        CarStatusProviderImpl(carManagers: carManagers)
-    }
     let themeManager: ThemeManager = ThemeManagerImpl()
     let mailService: MailService = MailServiceImpl()
     var agregator: Agregator {
