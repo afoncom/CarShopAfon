@@ -12,7 +12,7 @@ protocol CarManager {
     func deleteAllCars()
 }
 
-final class CarManagerImpl: CarManager {
+final class DieselCarManager: CarManager {
     private var listCar: [RegularCar]
     
     init(listCar: [RegularCar]) {

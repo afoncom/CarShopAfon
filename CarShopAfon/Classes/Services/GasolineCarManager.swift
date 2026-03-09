@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CarManager2: CarManager {
+final class GasolineCarManager: CarManager {
     private var cars: [RegularCar]
     
     init(cars: [RegularCar]) {
