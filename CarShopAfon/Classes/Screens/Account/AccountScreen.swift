@@ -11,9 +11,6 @@ struct AccountScreen: View {
     @StateObject private var viewModel: AccountViewModel
     private let presenter: AccountPresenter
     
-    @State private var userName: String = L10n.Text.username
-    @State private var email: String = "afon.com12@gmail.com"
-    
     init(
         viewModel: AccountViewModel,
         presenter: AccountPresenter
@@ -56,11 +53,11 @@ extension AccountScreen {
                 .padding(.top, 30)
             
             VStack(spacing: 5) {
-                Text(userName)
+                Text(L10n.Text.username)
                     .font(.title)
                     .fontWeight(.semibold)
                 
-                Text(email)
+                Text("afon.com12@gmail.com")
                     .foregroundColor(.gray)
             }
             
