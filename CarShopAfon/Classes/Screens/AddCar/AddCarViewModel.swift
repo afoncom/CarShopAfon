@@ -6,9 +6,18 @@
 //
 
 import Foundation
-import Combine
+import Observation
 
-final class AddCarViewModel: ObservableObject {
-    @Published var viewState: AddCarScreen.ViewState = .loaded
+@Observable final class AddCarViewModel {
+    var viewState: AddCarScreen.ViewState = .loaded
     
+    var brand = ""
+    var model = ""
+    var highway = ""
+    var transmission = ""
+    var engine = ""
+    var bodyStyle = ""
+    var exteriorColor = ""
+    var fuel = ""
+    var imageURL = ""
 }

@@ -8,24 +8,14 @@
 import SwiftUI
 
 struct AddCarScreen: View {
-    @StateObject private var viewModel: AddCarViewModel
+    @Bindable private var viewModel: AddCarViewModel
     private let presenter: AddCarPresenter
-    
-    @State private var brand = ""
-    @State private var model = ""
-    @State private var highway = ""
-    @State private var transmission = ""
-    @State private var engine = ""
-    @State private var bodyStyle = ""
-    @State private var exteriorColor = ""
-    @State private var fuel = ""
-    @State private var imageURL = ""
     
     init(
         viewModel: AddCarViewModel,
         presenter: AddCarPresenter
     ) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
+        self.viewModel = viewModel
         self.presenter = presenter
     }
     
@@ -61,31 +51,31 @@ extension AddCarScreen {
     func makeMainViewScreen() -> some View  {
         Form {
             Section("Основное") {
-                TextField("Марка", text: $brand)
+                TextField("Марка", text: $viewModel.brand)
                     .foregroundColor(Color.textDark)
-                TextField("Модель", text: $model)
+                TextField("Модель", text: $viewModel.model)
                     .foregroundColor(Color.textDark)
-                TextField("Цвет", text: $exteriorColor)
+                TextField("Цвет", text: $viewModel.exteriorColor)
                     .foregroundColor(Color.textDark)
             }
             .foregroundColor(Color.textDark)
             
             Section("Характеристики") {
-                TextField("Расход", text: $highway)
+                TextField("Расход", text: $viewModel.highway)
                     .foregroundColor(Color.textDark)
-                TextField("КПП", text: $transmission)
+                TextField("КПП", text: $viewModel.transmission)
                     .foregroundColor(Color.textDark)
-                TextField("Двигатель", text: $engine)
+                TextField("Двигатель", text: $viewModel.engine)
                     .foregroundColor(Color.textDark)
-                TextField("Тип кузова", text: $bodyStyle)
+                TextField("Тип кузова", text: $viewModel.bodyStyle)
                     .foregroundColor(Color.textDark)
-                TextField("Топливо", text: $fuel)
+                TextField("Топливо", text: $viewModel.fuel)
                     .foregroundColor(Color.textDark)
             }
             .foregroundColor(Color.textDark)
             
             Section("Изображение") {
-                TextField("Ссылка на фото", text: $imageURL)
+                TextField("Ссылка на фото", text: $viewModel.imageURL)
                     .foregroundColor(Color.textDark)
             }
             .foregroundColor(Color.textDark)
