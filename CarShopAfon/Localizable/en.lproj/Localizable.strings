@@ -42,3 +42,8 @@
 "fuelType.gas" = "Gas";
 "fuelType.gasoline" = "Gasoline";
 "fuelType.electric" = "Electric";
+"text.username" = "Username";
+"button.edit" = "Edit";
+"text.notifications" = "Notifications";
+"text.privacy" = "Privacy";
+"text.exit" = "Exit";

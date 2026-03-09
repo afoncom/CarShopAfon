@@ -42,3 +42,8 @@
 "fuelType.gas" = "Газ";
 "fuelType.gasoline" = "Бензин";
 "fuelType.electric" = "Електро";
+"text.username" = "Имя пользователя";
+"button.edit" = "Редактировать";
+"text.notifications" = "Уведомления";
+"text.privacy" = "Приватность";
+"text.exit" = "Выход";

@@ -22,6 +22,8 @@ internal enum L10n {
   internal enum Button {
     /// Buy
     internal static let buy = L10n.tr("Localizable", "button.buy")
+    /// Edit
+    internal static let edit = L10n.tr("Localizable", "button.edit")
     /// Visit store
     internal static let visitStore = L10n.tr("Localizable", "button.visitStore")
   }
@@ -62,14 +64,20 @@ internal enum L10n {
     internal static let english = L10n.tr("Localizable", "text.english")
     /// Error
     internal static let error = L10n.tr("Localizable", "text.error")
+    /// Exit
+    internal static let exit = L10n.tr("Localizable", "text.exit")
     /// Free
     internal static let free = L10n.tr("Localizable", "text.free")
     /// Language
     internal static let language = L10n.tr("Localizable", "text.language")
     /// Loaded
     internal static let loaded = L10n.tr("Localizable", "text.loaded")
+    /// Notifications
+    internal static let notifications = L10n.tr("Localizable", "text.notifications")
     /// Price
     internal static let price = L10n.tr("Localizable", "text.price")
+    /// Privacy
+    internal static let privacy = L10n.tr("Localizable", "text.privacy")
     /// Rate the app
     internal static let rateTheApp = L10n.tr("Localizable", "text.rateTheApp")
     /// Rent
@@ -80,6 +88,8 @@ internal enum L10n {
     internal static let russian = L10n.tr("Localizable", "text.russian")
     /// Send feedback
     internal static let sendFeedback = L10n.tr("Localizable", "text.sendFeedback")
+    /// Username
+    internal static let username = L10n.tr("Localizable", "text.username")
     /// Version
     internal static let version = L10n.tr("Localizable", "text.version")
   }
