@@ -54,6 +54,7 @@ extension SettingsScreen {
                 languagePickerView
             }
             .listRowBackground(Color.appBackground)
+            .foregroundStyle(Color.text.opacity(0.7))
             // MARK: - Поддержка
             Section(L10n.Section.support) {
                 rateAppView
@@ -65,6 +66,7 @@ extension SettingsScreen {
                 versionView
             }
             .listRowBackground(Color.appBackground)
+            .foregroundStyle(Color.text.opacity(0.7))
         }
         .listStyle(.plain)
         .scrollContentBackground(.hidden)

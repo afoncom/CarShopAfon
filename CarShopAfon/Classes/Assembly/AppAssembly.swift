@@ -18,32 +18,32 @@ final class AppAssemblyImpl: AppAssembly {
         listCar: [
             RegularCar(
                 brand: .bmw,
-                model: "M3",
-                highway: "20/27 MPG",
-                transmission: "9-speed",
-                engine: "6 Cyl - 3.5 L",
+                model: "M3 Competition",
+                highway: "10.4 L",
+                transmission: "8-speed",
+                engine: "3.0L I6 530 hp",
                 bodyStyle: .sedan,
-                exteriorColor: "White",
+                exteriorColor: "Black",
                 fuel: .gasoline,
-                imageURL: "https://i.ibb.co/hFjG2GrM/BMW-M3.jpg"
+                imageURL: "https://i.ibb.co/Z1vfxybV/2026-03-05-21-20-43.png"
             ),
             RegularCar(
                 brand: .bmw,
-                model: "X5",
-                highway: "20/27 MPG",
-                transmission: "9-speed",
-                engine: "6 Cyl - 3.5 L",
+                model: "X5 xDrive40i",
+                highway: "9.3 L",
+                transmission: "8-speed",
+                engine: "3.0L I6 375 hp",
                 bodyStyle: .suv,
                 exteriorColor: "Black",
                 fuel: .diesel,
-                imageURL: "https://i.ibb.co/1tJ8cvzD/BMW-X5.jpg"
+                imageURL: "https://i.ibb.co/cXhFMxfr/2026-03-05-21-31-47.png"
             ),
             RegularCar(
                 brand: .audi,
-                model: "A8",
-                highway: "20/27 MPG",
-                transmission: "9-speed",
-                engine: "6 Cyl - 3.5 L",
+                model: "A8 L 55 TFSI",
+                highway: "9.5 L",
+                transmission: "8-speed",
+                engine: "3.0L V6 335 hp",
                 bodyStyle: .sedan,
                 exteriorColor: "Everest White",
                 fuel: .gasoline,
@@ -51,14 +51,14 @@ final class AppAssemblyImpl: AppAssembly {
             ),
             RegularCar(
                 brand: .audi,
-                model: "A5",
-                highway: "20/27 MPG",
-                transmission: "9-speed",
-                engine: "6 Cyl - 3.5 L",
+                model: "A5 3.0 TDI",
+                highway: "7.2 L",
+                transmission: "6-speed",
+                engine: "3.0L V6 237 hp",
                 bodyStyle: .coupe,
                 exteriorColor: "Green",
                 fuel: .diesel,
-                imageURL: "https://i.ibb.co/FbPwq2pz/Audi-A5-Green.jpg"
+                imageURL: "https://i.ibb.co/BV70xjQg/2026-03-05-22-15-29.png"
             )
         ]
     )
@@ -67,47 +67,47 @@ final class AppAssemblyImpl: AppAssembly {
         cars: [
             RegularCar(
                 brand: .geely,
-                model: "Coolry",
-                highway: "20/27 MPG",
-                transmission: "9-speed",
-                engine: "6 Cyl - 3.5 L",
+                model: "Coolray",
+                highway: "7.1 L",
+                transmission: "7-speed",
+                engine: "1.5L I4 172 hp",
                 bodyStyle: .suv,
-                exteriorColor: "Cherry Burgundy",
+                exteriorColor: "White",
                 fuel: .gasoline,
-                imageURL: "https://i.ibb.co/9Hftb2zQ/car-22.png"
+                imageURL: "https://i.ibb.co/PZB12G2v/2026-03-05-22-45-11.png"
             ),
             RegularCar(
                 brand: .tesla,
-                model: "Model3",
-                highway: "20/27 MPG",
-                transmission: "9-speed",
-                engine: "6 Cyl - 3.5 L",
+                model: "Model 3",
+                highway: "5.6 km/kWh",
+                transmission: "1-speed",
+                engine: "Electric Motor 346 hp",
                 bodyStyle: .sedan,
-                exteriorColor: "Gray",
+                exteriorColor: "Black",
                 fuel: .electro,
-                imageURL: "https://i.ibb.co/TBvHFSC0/TTesscla.png"
+                imageURL: "https://i.ibb.co/DHDdXH94/Tesla-Model3.png"
             ),
             RegularCar(
                 brand: .renault,
                 model: "Logan",
-                highway: "20/27 MPG",
-                transmission: "9-speed",
-                engine: "6 Cyl - 3.5 L",
+                highway: "6.8 L",
+                transmission: "5-speed",
+                engine: "1.4L I4 72 hp",
                 bodyStyle: .sedan,
-                exteriorColor: "Red",
+                exteriorColor: "Black",
                 fuel: .gasoline,
-                imageURL: "https://i.ibb.co/Kc8jnPbV/Reno-logan-red.png"
+                imageURL: "https://i.ibb.co/XZhnzgLq/png-klev-club-w7ik-p-reno-logan-png-11.png"
             ),
             RegularCar(
                 brand: .lada,
                 model: "Vesta",
-                highway: "20/27 MPG",
-                transmission: "9-speed",
-                engine: "6 Cyl - 3.5 L",
+                highway: "7.3 L",
+                transmission: "5-speed",
+                engine: "1.6L I4 106 hp",
                 bodyStyle: .sedan,
-                exteriorColor: "Total Black",
+                exteriorColor: "Gray",
                 fuel: .gasoline,
-                imageURL: "https://i.ibb.co/27QfwDwH/Lada-Vesta.png"
+                imageURL: "https://i.ibb.co/PvXgZn38/png-klev-club-ojmx-p-lada-vesta-png-12.png"
             )
         ]
     )
@@ -129,5 +129,5 @@ final class AppAssemblyImpl: AppAssembly {
 }
 
 extension AppAssemblyImpl: SettingsAssembly {
-
+    
 }

@@ -25,6 +25,7 @@ struct WelcomeScreen: View {
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .center)
+                .foregroundStyle(Color.text)
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
