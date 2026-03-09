@@ -8,7 +8,6 @@
 import SwiftUI
 
 final class AddCarModule {
-    
     static func build(
         agregator: Agregator
     ) -> some View {
