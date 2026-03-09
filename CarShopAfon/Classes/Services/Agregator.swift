@@ -1,5 +1,5 @@
 //
-//  AgregatorImpl.swift
+//  Agregator.swift
 //  CarShopAfon
 //
 //  Created by afon.com on 10.01.2026.
@@ -58,3 +58,4 @@ final class AgregatorImpl: Agregator {
         getAllCars().first { $0.id == id }
     }
 }
+

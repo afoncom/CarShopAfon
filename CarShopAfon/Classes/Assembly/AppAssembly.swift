@@ -117,14 +117,18 @@ final class AppAssemblyImpl: AppAssembly {
         ]
     )
     
-    private var carManagers: [CarManager] {
-        [dieselCarManager, gasolineCarManager, electroCarManager]
-    }
     
     let themeManager: ThemeManager = ThemeManagerImpl()
     let mailService: MailService = MailServiceImpl()
     var agregator: Agregator {
-        AgregatorImpl(carManagers: carManagers)
+        AgregatorImpl(
+            carManagers:
+                [
+                    dieselCarManager,
+                    gasolineCarManager,
+                    electroCarManager
+                ]
+        )
     }
 }
 
