@@ -14,19 +14,8 @@ protocol AppAssembly {
 
 final class AppAssemblyImpl: AppAssembly {
     
-    private let carManager1 = CarManagerImpl(
+    private let dieselCarManager = DieselCarManager(
         listCar: [
-            RegularCar(
-                brand: .bmw,
-                model: "M3 Competition",
-                highway: "10.4 L",
-                transmission: "8-speed",
-                engine: "3.0L I6 530 hp",
-                bodyStyle: .sedan,
-                exteriorColor: "Black",
-                fuel: .gasoline,
-                imageURL: "https://i.ibb.co/Z1vfxybV/2026-03-05-21-20-43.png"
-            ),
             RegularCar(
                 brand: .bmw,
                 model: "X5 xDrive40i",
@@ -37,17 +26,6 @@ final class AppAssemblyImpl: AppAssembly {
                 exteriorColor: "Black",
                 fuel: .diesel,
                 imageURL: "https://i.ibb.co/cXhFMxfr/2026-03-05-21-31-47.png"
-            ),
-            RegularCar(
-                brand: .audi,
-                model: "A8 L 55 TFSI",
-                highway: "9.5 L",
-                transmission: "8-speed",
-                engine: "3.0L V6 335 hp",
-                bodyStyle: .sedan,
-                exteriorColor: "Everest White",
-                fuel: .gasoline,
-                imageURL: "https://i.ibb.co/chZdH3GL/audi-a8-white.png"
             ),
             RegularCar(
                 brand: .audi,
@@ -63,7 +41,7 @@ final class AppAssemblyImpl: AppAssembly {
         ]
     )
     
-    private let carManager2 = CarManager2(
+    private let gasolineCarManager = GasolineCarManager(
         cars: [
             RegularCar(
                 brand: .geely,
@@ -75,17 +53,6 @@ final class AppAssemblyImpl: AppAssembly {
                 exteriorColor: "White",
                 fuel: .gasoline,
                 imageURL: "https://i.ibb.co/PZB12G2v/2026-03-05-22-45-11.png"
-            ),
-            RegularCar(
-                brand: .tesla,
-                model: "Model 3",
-                highway: "5.6 km/kWh",
-                transmission: "1-speed",
-                engine: "Electric Motor 346 hp",
-                bodyStyle: .sedan,
-                exteriorColor: "Black",
-                fuel: .electro,
-                imageURL: "https://i.ibb.co/DHDdXH94/Tesla-Model3.png"
             ),
             RegularCar(
                 brand: .renault,
@@ -108,13 +75,50 @@ final class AppAssemblyImpl: AppAssembly {
                 exteriorColor: "Gray",
                 fuel: .gasoline,
                 imageURL: "https://i.ibb.co/PvXgZn38/png-klev-club-ojmx-p-lada-vesta-png-12.png"
+            ),
+            RegularCar(
+                brand: .bmw,
+                model: "M3 Competition",
+                highway: "10.4 L",
+                transmission: "8-speed",
+                engine: "3.0L I6 530 hp",
+                bodyStyle: .sedan,
+                exteriorColor: "Black",
+                fuel: .gasoline,
+                imageURL: "https://i.ibb.co/Z1vfxybV/2026-03-05-21-20-43.png"
+            ),
+            RegularCar(
+                brand: .audi,
+                model: "A8 L 55 TFSI",
+                highway: "9.5 L",
+                transmission: "8-speed",
+                engine: "3.0L V6 335 hp",
+                bodyStyle: .sedan,
+                exteriorColor: "Everest White",
+                fuel: .gasoline,
+                imageURL: "https://i.ibb.co/chZdH3GL/audi-a8-white.png"
             )
         ]
     )
     
-    private let electricCarManager = ElectrickCarManager(cars: [])
+    private let electroCarManager = ElectroCarManager(
+        cars: [
+            RegularCar(
+                brand: .tesla,
+                model: "Model 3",
+                highway: "5.6 km/kWh",
+                transmission: "1-speed",
+                engine: "Electric Motor 346 hp",
+                bodyStyle: .sedan,
+                exteriorColor: "Black",
+                fuel: .electro,
+                imageURL: "https://i.ibb.co/DHDdXH94/Tesla-Model3.png"
+            )
+        ]
+    )
+    
     private var carManagers: [CarManager] {
-        [carManager1, carManager2, electricCarManager]
+        [dieselCarManager, gasolineCarManager, electroCarManager]
     }
     
     private var carStatusProvider: CarStatusProvider {
