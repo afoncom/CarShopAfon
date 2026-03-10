@@ -21,4 +21,8 @@ final class ElectroCarManager: CarManager {
     func deleteAllCars() {
         cars.removeAll()
     }
+    
+    func addCar(_ car: RegularCar) {
+        cars.append(car)
+    }
 }
