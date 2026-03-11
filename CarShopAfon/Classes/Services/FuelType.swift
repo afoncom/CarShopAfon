@@ -9,7 +9,6 @@ import Foundation
 
 enum FuelType: Codable {
     case diesel
-    case gas
     case gasoline
     case electro
     
@@ -17,8 +16,6 @@ enum FuelType: Codable {
         switch self {
         case .diesel:
             return L10n.FuelType.diesel
-        case .gas:
-            return L10n.FuelType.gas
         case .gasoline:
             return L10n.FuelType.gasoline
         case .electro:

@@ -10,6 +10,7 @@ import Foundation
 protocol CarManager {
     func getAllCars() -> [RegularCar]
     func deleteAllCars()
+    func addCar(_ car: RegularCar)
 }
 
 final class DieselCarManager: CarManager {
@@ -25,5 +26,9 @@ final class DieselCarManager: CarManager {
     
     func deleteAllCars() {
         listCar.removeAll()
+    }
+    
+    func addCar(_ car: RegularCar) {
+        listCar.append(car)
     }
 }

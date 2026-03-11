@@ -13,6 +13,7 @@ protocol Agregator {
     func rent(brand: Brand, model: String, isRenting: Bool) -> Bool
     func startStopCar(brand: Brand, model: String, isStart: Bool) -> Bool
     func getCarById(id: String) -> RegularCar?
+    func addCar(_ car: RegularCar)
 }
 
 final class AgregatorImpl: Agregator {
@@ -57,5 +58,21 @@ final class AgregatorImpl: Agregator {
     func getCarById(id: String) -> RegularCar? {
         getAllCars().first { $0.id == id }
     }
+    
+    func addCar(_ car: RegularCar) {
+        switch car.fuel {
+        case .diesel:
+            if let dieselManager = carManagers.first(where: { $0 is DieselCarManager }) as? DieselCarManager {
+                dieselManager.addCar(car)
+            }
+        case .gasoline:
+            if let gasolineManager = carManagers.first(where: { $0 is GasolineCarManager }) as? GasolineCarManager {
+                gasolineManager.addCar(car)
+            }
+        case .electro:
+            if let electroManager = carManagers.first(where: { $0 is ElectroCarManager }) as? ElectroCarManager {
+                electroManager.addCar(car)
+            }
+        }
+    }
 }
-
