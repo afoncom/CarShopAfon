@@ -17,13 +17,6 @@ protocol Car {
     var exteriorColor: String { get }
     var fuel: FuelType { get }
     var imageURL: String { get }
-    
-    var started: Bool { get }
-    var isRented: Bool { get }
-    
-    func start()
-    func stop()
-    func rent(_ isRented: Bool)
 }
 
 final class RegularCar: Car {
@@ -36,21 +29,6 @@ final class RegularCar: Car {
     let exteriorColor: String
     let fuel: FuelType
     let imageURL: String
-    
-    var started: Bool = false
-    var isRented: Bool = false
-    
-    func start() {
-        started = true
-    }
-    
-    func stop() {
-        started = false
-    }
-    
-    func rent(_ isRented: Bool) {
-        self.isRented = isRented
-    }
     
     
     init(

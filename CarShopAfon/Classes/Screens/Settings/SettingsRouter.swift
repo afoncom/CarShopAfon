@@ -36,7 +36,7 @@ final class SettingsRouterImpl: NSObject, SettingsRouter, MFMailComposeViewContr
         if let scene = UIApplication.shared.connectedScenes.first(
             where: { $0.activationState == .foregroundActive }
         ) as? UIWindowScene,
-           let rootVC = scene.windows.first?.rootViewController {
+        let rootVC = scene.windows.first?.rootViewController {
             rootVC.present(composer, animated: true)
         }
     }

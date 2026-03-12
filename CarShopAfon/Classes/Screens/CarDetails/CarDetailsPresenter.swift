@@ -7,8 +7,6 @@
 
 protocol CarDetailsPresenter {
     func loadCar(id: String) async
-    func openRentScreen()
-    func openRentCompleteView()
 }
 
 final class CarDetailsPresenterImpl {
@@ -37,14 +35,5 @@ extension CarDetailsPresenterImpl: CarDetailsPresenter {
         } else {
             viewModel.viewState = .error
         }
-    }
-    
-    func openRentScreen() {
-        coordinator.openRentScreen()
-    }
-    
-    func openRentCompleteView() {
-        coordinator.openRentCompleteView()
-        
     }
 }
