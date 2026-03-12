@@ -56,10 +56,6 @@ extension MainTabView {
                         )
                     case .addCar:
                         AddCarModule.build(agregator: assembly.agregator)
-                    case .rent:
-                        RentModule.build()
-                    case .rentComplete:
-                        RentCompleteModule.build()
                     }
                 }
         }

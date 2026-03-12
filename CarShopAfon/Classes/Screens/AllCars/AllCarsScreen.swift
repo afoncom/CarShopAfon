@@ -69,16 +69,6 @@ extension AllCarsScreen {
                     .font(.caption)
                     .foregroundColor(Color.textSubGray)
                     
-                    Spacer()
-                    
-                    Text(car.isRented ? L10n.Text.rent : L10n.Text.free)
-                        .font(.caption2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(car.isRented ? Color.negative : Color.positive)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(car.isRented ? Color.negative.opacity(0.1) : Color.positive.opacity(0.1))
-                        .cornerRadius(6)
                 }
             }
             .contentShape(Rectangle())
